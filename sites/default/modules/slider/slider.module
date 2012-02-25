@@ -1,0 +1,62 @@
+<?php
+
+		/*
+			The code for a content slider used for viewing webpages on the frontpage
+		*/
+
+	function slider() {
+		
+		/* ugly ass hack */
+		
+		print '<!--[if IE]><style>#slider-frame .slider-item {background:none;}</style><![endif]-->';
+		
+		drupal_add_js(drupal_get_path('module', 'slider') .'/slider.js');
+		drupal_add_css(drupal_get_path('module', 'slider') .'/slider.css');
+		
+		/* get the data for the content of the slider */
+		$slideritems = '';		
+		$getitems = db_query("SELECT nid, promote FROM {node} WHERE type = :type AND status = 1", array(':type' => 'nettside'));
+		foreach ($getitems as $item) {
+		 $slideritems[] = $item->nid;
+		}
+		
+		$nodes = node_load_multiple($slideritems);
+		
+		/* Get the content of the slider and put a li tag around every 3 divs */
+
+		$i = 0;
+		$ii = 0;
+		
+		$last = end($nodes);
+		
+		foreach($nodes as $nid) {
+			if ($i % 3 == 0) {
+				if ($i == 0){
+					print '<li class="show">';
+				} else {
+					print '<li>';
+				}
+				$ii = 0;
+			} else {
+				$ii++;
+			}
+
+			print '<div class="slider-item">';
+			print theme('image_style', array('style_name' => 'sc_slider', 'path' => $nid->field_sc['nb'][0]['uri']));
+			print '<h3><a href="'.$nid->field_link['nb'][0]['value'].'">'.$nid->title.'</a></h3>';
+			print $nid->body['nb'][0]['value'];
+			print '</div>';
+
+			
+			if ($ii == 2 || $nid == $last){
+				print '</li>';
+			}
+			$i++;
+			
+		}
+		
+
+		
+	}
+
+

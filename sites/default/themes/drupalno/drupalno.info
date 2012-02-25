@@ -1,0 +1,13 @@
+name = Drupal.no
+description = Drupal.no theme
+package = Core
+version = VERSION
+core = 7.x
+engine = phptemplate
+stylesheets[all][] = style.css
+
+regions[header] = Header
+regions[menu] = Main menu
+regions[content] = Main Content
+regions[footer] = Footer
+regions[front] = Frontpage Content

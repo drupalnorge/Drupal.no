@@ -1,0 +1,3 @@
+name = Slider
+description = Front page slider for drupal.no
+core = 7.x
