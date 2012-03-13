@@ -156,16 +156,36 @@ li a.active {
   /* Footer */
 
 #footer {
-background: #000;
-  .block {
-  width: 300px;
-  height: 200px;
-  float: left;
+  background: #000;
+  border-bottom: 5px solid #76AFF2;
+  overflow:auto;
+  a {
+    color: #80BAFD;
   }
+  .block {
+    width: 300px;
+    height: 200px;
+    float: left;
+    margin: 20px 20px 0 0;
+    }
+  #block-block-6 {
+    margin-right: 0;
+  }
+  #block-block-7 {
+    text-align:center;
+    margin: 20px auto;
+    clear: both;
+    float: none;
+    height: 100%;
+  }  
 }
 
-#footer .block {
-
+#footer h2 {
+  font-size: 21px;
+  font-weight: normal;
+  color: #fff;
+  border-bottom: 1px solid #333;
+  margin-bottom: 10px;
 }
 
 /*         Front Page
@@ -185,9 +205,6 @@ background: #000;
     h2 {
       font-size: 16px;
       line-height: 21px;
-    }
-    #block-block-1 {
-  
     }
     #block-block-2 {
       background-position: -324px 0;

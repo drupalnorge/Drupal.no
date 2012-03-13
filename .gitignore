@@ -6,3 +6,5 @@ sites/*/files
 sites/*/private
 
 .DS_Store
+.sass-cache
+sites/all/themes/dno/styles/.sass-cache/
