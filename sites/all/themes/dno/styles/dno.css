@@ -4836,23 +4836,24 @@ li a.active {
 }
 
 /* line 129, dno.scss */
-h1#site-name {
+h1#site-name a {
   float: left;
+  color: #fff;
 }
 
-/* line 133, dno.scss */
+/* line 134, dno.scss */
 #header {
   background: url(../img/header-bg.png) 0 0 repeat-x;
   height: 125px;
 }
-/* line 137, dno.scss */
+/* line 138, dno.scss */
 #header #block-system-main-menu li {
   display: block;
   float: left;
 }
-/* line 140, dno.scss */
+/* line 141, dno.scss */
 #header #block-system-main-menu li a {
-  background: #ff3399;
+  background: #4D82C5;
   color: #fff;
   font-weight: bold;
   font-size: 13px;
@@ -4862,28 +4863,28 @@ h1#site-name {
 
 /* Sidebars */
 /* Footer */
-/* line 158, dno.scss */
+/* line 159, dno.scss */
 #footer {
   background: #000;
   border-bottom: 5px solid #76AFF2;
   overflow: auto;
 }
-/* line 162, dno.scss */
+/* line 163, dno.scss */
 #footer a {
   color: #80BAFD;
 }
-/* line 165, dno.scss */
+/* line 166, dno.scss */
 #footer .block {
   width: 300px;
   height: 200px;
   float: left;
   margin: 20px 20px 0 0;
 }
-/* line 171, dno.scss */
+/* line 172, dno.scss */
 #footer #block-block-6 {
   margin-right: 0;
 }
-/* line 174, dno.scss */
+/* line 175, dno.scss */
 #footer #block-block-7 {
   text-align: center;
   margin: 20px auto;
@@ -4892,7 +4893,7 @@ h1#site-name {
   height: 100%;
 }
 
-/* line 183, dno.scss */
+/* line 184, dno.scss */
 #footer h2 {
   font-size: 21px;
   font-weight: normal;
@@ -4903,11 +4904,11 @@ h1#site-name {
 
 /*         Front Page
  *************************************************/
-/* line 195, dno.scss */
+/* line 196, dno.scss */
 .front .region-content-bottom {
   background: #555;
 }
-/* line 197, dno.scss */
+/* line 198, dno.scss */
 .front .region-content-bottom .block {
   width: 300px;
   float: left;
@@ -4916,16 +4917,16 @@ h1#site-name {
   background: url(../img/front-imgs.jpg) 0 0 no-repeat;
   padding-top: 200px;
 }
-/* line 205, dno.scss */
+/* line 206, dno.scss */
 .front .region-content-bottom h2 {
   font-size: 16px;
   line-height: 21px;
 }
-/* line 209, dno.scss */
+/* line 210, dno.scss */
 .front .region-content-bottom #block-block-2 {
   background-position: -324px 0;
 }
-/* line 212, dno.scss */
+/* line 213, dno.scss */
 .front .region-content-bottom #block-block-3 {
   margin-right: 0;
   background-position: -643px 0;
