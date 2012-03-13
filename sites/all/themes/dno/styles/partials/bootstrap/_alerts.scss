@@ -1,0 +1,77 @@
+// ALERT STYLES
+// ------------
+
+// Base alert styles
+.alert, div.messages {
+  padding: 8px 35px 8px 14px;
+  margin-bottom: $baseLineHeight;
+  text-shadow: 0 1px 0 rgba(255,255,255,.5);
+  background-color: $warningBackground;
+  border: 1px solid $warningBorder;
+  @include border-radius(4px);
+}
+.alert,
+.alert-heading, div.messages {
+  color: $warningText;
+}
+
+// Adjust close link position
+.alert .close {
+  position: relative;
+  top: -2px;
+  right: -21px;
+  line-height: 18px;
+}
+
+// Alternate styles
+// ----------------
+
+.alert-success {
+  background-color: $successBackground;
+  border-color: $successBorder;  
+}
+.alert-success,
+.alert-success .alert-heading, div.status {
+  color: $successText;
+}
+.alert-danger,
+.alert-error, div.error {
+  background-color: $errorBackground;
+  border-color: $errorBorder;
+  background-image: none;
+}
+.alert-danger,
+.alert-error,
+.alert-danger .alert-heading,
+.alert-error .alert-heading,
+div.error {
+  color: $errorText;
+}
+.alert-info, div.status {
+  background-color: $infoBackground;
+  border-color: $infoBorder;
+  background-image: none;
+}
+.alert-info,
+.alert-info .alert-heading, div.status {
+  color: $infoText;
+}
+
+div.warning {
+  background-image: none;
+}
+
+
+// Block alerts
+// ------------------------
+.alert-block, .content-messages {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+.alert-block > p,
+.alert-block > ul {
+  margin-bottom: 0;
+}
+.alert-block p + p {
+  margin-top: 5px;
+}

@@ -1,0 +1,216 @@
+<h2>Drupal page/node titles</h2>
+
+<h1 class="title">Header one page title</h1>
+<p>Wisi sed pede Phasellus Vestibulum elit consequat consequat eu pellentesque metus. Laoreet Vestibulum pharetra pede mattis nunc dapibus id magna a dictumst. Nunc cursus sem et pretium sapien eget consectetuer malesuada Phasellus Curabitur.</p>
+<h2 class="title">Unlinked header two node title</h2>
+<p>Wisi sed pede Phasellus Vestibulum elit consequat consequat eu pellentesque metus. Laoreet Vestibulum pharetra pede mattis nunc dapibus id magna a dictumst. Nunc cursus sem et pretium sapien eget consectetuer malesuada Phasellus Curabitur.</p>
+<h2 class="title"><a href="#">Linked header two node title</a></h2>
+<p>Wisi sed pede Phasellus Vestibulum elit consequat consequat eu pellentesque metus. Laoreet Vestibulum pharetra pede mattis nunc dapibus id magna a dictumst. Nunc cursus sem et pretium sapien eget consectetuer malesuada Phasellus Curabitur.</p>
+
+
+<h2>Other headers</h2>
+
+<h1>This is a Heading 1</h1>
+<p>Wisi sed pede Phasellus Vestibulum elit consequat consequat eu pellentesque metus. Laoreet Vestibulum pharetra pede mattis nunc dapibus id magna a dictumst. Nunc cursus sem et pretium sapien eget consectetuer malesuada Phasellus Curabitur.</p>
+<h2>This is a Heading 2</h2>
+<p>Wisi sed pede Phasellus Vestibulum elit consequat consequat eu pellentesque metus. Laoreet Vestibulum pharetra pede mattis nunc dapibus id magna a dictumst. Nunc cursus sem et pretium sapien eget consectetuer malesuada Phasellus Curabitur.</p>
+<h3>This is a Heading 3</h3>
+<p>Wisi sed pede Phasellus Vestibulum elit consequat consequat eu pellentesque metus. Laoreet Vestibulum pharetra pede mattis nunc dapibus id magna a dictumst. Nunc cursus sem et pretium sapien eget consectetuer malesuada Phasellus Curabitur.</p>
+<h4>This is a Heading 4</h4>
+<p>Wisi sed pede Phasellus Vestibulum elit consequat consequat eu pellentesque metus. Laoreet Vestibulum pharetra pede mattis nunc dapibus id magna a dictumst. Nunc cursus sem et pretium sapien eget consectetuer malesuada Phasellus Curabitur.</p>
+<h5>This is a Heading 5</h5>
+<p>Wisi sed pede Phasellus Vestibulum elit consequat consequat eu pellentesque metus. Laoreet Vestibulum pharetra pede mattis nunc dapibus id magna a dictumst. Nunc cursus sem et pretium sapien eget consectetuer malesuada Phasellus Curabitur.</p>
+<h6>This is a Heading 6</h6>
+<p>Wisi sed pede Phasellus Vestibulum elit consequat consequat eu pellentesque metus. Laoreet Vestibulum pharetra pede mattis nunc dapibus id magna a dictumst. Nunc cursus sem et pretium sapien eget consectetuer malesuada Phasellus Curabitur.</p>
+
+
+<h2>Fieldsets</h2>
+
+<fieldset><legend>Plain fieldset</legend><p>Nunc cursus sem et pretium sapien eget consectetuer malesuada Phasellus Curabitur.</p></fieldset>
+<fieldset class="collapsible collapsed"><legend class="collapse-processed"><a href="#">Collapsed fieldset</a></legend></fieldset>
+<fieldset class="collapsible"><legend class="collapse-processed"><a href="#">Expanded collapsible fieldset</a></legend><p>Nunc cursus sem et pretium sapien eget consectetuer malesuada Phasellus Curabitur.</p></fieldset>
+
+
+<h2>Form elements</h2>
+
+<form id="contact-mail-page" method="post" accept-charset="UTF-8" action="#"><div id="edit-name-wrapper" class="form-item"><label for="edit-name">Text field label: <span title="This field is required." class="form-required">*</span></label><input type="text" class="form-text required" value="admin" size="60" id="edit-name" name="name" maxlength="255"/><div class="description">This is the description for the form element above.</div></div><div id="edit-message-wrapper" class="form-item"><label for="edit-message">Text area: <span title="This field is required." class="form-required">*</span></label><textarea class="form-textarea resizable required textarea-processed" id="edit-message" name="message" rows="5" cols="60"/>
+<div id="edit-copy-wrapper" class="form-item"><label for="edit-copy" class="option"><input type="checkbox" class="form-checkbox" value="1" id="edit-copy" name="copy"/> Label for a checkbox.</label></div><input type="submit" class="form-submit" value="Submit button" id="edit-submit" name="op"/></div></form>
+
+
+<h2>Forum table</h2>
+
+<table id="forum-17">
+  <thead>
+    <tr>
+      <th>Forum</th>
+      <th>Topics</th>
+      <th>Posts</th>
+      <th>Last post</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr class="odd" id="forum-list-8">
+      <td class="forum">
+                          <div class="name"><a href="/forum/8">News and announcements</a></div>
+                      <div class="description">For news and announcements to the Drupal community at large.</div>
+                        </td>
+              <td class="topics">
+          1763
+            <a href="/forum/8#new">18 new</a>
+                  </td>
+        <td class="posts">18926</td>
+        <td class="last-reply">  8 hours 19 min ago<br/>by <a title="View user profile." href="/user/17089">Chris Charlton</a></td>
+          </tr>
+      <tr class="even" id="forum-list-2">
+      <td class="forum">
+                          <div class="name"><a href="/forum/2">General discussion</a></div>
+                      <div class="description">For less technical discussions about the Drupal project.  Not for support questions!</div>
+                        </td>
+              <td class="topics">
+          25704
+            <a href="/forum/2#new">292 new</a>
+                  </td>
+        <td class="posts">98651</td>
+        <td class="last-reply">  5 min 9 sec ago<br/>by <a title="View user profile." href="/user/298892">polluxmr2</a></td>
+          </tr>
+      <tr class="odd" id="forum-list-25">
+      <td class="forum">
+                          <div class="name"><a href="/forum/25">Drupal showcase</a></div>
+                      <div class="description">Showcase your site to others, maybe share a little about it - modules, theme, why you used Drupal.</div>
+                        </td>
+              <td class="topics">
+          4660
+            <a href="/forum/25#new">52 new</a>
+                  </td>
+        <td class="posts">22819</td>
+        <td class="last-reply">  9 hours 20 min ago<br/>by <a title="View user profile." href="/user/142763">Thomasr976</a></td>
+          </tr>
+      <tr class="even" id="forum-list-28">
+      <td class="forum">
+                          <div class="name"><a href="/forum/28">Events</a></div>
+                      <div class="description">For events, conferences and other Drupal happenings.</div>
+                        </td>
+              <td class="topics">
+          337
+            <a href="/forum/28#new">1 new</a>
+                  </td>
+        <td class="posts">1554</td>
+        <td class="last-reply">  3 weeks 13 hours ago<br/>by <a title="View user profile." href="/user/36762">greggles</a></td>
+          </tr>
+    </tbody>
+</table>
+
+
+<h2>Drupal's messages</h2>
+
+<div class="content-help block" id="content-help">
+<div class="content-help-inner inner" id="content-help-inner">
+<div class="help"><p>Sample help message. Modules are plugins that extend Drupal's core functionality. Enable modules by selecting the <em>Enabled</em> checkboxes below and clicking the <em>Save configuration</em> button. Once a module is enabled, new <a href="/admin/user/permissions">permissions</a> may be available.</p>
+</div></div>
+</div>
+                            <div class="content-messages block" id="content-messages">
+<div class="content-messages-inner inner" id="content-messages-inner">
+<div class="messages status">
+Sample status message. Page <em>Typography</em> has been updated.</div>
+<div class="messages error">Sample error message. There is a security update available for your version of Drupal. To ensure the security of your server, you should update immediately! See the <a href="/admin/reports/updates">available updates</a> page for more information.</div>
+<div class="messages warning">Sample warning message. There are updates available for one or more of your modules or themes. To ensure the proper functioning of your site, you should update as soon as possible. See the <a href="/admin/reports/updates">available updates</a> page for more information.</div>
+</div>
+</div>
+
+
+<h2>Pagers</h2>
+
+<h3>Page 1</h3>
+<code><div class="item-list"><ul class="pager"><li class="pager-current first">1</li>
+<li class="pager-item"><a href="/search/apachesolr_search/kittens?page=1" title="Go to page 2" class="active">2</a></li>
+<li class="pager-item"><a href="/search/apachesolr_search/kittens?page=2" title="Go to page 3" class="active">3</a></li>
+<li class="pager-item"><a href="/search/apachesolr_search/kittens?page=3" title="Go to page 4" class="active">4</a></li>
+<li class="pager-item"><a href="/search/apachesolr_search/kittens?page=4" title="Go to page 5" class="active">5</a></li>
+<li class="pager-item"><a href="/search/apachesolr_search/kittens?page=5" title="Go to page 6" class="active">6</a></li>
+<li class="pager-item"><a href="/search/apachesolr_search/kittens?page=6" title="Go to page 7" class="active">7</a></li>
+<li class="pager-item"><a href="/search/apachesolr_search/kittens?page=7" title="Go to page 8" class="active">8</a></li>
+<li class="pager-item"><a href="/search/apachesolr_search/kittens?page=8" title="Go to page 9" class="active">9</a></li>
+<li class="pager-ellipsis">&#133;</li>
+<li class="pager-next"><a href="/search/apachesolr_search/kittens?page=1" title="Go to next page" class="active">next &rsaquo;</a></li>
+<li class="pager-last last"><a href="/search/apachesolr_search/kittens?page=24" title="Go to last page" class="active">last &raquo;</a></li>
+</ul></div></code>
+
+<h3>Page 5</h3>
+<code><div class="item-list"><ul class="pager"><li class="pager-first first"><a class="active" title="Go to first page" href="/search/apachesolr_search/kittens">&laquo; first</a></li>
+<li class="pager-previous"><a class="active" title="Go to previous page" href="/search/apachesolr_search/kittens?page=3">&lsaquo; previous</a></li>
+<li class="pager-item"><a class="active" title="Go to page 1" href="/search/apachesolr_search/kittens">1</a></li>
+<li class="pager-item"><a class="active" title="Go to page 2" href="/search/apachesolr_search/kittens?page=1">2</a></li>
+<li class="pager-item"><a class="active" title="Go to page 3" href="/search/apachesolr_search/kittens?page=2">3</a></li>
+<li class="pager-item"><a class="active" title="Go to page 4" href="/search/apachesolr_search/kittens?page=3">4</a></li>
+<li class="pager-current">5</li>
+<li class="pager-item"><a class="active" title="Go to page 6" href="/search/apachesolr_search/kittens?page=5">6</a></li>
+<li class="pager-item"><a class="active" title="Go to page 7" href="/search/apachesolr_search/kittens?page=6">7</a></li>
+<li class="pager-item"><a class="active" title="Go to page 8" href="/search/apachesolr_search/kittens?page=7">8</a></li>
+<li class="pager-item"><a class="active" title="Go to page 9" href="/search/apachesolr_search/kittens?page=8">9</a></li>
+<li class="pager-ellipsis">&#133;</li>
+<li class="pager-next"><a class="active" title="Go to next page" href="/search/apachesolr_search/kittens?page=5">next &raquo;</a></li>
+<li class="pager-last last"><a class="active" title="Go to last page" href="/search/apachesolr_search/kittens?page=24">last &raquo;</a></li>
+</ul></div></code>
+
+<h3>Last page</h3>
+<code><div class="item-list"><ul class="pager"><li class="pager-first first"><a class="active" title="Go to first page" href="/search/apachesolr_search/kittens">&laquo; first</a></li>
+<li class="pager-previous"><a class="active" title="Go to previous page" href="/search/apachesolr_search/kittens?page=23">&lsaquo; previous</a></li>
+<li class="pager-ellipsis">&#133;</li>
+<li class="pager-item"><a class="active" title="Go to page 17" href="/search/apachesolr_search/kittens?page=16">17</a></li>
+<li class="pager-item"><a class="active" title="Go to page 18" href="/search/apachesolr_search/kittens?page=17">18</a></li>
+<li class="pager-item"><a class="active" title="Go to page 19" href="/search/apachesolr_search/kittens?page=18">19</a></li>
+<li class="pager-item"><a class="active" title="Go to page 20" href="/search/apachesolr_search/kittens?page=19">20</a></li>
+<li class="pager-item"><a class="active" title="Go to page 21" href="/search/apachesolr_search/kittens?page=20">21</a></li>
+<li class="pager-item"><a class="active" title="Go to page 22" href="/search/apachesolr_search/kittens?page=21">22</a></li>
+<li class="pager-item"><a class="active" title="Go to page 23" href="/search/apachesolr_search/kittens?page=22">23</a></li>
+<li class="pager-item"><a class="active" title="Go to page 24" href="/search/apachesolr_search/kittens?page=23">24</a></li>
+<li class="pager-current last">25</li>
+</ul></div></code>
+
+
+<h2>Search results</h2>
+
+<dl class="search-results">
+  <dt class="title">
+  <a href="#">Kitten</a>
+</dt>
+<dd>
+      <p class="search-snippet"> you have   runkit   and the module is installed), you will need to implement   hook_<strong>kitten</strong>_bling()   in your module. Currently,   hook_<strong>kitten</strong>_bling   is fired in   hook_boot  , which means that you cannot ... -runkit-mamp-172 (Modules, Developer)     (<strong>kitten</strong>)   ...</p>
+      <p class="search-info">Project - <a title="View user profile." href="#">mbutcher</a> - 05/03/2009 - 07:38 - 0 comments</p>
+  </dd>
+<dt class="title">
+  <a href="#">package = Views, 1 kitten (php notice), and accessibility</a>
+</dt>
+<dd>
+      <p class="search-snippet">Seems like this should be
+package = Views in the .info right? ...</p>
+      <p class="search-info">Issue - <a title="View user profile." href="#">greggles</a> - 30/11/2008 - 17:51 - 2 comments</p>
+  </dd>
+<dt class="title">
+  <a href="#">KittenAuth ?</a>
+</dt>
+<dd>
+      <p class="search-snippet">Hi All,
+Just wondering if anyone was working on a <strong>Kitten</strong>Auth module for Drupal as an alternative ...  of captcha was recently looking for someone to take it over.
+Hi thereI'm the creator of <strong>Kitten</strong>Auth and Im ... , will do. BTW, justCool, will do. BTW, just want to say how brilliantly simple and logical <strong>Kitten</strong>Auth is, I ...</p>
+      <p class="search-info">Forum topic - <a title="View user profile." href="#">brashquido</a> - 09/04/2006 - 19:02 - 8 comments</p>
+  </dd>
+<dt class="title">
+  <a href="http://fusiondrupalthemes.com">Fusion</a>
+</dt>
+<dd>
+      <p class="search-snippet">          
+  <strong>Fusion</strong> is a powerful base theme, with layout and style configuration options built ... 't theme yourself into a corner.  Our goal is to make <strong>Fusion</strong> the   clear, simple, and   supported   option for creating   advanced Drupal themes    .    
+  The   Acquia Prosper   theme by   TopNotchThemes   uses <strong>Fusion</strong> ...</p>
+      <p class="search-info">Project - <a title="View user profile." href="#">stephthegeek</a> - 29/07/2009 - 18:14 - 0 comments</p>
+  </dd>
+<dt class="title">
+  <a href="#">Cute kittens own captcha :)</a>
+</dt>
+<dd>
+      <p class="search-snippet"> with <strong>kitten</strong>. that's quite enough that no bot can play trickery.
+--
+My developer blog. | The news is Now Public ...  and thought it would be cool have for Drupal. Nice work!
+Regarding the <strong>kitten</strong> captcha, based on what I know ...</p>
+      <p class="search-info">Forum topic - <a title="View user profile." href="#">solipsist</a> - 06/04/2006 - 17:17 - 4 comments</p>
+  </dd>

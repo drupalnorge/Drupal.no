@@ -1,0 +1,210 @@
+/* 
+ * ##### Sasson - advanced drupal theming. #####
+ *   
+ * SITENAME theme main stylesheet.
+ * 
+ *  Index
+ *  -----------
+ *  1. General Sitewide Styles
+ *    -- Bootstrap
+ *    -- Layout
+ *    -- General Styles
+ *    -- Typography
+ *    -- Links 
+ *    -- Header
+ *    -- Sidebars
+ *    -- Footer
+ *  2. Front Page
+ *  3. Inner Pages
+ *  4. Forms
+ * 
+ */
+
+/*         General Sitewide Styles
+ *************************************************/
+
+@import 'partials/bootstrap/_mixins.scss';
+
+// Core variables and mixins
+@import 'partials/bootstrap/_variables.scss'; // Modify this for custom colors, font-sizes, etc
+@import 'partials/bootstrap/_mixins.scss';
+
+// CSS Reset
+@import 'partials/bootstrap/_reset.scss';
+
+// Grid system and page structure
+@import 'partials/bootstrap/_scaffolding.scss';
+@import 'partials/bootstrap/_grid.scss';
+@import 'partials/bootstrap/_layouts.scss';
+
+// Base CSS
+@import 'partials/bootstrap/_type.scss';
+@import 'partials/bootstrap/_code.scss';
+@import 'partials/bootstrap/_forms.scss';
+@import 'partials/bootstrap/_tables.scss';
+
+// Components: common
+@import 'partials/bootstrap/_sprites.scss';
+@import 'partials/bootstrap/_dropdowns.scss';
+@import 'partials/bootstrap/_wells.scss';
+@import 'partials/bootstrap/_component-animations.scss';
+@import 'partials/bootstrap/_close.scss';
+
+// Components: Buttons & Alerts
+@import 'partials/bootstrap/_buttons.scss';
+@import 'partials/bootstrap/_button-groups.scss';
+@import 'partials/bootstrap/_alerts.scss'; // Note: alerts share common CSS with buttons and thus have styles in buttons.scss
+
+// Components: Nav
+@import 'partials/bootstrap/_navs.scss';
+@import 'partials/bootstrap/_navbar.scss';
+@import 'partials/bootstrap/_breadcrumbs.scss';
+@import 'partials/bootstrap/_pagination.scss';
+
+// Components: Popovers
+@import 'partials/bootstrap/_modals.scss';
+@import 'partials/bootstrap/_tooltip.scss';
+@import 'partials/bootstrap/_popovers.scss';
+
+// Components: Misc
+@import 'partials/bootstrap/_thumbnails.scss';
+@import 'partials/bootstrap/_labels.scss';
+@import 'partials/bootstrap/_progress-bars.scss';
+@import 'partials/bootstrap/_accordion.scss';
+@import 'partials/bootstrap/_carousel.scss';
+@import 'partials/bootstrap/_hero-unit.scss';
+
+// Utility classes
+@import 'partials/bootstrap/_utilities.scss'; // Has to be last to override when necessary
+
+  /* Layout */
+
+#header {
+background: #ff3399;
+}
+#block-menu-menu-top-menu {
+float: right;
+width: 200px;
+  li {
+  display: inline;
+  }
+}
+
+  /* General Styles (Colors, Backgrounds etc.) TODO: PLACE ELSEWHERE*/
+a:hover {
+  text-decoration:none;
+}
+
+.vertical-tabs .form-type-textfield input {
+  -moz-box-sizing: content-box; /* prevet from collapsing in FF*/
+  width: 100%;
+}
+li a.active {
+  color: #0088CC;
+  }
+.submitted {
+  color: #999;
+}
+.field-type-image {
+  margin: 0 0 20px 0;
+}
+.field-name-body {
+  margin: 20px 0;
+}
+
+  /* Typography */
+
+  /* Links */
+
+  /* header */
+
+
+
+#block-menu-menu-top-menu {
+  position:absolute;
+  top:0;
+  right: 13%;
+}
+
+  h1#site-name {
+    float: left;  
+  }
+
+#header {
+  background: url(../img/header-bg.png) 0 0 repeat-x;
+  height: 125px;
+  #block-system-main-menu {
+    li {
+      display: block;
+      float: left;
+      a {
+        background: #ff3399;
+        color: #fff;
+        font-weight: bold;
+        font-size: 13px;
+        line-height:14x;
+        padding: 11px 12px;
+      }
+    }
+  }
+}
+
+
+
+  /* Sidebars */
+
+  /* Footer */
+
+#footer {
+background: #000;
+  .block {
+  width: 300px;
+  height: 200px;
+  float: left;
+  }
+}
+
+#footer .block {
+
+}
+
+/*         Front Page
+ *************************************************/
+
+.front {
+  .region-content-bottom {
+    background: #555;
+    .block {
+      width: 300px;
+      float: left;
+      margin: 20px 0;
+      margin-right:20px;
+      background: url(../img/front-imgs.jpg) 0 0 no-repeat;
+      padding-top: 200px;
+    }
+    h2 {
+      font-size: 16px;
+      line-height: 21px;
+    }
+    #block-block-1 {
+  
+    }
+    #block-block-2 {
+      background-position: -324px 0;
+    }
+    #block-block-3 {
+      margin-right: 0;
+      background-position: -643px 0;
+    }
+  }
+
+}
+
+
+
+/*         Inner Pages
+ *************************************************/
+
+/*         Forms
+ *************************************************/
+
