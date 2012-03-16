@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Leverandører i Norge feature.
+ */
+
+include_once('leverandorer.features.inc');
