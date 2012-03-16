@@ -21,6 +21,8 @@
  */
 /*         General Sitewide Styles
  *************************************************/
+/*         General Sitewide Styles
+ *************************************************/
 /* line 17, partials/bootstrap/_reset.scss */
 article,
 aside,
@@ -4154,50 +4156,50 @@ a.thumbnail:hover {
 }
 
 /* Layout */
-/* line 83, dno.scss */
+/* line 89, dno.scss */
 #header {
   background: #ff3399;
 }
 
-/* line 86, dno.scss */
+/* line 92, dno.scss */
 #block-menu-menu-top-menu {
   float: right;
   width: 200px;
 }
-/* line 89, dno.scss */
+/* line 95, dno.scss */
 #block-menu-menu-top-menu li {
   display: inline;
 }
 
 /* General Styles (Colors, Backgrounds etc.) TODO: PLACE ELSEWHERE*/
-/* line 95, dno.scss */
+/* line 101, dno.scss */
 a:hover {
   text-decoration: none;
 }
 
-/* line 99, dno.scss */
+/* line 105, dno.scss */
 .vertical-tabs .form-type-textfield input {
   -moz-box-sizing: content-box;
   /* prevet from collapsing in FF*/
   width: 100%;
 }
 
-/* line 103, dno.scss */
+/* line 109, dno.scss */
 li a.active {
   color: #0088CC;
 }
 
-/* line 106, dno.scss */
+/* line 112, dno.scss */
 .submitted {
   color: #999;
 }
 
-/* line 109, dno.scss */
+/* line 115, dno.scss */
 .field-type-image {
   margin: 0 0 20px 0;
 }
 
-/* line 112, dno.scss */
+/* line 118, dno.scss */
 .field-name-body {
   margin: 20px 0;
 }
@@ -4205,30 +4207,30 @@ li a.active {
 /* Typography */
 /* Links */
 /* header */
-/* line 124, dno.scss */
+/* line 130, dno.scss */
 #block-menu-menu-top-menu {
   position: absolute;
   top: 0;
   right: 13%;
 }
 
-/* line 130, dno.scss */
+/* line 136, dno.scss */
 h1#site-name a {
   float: left;
   color: #fff;
 }
 
-/* line 135, dno.scss */
+/* line 141, dno.scss */
 #header {
   background: url(../img/header-bg.png) 0 0 repeat-x;
   height: 125px;
 }
-/* line 139, dno.scss */
+/* line 145, dno.scss */
 #header #block-system-main-menu li {
   display: block;
   float: left;
 }
-/* line 142, dno.scss */
+/* line 148, dno.scss */
 #header #block-system-main-menu li a {
   background: #4D82C5;
   color: #fff;
@@ -4240,28 +4242,28 @@ h1#site-name a {
 
 /* Sidebars */
 /* Footer */
-/* line 160, dno.scss */
+/* line 166, dno.scss */
 #footer {
   background: #000;
   border-bottom: 5px solid #76AFF2;
   overflow: auto;
 }
-/* line 164, dno.scss */
+/* line 170, dno.scss */
 #footer a {
   color: #80BAFD;
 }
-/* line 167, dno.scss */
+/* line 173, dno.scss */
 #footer .block {
   width: 300px;
   height: 200px;
   float: left;
   margin: 20px 20px 0 0;
 }
-/* line 173, dno.scss */
+/* line 179, dno.scss */
 #footer #block-block-6 {
   margin-right: 0;
 }
-/* line 176, dno.scss */
+/* line 182, dno.scss */
 #footer #block-block-7 {
   text-align: center;
   margin: 20px auto;
@@ -4270,7 +4272,7 @@ h1#site-name a {
   height: 100%;
 }
 
-/* line 185, dno.scss */
+/* line 191, dno.scss */
 #footer h2 {
   font-size: 21px;
   font-weight: normal;
@@ -4281,13 +4283,13 @@ h1#site-name a {
 
 /*         Front Page
  *************************************************/
-/* line 197, dno.scss */
+/* line 203, dno.scss */
 .front .region-content-bottom {
   padding-top: 10px;
   border-top: 1px solid #E7E7E7;
   overflow: auto;
 }
-/* line 201, dno.scss */
+/* line 207, dno.scss */
 .front .region-content-bottom .block {
   width: 300px;
   float: left;
@@ -4296,16 +4298,16 @@ h1#site-name a {
   background: url(../img/front-imgs.jpg) 0 0 no-repeat;
   padding-top: 200px;
 }
-/* line 209, dno.scss */
+/* line 215, dno.scss */
 .front .region-content-bottom h2 {
   font-size: 16px;
   line-height: 21px;
 }
-/* line 213, dno.scss */
+/* line 219, dno.scss */
 .front .region-content-bottom #block-block-2 {
   background-position: -324px 0;
 }
-/* line 216, dno.scss */
+/* line 222, dno.scss */
 .front .region-content-bottom #block-block-3 {
   margin-right: 0;
   background-position: -643px 0;
@@ -4313,42 +4315,49 @@ h1#site-name a {
 
 /*         Leverandører
  *************************************************/
-/* line 228, dno.scss */
+/* line 234, dno.scss */
 .view-leverandorer .views-row {
   border-bottom: 1px solid #ccc;
   padding: 20px 0;
   overflow: auto;
   clear: both;
 }
-/* line 233, dno.scss */
+/* line 239, dno.scss */
 .view-leverandorer .views-row img {
-  border: 1px solid #ccc;
+  border: 1px solid #E7E7E7;
   display: block;
   float: left;
   padding: 1px;
 }
-/* line 239, dno.scss */
+/* line 245, dno.scss */
 .view-leverandorer .views-row section {
   float: left;
-  background: #eee;
+  background: #FFFFCC;
   padding: 17px 16px;
   overflow: auto;
   height: 84px;
   width: 400px;
   margin-top: 8px;
 }
-/* line 247, dno.scss */
+/* line 253, dno.scss */
 .view-leverandorer .views-row section h2 {
   line-height: 22px;
   margin-bottom: 10px;
 }
-/* line 251, dno.scss */
+/* line 257, dno.scss */
 .view-leverandorer .views-row section .where {
   float: right;
   padding: 6px;
   font-size: 11px;
   line-height: 11px;
   background: #B5D5FF;
+  text-transform: uppercase;
+  font-weight: normal;
+  font-style: normal;
+  text-shadow: white 1px 1px 0;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
 }
 
 /*         Forms

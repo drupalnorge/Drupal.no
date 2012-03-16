@@ -19,6 +19,12 @@
  *  4. Forms
  * 
  */
+/*         General Sitewide Styles
+ *************************************************/
+
+@import 'compass/css3/text-shadow';
+@import 'compass/css3/border-radius';
+
 
 /*         General Sitewide Styles
  *************************************************/
@@ -231,14 +237,14 @@ li a.active {
     overflow: auto;
     clear: both;
     img {
-      border: 1px solid #ccc;
+      border: 1px solid #E7E7E7;
       display: block;
       float: left;
       padding: 1px;
     }
     section {
       float: left;
-      background: #eee;
+      background: #FFFFCC;
       padding: 17px 16px;
       overflow: auto;
       height: 84px;
@@ -254,6 +260,11 @@ li a.active {
         font-size: 11px;
         line-height: 11px;
         background: #B5D5FF;
+        text-transform: uppercase;
+        font-weight: normal;
+        font-style: normal;
+        @include text-shadow(#fff 1px 1px 0);
+        @include border-radius(3px);
       }
     }
   }  
