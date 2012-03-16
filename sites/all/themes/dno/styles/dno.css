@@ -1640,630 +1640,7 @@ table .span12 {
   margin-left: 0;
 }
 
-/* line 18, partials/bootstrap/_sprites.scss */
-[class^="icon-"],
-[class*=" icon-"] {
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  line-height: 14px;
-  vertical-align: text-top;
-  background-image: url("../img/glyphicons-halflings.png");
-  background-position: 14px 14px;
-  background-repeat: no-repeat;
-  *margin-right: .3em;
-}
-/* line 66, partials/bootstrap/_mixins.scss */
-[class^="icon-"]:last-child,
-[class*=" icon-"]:last-child {
-  *margin-left: 0;
-}
-
-/* line 30, partials/bootstrap/_sprites.scss */
-.icon-white {
-  background-image: url("../img/glyphicons-halflings-white.png");
-}
-
-/* line 34, partials/bootstrap/_sprites.scss */
-.icon-glass {
-  background-position: 0      0;
-}
-
-/* line 35, partials/bootstrap/_sprites.scss */
-.icon-music {
-  background-position: -24px 0;
-}
-
-/* line 36, partials/bootstrap/_sprites.scss */
-.icon-search {
-  background-position: -48px 0;
-}
-
-/* line 37, partials/bootstrap/_sprites.scss */
-.icon-envelope {
-  background-position: -72px 0;
-}
-
-/* line 38, partials/bootstrap/_sprites.scss */
-.icon-heart {
-  background-position: -96px 0;
-}
-
-/* line 39, partials/bootstrap/_sprites.scss */
-.icon-star {
-  background-position: -120px 0;
-}
-
-/* line 40, partials/bootstrap/_sprites.scss */
-.icon-star-empty {
-  background-position: -144px 0;
-}
-
-/* line 41, partials/bootstrap/_sprites.scss */
-.icon-user {
-  background-position: -168px 0;
-}
-
-/* line 42, partials/bootstrap/_sprites.scss */
-.icon-film {
-  background-position: -192px 0;
-}
-
-/* line 43, partials/bootstrap/_sprites.scss */
-.icon-th-large {
-  background-position: -216px 0;
-}
-
-/* line 44, partials/bootstrap/_sprites.scss */
-.icon-th {
-  background-position: -240px 0;
-}
-
-/* line 45, partials/bootstrap/_sprites.scss */
-.icon-th-list {
-  background-position: -264px 0;
-}
-
-/* line 46, partials/bootstrap/_sprites.scss */
-.icon-ok {
-  background-position: -288px 0;
-}
-
-/* line 47, partials/bootstrap/_sprites.scss */
-.icon-remove {
-  background-position: -312px 0;
-}
-
-/* line 48, partials/bootstrap/_sprites.scss */
-.icon-zoom-in {
-  background-position: -336px 0;
-}
-
-/* line 49, partials/bootstrap/_sprites.scss */
-.icon-zoom-out {
-  background-position: -360px 0;
-}
-
-/* line 50, partials/bootstrap/_sprites.scss */
-.icon-off {
-  background-position: -384px 0;
-}
-
-/* line 51, partials/bootstrap/_sprites.scss */
-.icon-signal {
-  background-position: -408px 0;
-}
-
-/* line 52, partials/bootstrap/_sprites.scss */
-.icon-cog {
-  background-position: -432px 0;
-}
-
-/* line 53, partials/bootstrap/_sprites.scss */
-.icon-trash {
-  background-position: -456px 0;
-}
-
-/* line 55, partials/bootstrap/_sprites.scss */
-.icon-home {
-  background-position: 0 -24px;
-}
-
-/* line 56, partials/bootstrap/_sprites.scss */
-.icon-file {
-  background-position: -24px -24px;
-}
-
-/* line 57, partials/bootstrap/_sprites.scss */
-.icon-time {
-  background-position: -48px -24px;
-}
-
-/* line 58, partials/bootstrap/_sprites.scss */
-.icon-road {
-  background-position: -72px -24px;
-}
-
-/* line 59, partials/bootstrap/_sprites.scss */
-.icon-download-alt {
-  background-position: -96px -24px;
-}
-
-/* line 60, partials/bootstrap/_sprites.scss */
-.icon-download {
-  background-position: -120px -24px;
-}
-
-/* line 61, partials/bootstrap/_sprites.scss */
-.icon-upload {
-  background-position: -144px -24px;
-}
-
-/* line 62, partials/bootstrap/_sprites.scss */
-.icon-inbox {
-  background-position: -168px -24px;
-}
-
-/* line 63, partials/bootstrap/_sprites.scss */
-.icon-play-circle {
-  background-position: -192px -24px;
-}
-
-/* line 64, partials/bootstrap/_sprites.scss */
-.icon-repeat {
-  background-position: -216px -24px;
-}
-
-/* line 65, partials/bootstrap/_sprites.scss */
-.icon-refresh {
-  background-position: -240px -24px;
-}
-
-/* line 66, partials/bootstrap/_sprites.scss */
-.icon-list-alt {
-  background-position: -264px -24px;
-}
-
-/* line 67, partials/bootstrap/_sprites.scss */
-.icon-lock {
-  background-position: -287px -24px;
-}
-
-/* line 68, partials/bootstrap/_sprites.scss */
-.icon-flag {
-  background-position: -312px -24px;
-}
-
-/* line 69, partials/bootstrap/_sprites.scss */
-.icon-headphones {
-  background-position: -336px -24px;
-}
-
-/* line 70, partials/bootstrap/_sprites.scss */
-.icon-volume-off {
-  background-position: -360px -24px;
-}
-
-/* line 71, partials/bootstrap/_sprites.scss */
-.icon-volume-down {
-  background-position: -384px -24px;
-}
-
-/* line 72, partials/bootstrap/_sprites.scss */
-.icon-volume-up {
-  background-position: -408px -24px;
-}
-
-/* line 73, partials/bootstrap/_sprites.scss */
-.icon-qrcode {
-  background-position: -432px -24px;
-}
-
-/* line 74, partials/bootstrap/_sprites.scss */
-.icon-barcode {
-  background-position: -456px -24px;
-}
-
-/* line 76, partials/bootstrap/_sprites.scss */
-.icon-tag {
-  background-position: 0 -48px;
-}
-
-/* line 77, partials/bootstrap/_sprites.scss */
-.icon-tags {
-  background-position: -25px -48px;
-}
-
-/* line 78, partials/bootstrap/_sprites.scss */
-.icon-book {
-  background-position: -48px -48px;
-}
-
-/* line 79, partials/bootstrap/_sprites.scss */
-.icon-bookmark {
-  background-position: -72px -48px;
-}
-
-/* line 80, partials/bootstrap/_sprites.scss */
-.icon-print {
-  background-position: -96px -48px;
-}
-
-/* line 81, partials/bootstrap/_sprites.scss */
-.icon-camera {
-  background-position: -120px -48px;
-}
-
-/* line 82, partials/bootstrap/_sprites.scss */
-.icon-font {
-  background-position: -144px -48px;
-}
-
-/* line 83, partials/bootstrap/_sprites.scss */
-.icon-bold {
-  background-position: -167px -48px;
-}
-
-/* line 84, partials/bootstrap/_sprites.scss */
-.icon-italic {
-  background-position: -192px -48px;
-}
-
-/* line 85, partials/bootstrap/_sprites.scss */
-.icon-text-height {
-  background-position: -216px -48px;
-}
-
-/* line 86, partials/bootstrap/_sprites.scss */
-.icon-text-width {
-  background-position: -240px -48px;
-}
-
-/* line 87, partials/bootstrap/_sprites.scss */
-.icon-align-left {
-  background-position: -264px -48px;
-}
-
-/* line 88, partials/bootstrap/_sprites.scss */
-.icon-align-center {
-  background-position: -288px -48px;
-}
-
-/* line 89, partials/bootstrap/_sprites.scss */
-.icon-align-right {
-  background-position: -312px -48px;
-}
-
-/* line 90, partials/bootstrap/_sprites.scss */
-.icon-align-justify {
-  background-position: -336px -48px;
-}
-
-/* line 91, partials/bootstrap/_sprites.scss */
-.icon-list {
-  background-position: -360px -48px;
-}
-
-/* line 92, partials/bootstrap/_sprites.scss */
-.icon-indent-left {
-  background-position: -384px -48px;
-}
-
-/* line 93, partials/bootstrap/_sprites.scss */
-.icon-indent-right {
-  background-position: -408px -48px;
-}
-
-/* line 94, partials/bootstrap/_sprites.scss */
-.icon-facetime-video {
-  background-position: -432px -48px;
-}
-
-/* line 95, partials/bootstrap/_sprites.scss */
-.icon-picture {
-  background-position: -456px -48px;
-}
-
-/* line 97, partials/bootstrap/_sprites.scss */
-.icon-pencil {
-  background-position: 0 -72px;
-}
-
-/* line 98, partials/bootstrap/_sprites.scss */
-.icon-map-marker {
-  background-position: -24px -72px;
-}
-
-/* line 99, partials/bootstrap/_sprites.scss */
-.icon-adjust {
-  background-position: -48px -72px;
-}
-
-/* line 100, partials/bootstrap/_sprites.scss */
-.icon-tint {
-  background-position: -72px -72px;
-}
-
-/* line 101, partials/bootstrap/_sprites.scss */
-.icon-edit {
-  background-position: -96px -72px;
-}
-
-/* line 102, partials/bootstrap/_sprites.scss */
-.icon-share {
-  background-position: -120px -72px;
-}
-
-/* line 103, partials/bootstrap/_sprites.scss */
-.icon-check {
-  background-position: -144px -72px;
-}
-
-/* line 104, partials/bootstrap/_sprites.scss */
-.icon-move {
-  background-position: -168px -72px;
-}
-
-/* line 105, partials/bootstrap/_sprites.scss */
-.icon-step-backward {
-  background-position: -192px -72px;
-}
-
-/* line 106, partials/bootstrap/_sprites.scss */
-.icon-fast-backward {
-  background-position: -216px -72px;
-}
-
-/* line 107, partials/bootstrap/_sprites.scss */
-.icon-backward {
-  background-position: -240px -72px;
-}
-
-/* line 108, partials/bootstrap/_sprites.scss */
-.icon-play {
-  background-position: -264px -72px;
-}
-
-/* line 109, partials/bootstrap/_sprites.scss */
-.icon-pause {
-  background-position: -288px -72px;
-}
-
-/* line 110, partials/bootstrap/_sprites.scss */
-.icon-stop {
-  background-position: -312px -72px;
-}
-
-/* line 111, partials/bootstrap/_sprites.scss */
-.icon-forward {
-  background-position: -336px -72px;
-}
-
-/* line 112, partials/bootstrap/_sprites.scss */
-.icon-fast-forward {
-  background-position: -360px -72px;
-}
-
-/* line 113, partials/bootstrap/_sprites.scss */
-.icon-step-forward {
-  background-position: -384px -72px;
-}
-
-/* line 114, partials/bootstrap/_sprites.scss */
-.icon-eject {
-  background-position: -408px -72px;
-}
-
-/* line 115, partials/bootstrap/_sprites.scss */
-.icon-chevron-left {
-  background-position: -432px -72px;
-}
-
-/* line 116, partials/bootstrap/_sprites.scss */
-.icon-chevron-right {
-  background-position: -456px -72px;
-}
-
-/* line 118, partials/bootstrap/_sprites.scss */
-.icon-plus-sign {
-  background-position: 0 -96px;
-}
-
-/* line 119, partials/bootstrap/_sprites.scss */
-.icon-minus-sign {
-  background-position: -24px -96px;
-}
-
-/* line 120, partials/bootstrap/_sprites.scss */
-.icon-remove-sign {
-  background-position: -48px -96px;
-}
-
-/* line 121, partials/bootstrap/_sprites.scss */
-.icon-ok-sign {
-  background-position: -72px -96px;
-}
-
-/* line 122, partials/bootstrap/_sprites.scss */
-.icon-question-sign {
-  background-position: -96px -96px;
-}
-
-/* line 123, partials/bootstrap/_sprites.scss */
-.icon-info-sign {
-  background-position: -120px -96px;
-}
-
-/* line 124, partials/bootstrap/_sprites.scss */
-.icon-screenshot {
-  background-position: -144px -96px;
-}
-
-/* line 125, partials/bootstrap/_sprites.scss */
-.icon-remove-circle {
-  background-position: -168px -96px;
-}
-
-/* line 126, partials/bootstrap/_sprites.scss */
-.icon-ok-circle {
-  background-position: -192px -96px;
-}
-
-/* line 127, partials/bootstrap/_sprites.scss */
-.icon-ban-circle {
-  background-position: -216px -96px;
-}
-
-/* line 128, partials/bootstrap/_sprites.scss */
-.icon-arrow-left {
-  background-position: -240px -96px;
-}
-
-/* line 129, partials/bootstrap/_sprites.scss */
-.icon-arrow-right {
-  background-position: -264px -96px;
-}
-
-/* line 130, partials/bootstrap/_sprites.scss */
-.icon-arrow-up {
-  background-position: -289px -96px;
-}
-
-/* line 131, partials/bootstrap/_sprites.scss */
-.icon-arrow-down {
-  background-position: -312px -96px;
-}
-
-/* line 132, partials/bootstrap/_sprites.scss */
-.icon-share-alt {
-  background-position: -336px -96px;
-}
-
-/* line 133, partials/bootstrap/_sprites.scss */
-.icon-resize-full {
-  background-position: -360px -96px;
-}
-
-/* line 134, partials/bootstrap/_sprites.scss */
-.icon-resize-small {
-  background-position: -384px -96px;
-}
-
-/* line 135, partials/bootstrap/_sprites.scss */
-.icon-plus {
-  background-position: -408px -96px;
-}
-
-/* line 136, partials/bootstrap/_sprites.scss */
-.icon-minus {
-  background-position: -433px -96px;
-}
-
-/* line 137, partials/bootstrap/_sprites.scss */
-.icon-asterisk {
-  background-position: -456px -96px;
-}
-
-/* line 139, partials/bootstrap/_sprites.scss */
-.icon-exclamation-sign {
-  background-position: 0 -120px;
-}
-
-/* line 140, partials/bootstrap/_sprites.scss */
-.icon-gift {
-  background-position: -24px -120px;
-}
-
-/* line 141, partials/bootstrap/_sprites.scss */
-.icon-leaf {
-  background-position: -48px -120px;
-}
-
-/* line 142, partials/bootstrap/_sprites.scss */
-.icon-fire {
-  background-position: -72px -120px;
-}
-
-/* line 143, partials/bootstrap/_sprites.scss */
-.icon-eye-open {
-  background-position: -96px -120px;
-}
-
-/* line 144, partials/bootstrap/_sprites.scss */
-.icon-eye-close {
-  background-position: -120px -120px;
-}
-
-/* line 145, partials/bootstrap/_sprites.scss */
-.icon-warning-sign {
-  background-position: -144px -120px;
-}
-
-/* line 146, partials/bootstrap/_sprites.scss */
-.icon-plane {
-  background-position: -168px -120px;
-}
-
-/* line 147, partials/bootstrap/_sprites.scss */
-.icon-calendar {
-  background-position: -192px -120px;
-}
-
-/* line 148, partials/bootstrap/_sprites.scss */
-.icon-random {
-  background-position: -216px -120px;
-}
-
-/* line 149, partials/bootstrap/_sprites.scss */
-.icon-comment {
-  background-position: -240px -120px;
-}
-
-/* line 150, partials/bootstrap/_sprites.scss */
-.icon-magnet {
-  background-position: -264px -120px;
-}
-
-/* line 151, partials/bootstrap/_sprites.scss */
-.icon-chevron-up {
-  background-position: -288px -120px;
-}
-
-/* line 152, partials/bootstrap/_sprites.scss */
-.icon-chevron-down {
-  background-position: -313px -119px;
-}
-
-/* line 153, partials/bootstrap/_sprites.scss */
-.icon-retweet {
-  background-position: -336px -120px;
-}
-
-/* line 154, partials/bootstrap/_sprites.scss */
-.icon-shopping-cart {
-  background-position: -360px -120px;
-}
-
-/* line 155, partials/bootstrap/_sprites.scss */
-.icon-folder-close {
-  background-position: -384px -120px;
-}
-
-/* line 156, partials/bootstrap/_sprites.scss */
-.icon-folder-open {
-  background-position: -408px -120px;
-}
-
-/* line 157, partials/bootstrap/_sprites.scss */
-.icon-resize-vertical {
-  background-position: -432px -119px;
-}
-
-/* line 158, partials/bootstrap/_sprites.scss */
-.icon-resize-horizontal {
-  background-position: -456px -118px;
-}
-
+/* @import 'partials/bootstrap/_font-awesome.scss'; */
 /* line 5, partials/bootstrap/_dropdowns.scss */
 .dropdown {
   position: relative;
@@ -4777,50 +4154,50 @@ a.thumbnail:hover {
 }
 
 /* Layout */
-/* line 82, dno.scss */
+/* line 83, dno.scss */
 #header {
   background: #ff3399;
 }
 
-/* line 85, dno.scss */
+/* line 86, dno.scss */
 #block-menu-menu-top-menu {
   float: right;
   width: 200px;
 }
-/* line 88, dno.scss */
+/* line 89, dno.scss */
 #block-menu-menu-top-menu li {
   display: inline;
 }
 
 /* General Styles (Colors, Backgrounds etc.) TODO: PLACE ELSEWHERE*/
-/* line 94, dno.scss */
+/* line 95, dno.scss */
 a:hover {
   text-decoration: none;
 }
 
-/* line 98, dno.scss */
+/* line 99, dno.scss */
 .vertical-tabs .form-type-textfield input {
   -moz-box-sizing: content-box;
   /* prevet from collapsing in FF*/
   width: 100%;
 }
 
-/* line 102, dno.scss */
+/* line 103, dno.scss */
 li a.active {
   color: #0088CC;
 }
 
-/* line 105, dno.scss */
+/* line 106, dno.scss */
 .submitted {
   color: #999;
 }
 
-/* line 108, dno.scss */
+/* line 109, dno.scss */
 .field-type-image {
   margin: 0 0 20px 0;
 }
 
-/* line 111, dno.scss */
+/* line 112, dno.scss */
 .field-name-body {
   margin: 20px 0;
 }
@@ -4828,30 +4205,30 @@ li a.active {
 /* Typography */
 /* Links */
 /* header */
-/* line 123, dno.scss */
+/* line 124, dno.scss */
 #block-menu-menu-top-menu {
   position: absolute;
   top: 0;
   right: 13%;
 }
 
-/* line 129, dno.scss */
+/* line 130, dno.scss */
 h1#site-name a {
   float: left;
   color: #fff;
 }
 
-/* line 134, dno.scss */
+/* line 135, dno.scss */
 #header {
   background: url(../img/header-bg.png) 0 0 repeat-x;
   height: 125px;
 }
-/* line 138, dno.scss */
+/* line 139, dno.scss */
 #header #block-system-main-menu li {
   display: block;
   float: left;
 }
-/* line 141, dno.scss */
+/* line 142, dno.scss */
 #header #block-system-main-menu li a {
   background: #4D82C5;
   color: #fff;
@@ -4863,28 +4240,28 @@ h1#site-name a {
 
 /* Sidebars */
 /* Footer */
-/* line 159, dno.scss */
+/* line 160, dno.scss */
 #footer {
   background: #000;
   border-bottom: 5px solid #76AFF2;
   overflow: auto;
 }
-/* line 163, dno.scss */
+/* line 164, dno.scss */
 #footer a {
   color: #80BAFD;
 }
-/* line 166, dno.scss */
+/* line 167, dno.scss */
 #footer .block {
   width: 300px;
   height: 200px;
   float: left;
   margin: 20px 20px 0 0;
 }
-/* line 172, dno.scss */
+/* line 173, dno.scss */
 #footer #block-block-6 {
   margin-right: 0;
 }
-/* line 175, dno.scss */
+/* line 176, dno.scss */
 #footer #block-block-7 {
   text-align: center;
   margin: 20px auto;
@@ -4893,7 +4270,7 @@ h1#site-name a {
   height: 100%;
 }
 
-/* line 184, dno.scss */
+/* line 185, dno.scss */
 #footer h2 {
   font-size: 21px;
   font-weight: normal;
@@ -4904,11 +4281,13 @@ h1#site-name a {
 
 /*         Front Page
  *************************************************/
-/* line 196, dno.scss */
+/* line 197, dno.scss */
 .front .region-content-bottom {
-  background: #555;
+  padding-top: 10px;
+  border-top: 1px solid #E7E7E7;
+  overflow: auto;
 }
-/* line 198, dno.scss */
+/* line 201, dno.scss */
 .front .region-content-bottom .block {
   width: 300px;
   float: left;
@@ -4917,22 +4296,60 @@ h1#site-name a {
   background: url(../img/front-imgs.jpg) 0 0 no-repeat;
   padding-top: 200px;
 }
-/* line 206, dno.scss */
+/* line 209, dno.scss */
 .front .region-content-bottom h2 {
   font-size: 16px;
   line-height: 21px;
 }
-/* line 210, dno.scss */
+/* line 213, dno.scss */
 .front .region-content-bottom #block-block-2 {
   background-position: -324px 0;
 }
-/* line 213, dno.scss */
+/* line 216, dno.scss */
 .front .region-content-bottom #block-block-3 {
   margin-right: 0;
   background-position: -643px 0;
 }
 
-/*         Inner Pages
+/*         Leverandører
  *************************************************/
+/* line 228, dno.scss */
+.view-leverandorer .views-row {
+  border-bottom: 1px solid #ccc;
+  padding: 20px 0;
+  overflow: auto;
+  clear: both;
+}
+/* line 233, dno.scss */
+.view-leverandorer .views-row img {
+  border: 1px solid #ccc;
+  display: block;
+  float: left;
+  padding: 1px;
+}
+/* line 239, dno.scss */
+.view-leverandorer .views-row section {
+  float: left;
+  background: #eee;
+  padding: 17px 16px;
+  overflow: auto;
+  height: 84px;
+  width: 400px;
+  margin-top: 8px;
+}
+/* line 247, dno.scss */
+.view-leverandorer .views-row section h2 {
+  line-height: 22px;
+  margin-bottom: 10px;
+}
+/* line 251, dno.scss */
+.view-leverandorer .views-row section .where {
+  float: right;
+  padding: 6px;
+  font-size: 11px;
+  line-height: 11px;
+  background: #B5D5FF;
+}
+
 /*         Forms
  *************************************************/

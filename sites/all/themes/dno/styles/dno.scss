@@ -44,7 +44,7 @@
 @import 'partials/bootstrap/_tables.scss';
 
 // Components: common
-@import 'partials/bootstrap/_sprites.scss';
+/* @import 'partials/bootstrap/_font-awesome.scss'; */
 @import 'partials/bootstrap/_dropdowns.scss';
 @import 'partials/bootstrap/_wells.scss';
 @import 'partials/bootstrap/_component-animations.scss';
@@ -76,6 +76,7 @@
 
 // Utility classes
 @import 'partials/bootstrap/_utilities.scss'; // Has to be last to override when necessary
+
 
   /* Layout */
 
@@ -194,7 +195,9 @@ li a.active {
 
 .front {
   .region-content-bottom {
-    background: #555;
+    padding-top: 10px;
+    border-top: 1px solid #E7E7E7;
+    overflow: auto;
     .block {
       width: 300px;
       float: left;
@@ -218,10 +221,44 @@ li a.active {
 
 }
 
-
-
-/*         Inner Pages
+/*         Leverandører
  *************************************************/
+
+.view-leverandorer {
+  .views-row {
+    border-bottom: 1px solid #ccc;
+    padding: 20px 0;
+    overflow: auto;
+    clear: both;
+    img {
+      border: 1px solid #ccc;
+      display: block;
+      float: left;
+      padding: 1px;
+    }
+    section {
+      float: left;
+      background: #eee;
+      padding: 17px 16px;
+      overflow: auto;
+      height: 84px;
+      width: 400px;
+      margin-top: 8px;
+      h2 {
+        line-height: 22px;
+        margin-bottom: 10px;
+      }
+      .where {
+        float: right;
+        padding: 6px;
+        font-size: 11px;
+        line-height: 11px;
+        background: #B5D5FF;
+      }
+    }
+  }  
+}
+
 
 /*         Forms
  *************************************************/
