@@ -85,16 +85,8 @@
 
 
   /* Layout */
-
 #header {
 background: #ff3399;
-}
-#block-menu-menu-top-menu {
-float: right;
-width: 200px;
-  li {
-  display: inline;
-  }
 }
 
   /* General Styles (Colors, Backgrounds etc.) TODO: PLACE ELSEWHERE*/
@@ -130,28 +122,59 @@ li a.active {
 #block-menu-menu-top-menu {
   position:absolute;
   top:0;
-  right: 13%;
+  right: 0;
+  float: right;
+    
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: inline;
+      
+      a {
+        color: white;
+      }
+  }
 }
 
-  h1#site-name a{
+  h1#site-name a {
     float: left;  
     color: #fff;
+    font-size: 50px;
+    @include text-shadow(#325A90 1px 1px 0);
+    margin-top: 50px;
   }
 
 #header {
   background: url(../img/header-bg.png) 0 0 repeat-x;
   height: 125px;
+  position: relative;
+
   #block-system-main-menu {
+    
+    ul {
+      width: auto;
+      float: right;
+      margin: 65px 0 0;
+    }
+
     li {
       display: block;
       float: left;
+
       a {
-        background: #4D82C5;
         color: #fff;
         font-weight: bold;
         font-size: 13px;
         line-height:14x;
-        padding: 11px 12px;
+        padding: 7px 10px;
+        border-radius: 4px;
+
+        &:hover, &.active-trail {
+          background: #4D82C5;
+        }
       }
     }
   }
