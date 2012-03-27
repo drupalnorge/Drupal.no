@@ -14,7 +14,7 @@ fonts_dir = "partials/fonts"
 # output_style = :nested
 # output_style = :compact
 # output_style = :expanded
-line_comments = true
+line_comments = false
 sass_options = {:debug_info => false} 
 # To enable relative paths to assets via compass helper functions. Uncomment:
 relative_assets = true
