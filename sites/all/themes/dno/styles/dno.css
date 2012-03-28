@@ -3578,6 +3578,10 @@ a.thumbnail:hover {
   visibility: hidden;
 }
 
+/**
+ * Colors
+ */
+@import url(http://fonts.googleapis.com/css?family=Just+Me+Again+Down+Here);
 /* Layout */
 #header {
   background: #ff3399;
@@ -3611,7 +3615,82 @@ li a.active {
 }
 
 /* Typography */
+.handwriting {
+  font-family: 'Just Me Again Down Here', cursive;
+  border: medium none !important;
+  font-size: 3.2em !important;
+}
+
 /* Links */
+/* Buttons */
+.big-button {
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  color: white !important;
+  font-size: 24px;
+  text-shadow: rgba(0, 0, 0, 0.35) 0 -1px 0;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 20px 15px;
+  background-color: #4679bf;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #81bcff), color-stop(100%, #4679bf));
+  background-image: -webkit-linear-gradient(#81bcff, #4679bf);
+  background-image: -moz-linear-gradient(#81bcff, #4679bf);
+  background-image: -o-linear-gradient(#81bcff, #4679bf);
+  background-image: -ms-linear-gradient(#81bcff, #4679bf);
+  background-image: linear-gradient(#81bcff, #4679bf);
+  -webkit-box-shadow: #a6d8ff 0 1px 0 inset;
+  -moz-box-shadow: #a6d8ff 0 1px 0 inset;
+  box-shadow: #a6d8ff 0 1px 0 inset;
+  border: 1px solid #4679bf;
+}
+.big-button:hover {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #9bcaff), color-stop(100%, #4679bf));
+  background-image: -webkit-linear-gradient(#9bcaff, #4679bf);
+  background-image: -moz-linear-gradient(#9bcaff, #4679bf);
+  background-image: -o-linear-gradient(#9bcaff, #4679bf);
+  background-image: -ms-linear-gradient(#9bcaff, #4679bf);
+  background-image: linear-gradient(#9bcaff, #4679bf);
+  -webkit-box-shadow: #f3faff 0 1px 0 inset;
+  -moz-box-shadow: #f3faff 0 1px 0 inset;
+  box-shadow: #f3faff 0 1px 0 inset;
+}
+.big-button small {
+  font-weight: normal;
+  letter-spacing: 0.5em;
+  text-align: right;
+  color: #294976;
+  display: block;
+  margin: 5px -0.5em -15px 0;
+}
+
+#footer .big-button {
+  background-color: #7e9f3a;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #b2e355), color-stop(100%, #7e9f3a));
+  background-image: -webkit-linear-gradient(#b2e355, #7e9f3a);
+  background-image: -moz-linear-gradient(#b2e355, #7e9f3a);
+  background-image: -o-linear-gradient(#b2e355, #7e9f3a);
+  background-image: -ms-linear-gradient(#b2e355, #7e9f3a);
+  background-image: linear-gradient(#b2e355, #7e9f3a);
+  -webkit-box-shadow: #daf1ad 0 1px 0 inset;
+  -moz-box-shadow: #daf1ad 0 1px 0 inset;
+  box-shadow: #daf1ad 0 1px 0 inset;
+  border: 1px solid #7e9f3a;
+}
+#footer .big-button:hover {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #bce76b), color-stop(100%, #7e9f3a));
+  background-image: -webkit-linear-gradient(#bce76b, #7e9f3a);
+  background-image: -moz-linear-gradient(#bce76b, #7e9f3a);
+  background-image: -o-linear-gradient(#bce76b, #7e9f3a);
+  background-image: -ms-linear-gradient(#bce76b, #7e9f3a);
+  background-image: linear-gradient(#bce76b, #7e9f3a);
+  -webkit-box-shadow: #f7fcee 0 1px 0 inset;
+  -moz-box-shadow: #f7fcee 0 1px 0 inset;
+  box-shadow: #f7fcee 0 1px 0 inset;
+}
+
 /* header */
 #block-menu-menu-top-menu {
   position: absolute;
@@ -3634,7 +3713,7 @@ h1#site-name a {
   float: left;
   color: #fff;
   font-size: 50px;
-  text-shadow: #325a90 1px 1px 0;
+  text-shadow: #325a90 0 -1px 0;
   margin-top: 50px;
 }
 
@@ -3742,7 +3821,7 @@ h1#site-name a {
 }
 .view-leverandorer .views-row section {
   float: left;
-  background: #FFFFCC;
+  background: #f8fbfb;
   padding: 17px 16px;
   overflow: auto;
   height: 84px;
@@ -3762,7 +3841,7 @@ h1#site-name a {
   text-transform: uppercase;
   font-weight: normal;
   font-style: normal;
-  text-shadow: white 1px 1px 0;
+  text-shadow: white 0 1px 0;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;

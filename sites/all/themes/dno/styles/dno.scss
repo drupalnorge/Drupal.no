@@ -22,8 +22,7 @@
 /*         General Sitewide Styles
  *************************************************/
 
-@import 'compass/css3/text-shadow';
-@import 'compass/css3/border-radius';
+@import 'compass/css3';
 
 
 /*         General Sitewide Styles
@@ -83,6 +82,11 @@
 // Utility classes
 @import 'partials/bootstrap/_utilities.scss'; // Has to be last to override when necessary
 
+// Custom
+@import 'partials/custom/_common.scss';
+
+// Google fonts
+@import url(http://fonts.googleapis.com/css?family=Just+Me+Again+Down+Here);
 
   /* Layout */
 #header {
@@ -112,8 +116,55 @@ li a.active {
 }
 
   /* Typography */
+.handwriting {
+  font-family: 'Just Me Again Down Here', cursive;
+  border: medium none !important;
+  font-size: 3.2em !important;
+}
 
   /* Links */
+
+  /* Buttons */
+.big-button {
+  @include border-radius(15px);
+  color: white !important;
+  font-size: 24px;
+  @include text-shadow(rgba(black, 0.35) 0 -1px 0);
+  font-weight: bold;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 20px 15px;
+  background-color: $color-bt-dark; // For browser that dont support gradient backround
+  @include background-image(linear-gradient($color-bt-light, $color-bt-dark)); // Bootstrap had a overwrite on box-shadow that did not allow for more then one parameter. I commented out line 324-328 in _mixins.scss.
+  @include box-shadow($color-bt-highlight 0 1px 0 inset);
+  border: 1px solid $color-bt-dark;
+
+  &:hover {
+    @include background-image(linear-gradient(lighten($color-bt-light, 5%), $color-bt-dark));
+    @include box-shadow(lighten($color-bt-highlight, 15%) 0 1px 0 inset);
+  }
+
+  small {
+    font-weight: normal;
+    letter-spacing: 0.5em;
+    text-align: right;
+    color: darken($color-bt-dark, 20%);
+    display: block;
+    margin: 5px -0.5em -15px 0;
+  }
+}
+
+#footer .big-button {
+  background-color: $color-footer-bt-dark;
+  @include background-image(linear-gradient($color-footer-bt-light, $color-footer-bt-dark));
+  @include box-shadow($color-footer-bt-highlight 0 1px 0 inset);
+  border: 1px solid $color-footer-bt-dark;
+
+  &:hover {
+    @include background-image(linear-gradient(lighten($color-footer-bt-light, 5%), $color-footer-bt-dark));
+    @include box-shadow(lighten($color-footer-bt-highlight, 15%) 0 1px 0 inset);
+  }
+}
 
   /* header */
 
@@ -143,7 +194,7 @@ li a.active {
     float: left;  
     color: #fff;
     font-size: 50px;
-    @include text-shadow(#325A90 1px 1px 0);
+    @include text-shadow(#325A90 0 -1px 0);
     margin-top: 50px;
   }
 
@@ -267,7 +318,7 @@ li a.active {
     }
     section {
       float: left;
-      background: #FFFFCC;
+      background: $color-bg-light;
       padding: 17px 16px;
       overflow: auto;
       height: 84px;
@@ -286,7 +337,7 @@ li a.active {
         text-transform: uppercase;
         font-weight: normal;
         font-style: normal;
-        @include text-shadow(#fff 1px 1px 0);
+        @include text-shadow(white 0 1px 0);
         @include border-radius(3px);
       }
     }
