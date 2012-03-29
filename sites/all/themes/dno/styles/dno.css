@@ -3605,6 +3605,14 @@ a.thumbnail:hover {
   position: relative;
 }
 
+#page {
+  clear: both;
+}
+
+#region-content-top {
+  position: relative;
+}
+
 /* General Styles (Colors, Backgrounds etc.) TODO: PLACE ELSEWHERE*/
 a:hover {
   text-decoration: none;
@@ -3882,7 +3890,7 @@ h1#site-name a {
 #block-menu-menu-hva-er-drupal .content {
   font-size: 1.3em;
   border-bottom: 1px solid #cccccc;
-  background: white url(../img/bg-menu-tab.png) no-repeat;
+  background: white url(../img/bg-menu-tab.png) no-repeat 0 bottom;
   margin-top: 30px;
   text-transform: collapsing;
 }

@@ -99,6 +99,8 @@
     </div><!-- /#featured -->
   <?php endif; ?>
 
+  <?php print render($page['content_top']); ?>
+
   <div id="main">
     <?php if ($page['highlighted']): ?>
       <div id="highlighted">
@@ -121,7 +123,6 @@
       <ul class="action-links"><?php print render($action_links); ?></ul>
     <?php endif; ?>
 
-    <?php print render($page['content_top']); ?>
     <?php print render($page['content']); ?>
     <?php print render($page['content_bottom']); ?>
 
