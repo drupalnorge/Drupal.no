@@ -2,6 +2,7 @@
 # require 'fancy-buttons'  
 # require 'sassy-buttons'  
 # Require any additional compass plugins here.
+require 'ninesixty'
 
 project_type = :stand_alone
 # Set this to the root of your project when deployed:

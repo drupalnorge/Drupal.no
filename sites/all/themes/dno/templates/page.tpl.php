@@ -68,11 +68,9 @@
  * @see template_process()
  */
 ?>
-
-<div id="page">
-  
-  <?php if ($logo || $site_name || $site_slogan || $page['header']): ?>
-    <header id="header" role="banner">
+<?php if ($logo || $site_name || $site_slogan || $page['header']): ?>
+  <header id="header" role="banner">
+    <div class="wrapper"><div class="inner">
       <?php if ($logo): ?>
         <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
           <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
@@ -91,8 +89,10 @@
 
       <?php print render($page['header']); ?>
     </header><!-- /#header -->
-  <?php endif; ?>
+  </div></div>
+<?php endif; ?>
 
+<div id="page">
   <?php if ($page['featured']): ?>
     <div id="featured">
       <?php print render($page['featured']); ?>
@@ -140,10 +140,12 @@
     </aside><!-- /#sidebar-second -->
   <?php endif; ?>
 
-  <?php if ($page['footer']): ?>
-    <footer id="footer" role="contentinfo">
-      <?php print render($page['footer']); ?>
-    </footer><!-- /#footer -->
-  <?php endif; ?>
-
 </div><!-- /#page -->
+
+<?php if ($page['footer']): ?>
+  <footer id="footer" role="contentinfo">
+    <div class="wrapper"><div class="inner">
+      <?php print render($page['footer']); ?>
+    </div></div>
+  </footer><!-- /#footer -->
+<?php endif; ?>

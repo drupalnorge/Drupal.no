@@ -84,18 +84,36 @@
 
 // Custom
 @import 'partials/custom/_common.scss';
+@import url(http://fonts.googleapis.com/css?family=Just+Me+Again+Down+Here); // Google fonts
+@import "960/grid";
 
-// Google fonts
-@import url(http://fonts.googleapis.com/css?family=Just+Me+Again+Down+Here);
 
   /* Layout */
 #header {
-background: #ff3399;
+  background: #ff3399;
+}
+
+#header, #footer {
+  margin: 0;
+  width: 100%;
+
+  .wrapper {
+    @include grid-container;
+
+    .inner {
+      @include grid(12);
+      position: relative;
+    }
+  }
 }
 
   /* General Styles (Colors, Backgrounds etc.) TODO: PLACE ELSEWHERE*/
 a:hover {
   text-decoration:none;
+}
+
+dd {
+  margin-bottom: 2.5em;
 }
 
 .vertical-tabs .form-type-textfield input {

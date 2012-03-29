@@ -3587,9 +3587,31 @@ a.thumbnail:hover {
   background: #ff3399;
 }
 
+#header, #footer {
+  margin: 0;
+  width: 100%;
+}
+#header .wrapper, #footer .wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  width: 960px;
+}
+#header .wrapper .inner, #footer .wrapper .inner {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 940px;
+  position: relative;
+}
+
 /* General Styles (Colors, Backgrounds etc.) TODO: PLACE ELSEWHERE*/
 a:hover {
   text-decoration: none;
+}
+
+dd {
+  margin-bottom: 2.5em;
 }
 
 .vertical-tabs .form-type-textfield input {
