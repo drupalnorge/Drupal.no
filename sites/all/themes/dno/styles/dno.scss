@@ -288,39 +288,46 @@ li a.active {
   margin-bottom: 10px;
 }
 
-/*         Front Page
- *************************************************/
+/**
+ * Blocks
+ */
 
-.front {
-  .region-content-bottom {
-    padding-top: 10px;
-    border-top: 1px solid #E7E7E7;
-    overflow: auto;
-    .block {
-      width: 300px;
-      float: left;
-      margin: 20px 0;
-      margin-right:20px;
-      background: url(../img/front-imgs.jpg) 0 0 no-repeat;
-      padding-top: 200px;
-    }
-    h2 {
-      font-size: 16px;
-      line-height: 21px;
-    }
-    #block-block-2 {
-      background-position: -324px 0;
-    }
-    #block-block-3 {
-      margin-right: 0;
-      background-position: -643px 0;
-    }
+// Hva er drupal blocks
+.region-content-bottom {
+  padding-top: 10px;
+  border-top: 1px solid #E7E7E7;
+  overflow: auto;
+  
+  .block {
+    @include grid(4);
+    background: url(../img/front-imgs.jpg) 0 0 no-repeat;
+    padding-top: 200px;
   }
 
+  h2 {
+    font-size: 16px;
+    line-height: 21px;
+  }
+
+  #block-block-1 {
+    @include alpha;
+  }
+
+  #block-block-2 {
+    background-position: -324px 0;
+  }
+
+  #block-block-3 {
+    margin-right: 0;
+    background-position: -643px 0;
+    @include omega;
+  }
 }
 
-/*         Leverandører
- *************************************************/
+
+/**
+ * Leverandører
+ */
 
 .view-leverandorer {
   .views-row {
@@ -362,7 +369,40 @@ li a.active {
   }  
 }
 
+/**
+ * Hva er drupal
+ */
 
-/*         Forms
- *************************************************/
+#block-menu-menu-hva-er-drupal .content {
+  font-size: 1.3em;
+  border-bottom: 1px solid $color-grayLight;
+  background: white url(../img/bg-menu-tab.png) no-repeat;
+  margin-top: 30px;
+  text-transform: collapsing;
+
+  ul {
+    margin: 0 0 -1px;
+  }
+
+  li {
+    float: left;
+    list-style: none;
+  }
+
+  a {
+    padding: 15px 0;
+    text-align: center;
+    width: 274px;
+    display: block;
+
+    &:hover {
+      color: $linkColorHover;
+    }
+
+    &.active {
+      background: transparent url(../img/active-tab.png) no-repeat;
+      color: $grayDark;
+    }
+  }
+}
 

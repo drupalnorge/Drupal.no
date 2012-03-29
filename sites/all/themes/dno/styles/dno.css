@@ -3800,35 +3800,42 @@ h1#site-name a {
   margin-bottom: 10px;
 }
 
-/*         Front Page
- *************************************************/
-.front .region-content-bottom {
+/**
+ * Blocks
+ */
+.region-content-bottom {
   padding-top: 10px;
   border-top: 1px solid #E7E7E7;
   overflow: auto;
 }
-.front .region-content-bottom .block {
-  width: 300px;
+.region-content-bottom .block {
+  display: inline;
   float: left;
-  margin: 20px 0;
-  margin-right: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 300px;
   background: url(../img/front-imgs.jpg) 0 0 no-repeat;
   padding-top: 200px;
 }
-.front .region-content-bottom h2 {
+.region-content-bottom h2 {
   font-size: 16px;
   line-height: 21px;
 }
-.front .region-content-bottom #block-block-2 {
+.region-content-bottom #block-block-1 {
+  margin-left: 0;
+}
+.region-content-bottom #block-block-2 {
   background-position: -324px 0;
 }
-.front .region-content-bottom #block-block-3 {
+.region-content-bottom #block-block-3 {
   margin-right: 0;
   background-position: -643px 0;
+  margin-right: 0;
 }
 
-/*         Leverandører
- *************************************************/
+/**
+ * Leverandører
+ */
 .view-leverandorer .views-row {
   border-bottom: 1px solid #ccc;
   padding: 20px 0;
@@ -3869,5 +3876,33 @@ h1#site-name a {
   border-radius: 3px;
 }
 
-/*         Forms
- *************************************************/
+/**
+ * Hva er drupal
+ */
+#block-menu-menu-hva-er-drupal .content {
+  font-size: 1.3em;
+  border-bottom: 1px solid #cccccc;
+  background: white url(../img/bg-menu-tab.png) no-repeat;
+  margin-top: 30px;
+  text-transform: collapsing;
+}
+#block-menu-menu-hva-er-drupal .content ul {
+  margin: 0 0 -1px;
+}
+#block-menu-menu-hva-er-drupal .content li {
+  float: left;
+  list-style: none;
+}
+#block-menu-menu-hva-er-drupal .content a {
+  padding: 15px 0;
+  text-align: center;
+  width: 274px;
+  display: block;
+}
+#block-menu-menu-hva-er-drupal .content a:hover {
+  color: #005580;
+}
+#block-menu-menu-hva-er-drupal .content a.active {
+  background: transparent url(../img/active-tab.png) no-repeat;
+  color: #333333;
+}
