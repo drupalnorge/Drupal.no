@@ -3640,13 +3640,12 @@ li a.active {
   margin: 0 0 20px 0;
 }
 
-.field-name-body {
-  margin: 20px 0;
-}
-
 /* Typography */
 .handwriting {
   font-family: 'Just Me Again Down Here', cursive;
+}
+
+h2.handwriting {
   border: medium none !important;
   font-size: 3.2em !important;
 }
@@ -3725,7 +3724,7 @@ li a.active {
 #block-menu-menu-top-menu {
   position: absolute;
   top: 0;
-  right: 0;
+  right: 10px;
   float: right;
 }
 #block-menu-menu-top-menu ul {
@@ -3751,6 +3750,7 @@ h1#site-name a {
   background: url(../img/header-bg.png) 0 0 repeat-x;
   height: 125px;
   position: relative;
+  margin-bottom: 20px;
 }
 #header #block-system-main-menu ul {
   width: auto;
@@ -3779,6 +3779,7 @@ h1#site-name a {
   background: #000;
   border-bottom: 5px solid #76AFF2;
   overflow: auto;
+  margin-top: 30px;
 }
 #footer a {
   color: #80BAFD;
@@ -3811,34 +3812,49 @@ h1#site-name a {
 /**
  * Blocks
  */
+#sidebar-second .block {
+  margin: 0 0 30px;
+}
+
+#block-block-9 {
+  background: transparent url("../img/map-norway.png") no-repeat center bottom;
+  padding: 65px 0 38px;
+}
+#block-block-9 p {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
 .region-content-bottom {
   padding-top: 10px;
   border-top: 1px solid #E7E7E7;
   overflow: auto;
 }
-.region-content-bottom .block {
+.region-content-bottom ul {
+  list-style: none;
+}
+.region-content-bottom li {
+  list-style: none;
   display: inline;
   float: left;
   margin-left: 10px;
   margin-right: 10px;
   width: 300px;
-  background: url(../img/front-imgs.jpg) 0 0 no-repeat;
   padding-top: 200px;
+}
+.region-content-bottom li.views-row-first {
+  margin-left: 0;
+}
+.region-content-bottom li.views-row-last {
+  margin-right: 0;
 }
 .region-content-bottom h2 {
   font-size: 16px;
   line-height: 21px;
 }
-.region-content-bottom #block-block-1 {
-  margin-left: 0;
-}
-.region-content-bottom #block-block-2 {
-  background-position: -324px 0;
-}
-.region-content-bottom #block-block-3 {
-  margin-right: 0;
-  background-position: -643px 0;
-  margin-right: 0;
+.region-content-bottom img {
+  margin-bottom: 10px;
 }
 
 /**
@@ -3892,14 +3908,18 @@ h1#site-name a {
   border-bottom: 1px solid #cccccc;
   background: white url(../img/bg-menu-tab.png) no-repeat 0 bottom;
   margin-top: 30px;
-  text-transform: collapsing;
+  text-transform: capitalize;
+  margin-bottom: 30px;
 }
 #block-menu-menu-hva-er-drupal .content ul {
-  margin: 0 0 -1px;
+  margin: 0 auto -1px;
+  width: 822px;
 }
 #block-menu-menu-hva-er-drupal .content li {
   float: left;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 #block-menu-menu-hva-er-drupal .content a {
   padding: 15px 0;

@@ -107,6 +107,8 @@
   }
 }
 
+
+
 #page {
   clear: both;
 }
@@ -136,13 +138,13 @@ li a.active {
 .field-type-image {
   margin: 0 0 20px 0;
 }
-.field-name-body {
-  margin: 20px 0;
-}
 
   /* Typography */
 .handwriting {
   font-family: 'Just Me Again Down Here', cursive;
+}
+
+h2.handwriting {
   border: medium none !important;
   font-size: 3.2em !important;
 }
@@ -198,7 +200,7 @@ li a.active {
 #block-menu-menu-top-menu {
   position:absolute;
   top:0;
-  right: 0;
+  right: 10px;
   float: right;
     
   ul {
@@ -211,6 +213,10 @@ li a.active {
       
       a {
         color: white;
+
+        &:hover {
+
+        }
       }
   }
 }
@@ -227,6 +233,7 @@ li a.active {
   background: url(../img/header-bg.png) 0 0 repeat-x;
   height: 125px;
   position: relative;
+  margin-bottom: 20px;
 
   #block-system-main-menu {
     
@@ -266,18 +273,23 @@ li a.active {
   background: #000;
   border-bottom: 5px solid #76AFF2;
   overflow:auto;
+  margin-top: 30px;
+
   a {
     color: #80BAFD;
   }
+
   .block {
     width: 300px;
     height: 200px;
     float: left;
     margin: 20px 20px 0 0;
     }
+  
   #block-block-6 {
     margin-right: 0;
   }
+  
   #block-block-7 {
     text-align:center;
     margin: 20px auto;
@@ -299,16 +311,49 @@ li a.active {
  * Blocks
  */
 
-// Hva er drupal blocks
+// Sidebar default
+#sidebar-second {
+
+  .block {
+    margin: 0 0 30px;
+  }
+}
+
+// Call to action, Leverandører block
+#block-block-9 {
+  //text-align: center;
+  background: transparent url('../img/map-norway.png') no-repeat center bottom;
+  padding: 65px 0 38px;
+  
+  p {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+}
+
+// Content bottom article blocks
 .region-content-bottom {
   padding-top: 10px;
   border-top: 1px solid #E7E7E7;
   overflow: auto;
-  
-  .block {
+
+  ul {
+    list-style: none;
+  }
+
+  li {
+    list-style: none;
     @include grid(4);
-    background: url(../img/front-imgs.jpg) 0 0 no-repeat;
     padding-top: 200px;
+
+    &.views-row-first {
+      @include alpha;
+    }
+
+    &.views-row-last {
+      @include omega;
+    }
   }
 
   h2 {
@@ -316,18 +361,8 @@ li a.active {
     line-height: 21px;
   }
 
-  #block-block-1 {
-    @include alpha;
-  }
-
-  #block-block-2 {
-    background-position: -324px 0;
-  }
-
-  #block-block-3 {
-    margin-right: 0;
-    background-position: -643px 0;
-    @include omega;
+  img {
+    margin-bottom: 10px;
   }
 }
 
@@ -380,20 +415,26 @@ li a.active {
  * Hva er drupal
  */
 
+// Tabs
 #block-menu-menu-hva-er-drupal .content {
   font-size: 1.3em;
   border-bottom: 1px solid $color-grayLight;
   background: white url(../img/bg-menu-tab.png) no-repeat 0 bottom;
   margin-top: 30px;
-  text-transform: collapsing;
+  text-transform: capitalize;
+  margin-bottom: 30px;
+
 
   ul {
-    margin: 0 0 -1px;
+    margin: 0 auto -1px;
+    width: 822px;
   }
 
   li {
     float: left;
     list-style: none;
+    margin: 0;
+    padding: 0;
   }
 
   a {
