@@ -163,89 +163,6 @@ function banner_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-banner-field_bannerlink'
-  $fields['node-banner-field_bannerlink'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_bannerlink',
-      'foreign keys' => array(),
-      'indexes' => array(),
-      'module' => 'link',
-      'settings' => array(
-        'attributes' => array(
-          'class' => '',
-          'rel' => '',
-          'target' => 'default',
-        ),
-        'display' => array(
-          'url_cutoff' => 80,
-        ),
-        'enable_tokens' => 1,
-        'title' => 'optional',
-        'title_maxlength' => 128,
-        'title_value' => '',
-        'url' => 0,
-      ),
-      'translatable' => '0',
-      'type' => 'link_field',
-    ),
-    'field_instance' => array(
-      'bundle' => 'banner',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => 'Link has style as a button',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'link',
-          'settings' => array(),
-          'type' => 'link_default',
-          'weight' => 1,
-        ),
-        'teaser' => array(
-          'label' => 'hidden',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '9',
-        ),
-      ),
-      'ds_extras_field_template' => '',
-      'entity_type' => 'node',
-      'field_name' => 'field_bannerlink',
-      'label' => 'Link',
-      'required' => 0,
-      'settings' => array(
-        'attributes' => array(
-          'class' => '',
-          'configurable_title' => 0,
-          'rel' => '',
-          'target' => 'default',
-          'title' => '',
-        ),
-        'display' => array(
-          'url_cutoff' => '80',
-        ),
-        'enable_tokens' => 1,
-        'title' => 'required',
-        'title_maxlength' => '128',
-        'title_value' => '',
-        'url' => 0,
-        'user_register_form' => FALSE,
-        'validate_url' => 1,
-      ),
-      'widget' => array(
-        'active' => 0,
-        'module' => 'link',
-        'settings' => array(),
-        'type' => 'link_field',
-        'weight' => '-3',
-      ),
-    ),
-  );
-
   // Exported field: 'node-banner-field_text_position'
   $fields['node-banner-field_text_position'] = array(
     'field_config' => array(
@@ -385,8 +302,6 @@ function banner_field_default_fields() {
   // Included for use with string extractors like potx.
   t('Body');
   t('Image will be cropped to fit 940 x 360.');
-  t('Link');
-  t('Link has style as a button');
   t('Select position of text block');
   t('Select style of text block');
   t('Text position');
