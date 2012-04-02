@@ -191,7 +191,7 @@ function banner_views_default_views() {
   $handler->display->display_options['fields']['body']['field'] = 'body';
   $handler->display->display_options['fields']['body']['label'] = '';
   $handler->display->display_options['fields']['body']['alter']['alter_text'] = 1;
-  $handler->display->display_options['fields']['body']['alter']['text'] = '<div class="[field_text_style] [field_text_position]">
+  $handler->display->display_options['fields']['body']['alter']['text'] = '<div class="wrapper [field_text_style] [field_text_position]">
 <h2>[title]</h2>
 [body]
 </div>';
@@ -247,7 +247,7 @@ function banner_views_default_views() {
     t('Elementer per side'),
     t('- Alle -'),
     t('Offset'),
-    t('<div class="[field_text_style] [field_text_position]">
+    t('<div class="wrapper [field_text_style] [field_text_position]">
 <h2>[title]</h2>
 [body]
 </div>'),

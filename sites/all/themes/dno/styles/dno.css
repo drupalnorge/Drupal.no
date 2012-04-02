@@ -3980,7 +3980,7 @@ h1#site-name a {
   line-height: 1.2em;
   color: #333333;
 }
-.baner-page-fields .views-field-body div {
+.baner-page-fields .views-field-body .wrapper {
   display: block;
   position: absolute;
   bottom: 20px;
@@ -3988,17 +3988,17 @@ h1#site-name a {
   width: 50%;
   background: rgba(255, 255, 255, 0.8);
 }
-.baner-page-fields .views-field-body div.dark {
+.baner-page-fields .views-field-body .wrapper.dark {
   background: rgba(0, 0, 0, 0.8);
 }
-.baner-page-fields .views-field-body div.dark h2, .baner-page-fields .views-field-body div.dark p {
+.baner-page-fields .views-field-body .wrapper.dark h2, .baner-page-fields .views-field-body .wrapper.dark p {
   color: white;
 }
-.baner-page-fields .views-field-body div.center {
+.baner-page-fields .views-field-body .wrapper.center {
   text-align: center;
   right: 25%;
 }
-.baner-page-fields .views-field-body div.right {
+.baner-page-fields .views-field-body .wrapper.right {
   text-align: right;
   right: 0;
 }
