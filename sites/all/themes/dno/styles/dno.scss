@@ -181,6 +181,23 @@ h2.handwriting {
   }
 }
 
+.button {
+  @extend .big-button;
+  padding: 10px 15px;
+  font-size: 16px;
+
+  &.cta {
+    @include background-image(linear-gradient($color-cta-bt-light, $color-cta-bt-dark));
+    @include box-shadow($color-cta-bt-highlight 0 1px 0 inset);
+    border-color: $color-cta-bt-dark;
+
+    &:hover {
+      @include background-image(linear-gradient(lighten($color-cta-bt-light, 5%), $color-cta-bt-dark));
+      @include box-shadow(lighten($color-cta-bt-highlight, 15%) 0 1px 0 inset);
+    }
+  }
+}
+
 #footer .big-button {
   background-color: $color-footer-bt-dark;
   @include background-image(linear-gradient($color-footer-bt-light, $color-footer-bt-dark));
@@ -454,3 +471,49 @@ h2.handwriting {
   }
 }
 
+/**
+ * Banner
+ */
+.baner-page-fields {
+  position: relative;
+  font-size: 1.3em;
+  border: 1px solid $color-grayLight;
+
+  h2 {
+    font-size: 2em;
+    margin-bottom: 0.3em;
+  }
+
+  p {
+    font-size: 1em;
+    line-height: 1.2em;
+    color: $grayDark;
+  }
+
+  .views-field-body div {
+    display: block;
+    position: absolute;
+    bottom: 20px;
+    padding: 10px 20px;
+    width: 50%;
+    background: rgba(white, 0.8);
+
+    &.dark {
+      background: rgba(black, 0.8);
+
+      h2, p {
+        color: white;
+      }
+    }
+
+    &.center {
+      text-align: center;
+      right: 25%;
+    }
+
+    &.right {
+      text-align: right;
+      right: 0;
+    }
+  }
+}

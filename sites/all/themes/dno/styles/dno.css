@@ -3652,7 +3652,7 @@ h2.handwriting {
 
 /* Links */
 /* Buttons */
-.big-button {
+.big-button, .button {
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   border-radius: 15px;
@@ -3675,7 +3675,7 @@ h2.handwriting {
   box-shadow: #a6d8ff 0 1px 0 inset;
   border: 1px solid #4679bf;
 }
-.big-button:hover {
+.big-button:hover, .button:hover {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #9bcaff), color-stop(100%, #4679bf));
   background-image: -webkit-linear-gradient(#9bcaff, #4679bf);
   background-image: -moz-linear-gradient(#9bcaff, #4679bf);
@@ -3686,7 +3686,7 @@ h2.handwriting {
   -moz-box-shadow: #f3faff 0 1px 0 inset;
   box-shadow: #f3faff 0 1px 0 inset;
 }
-.big-button small {
+.big-button small, .button small {
   font-weight: normal;
   letter-spacing: 0.5em;
   text-align: right;
@@ -3695,7 +3695,35 @@ h2.handwriting {
   margin: 5px -0.5em -15px 0;
 }
 
-#footer .big-button {
+.button {
+  padding: 10px 15px;
+  font-size: 16px;
+}
+.button.cta {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f16529), color-stop(100%, #e44d26));
+  background-image: -webkit-linear-gradient(#f16529, #e44d26);
+  background-image: -moz-linear-gradient(#f16529, #e44d26);
+  background-image: -o-linear-gradient(#f16529, #e44d26);
+  background-image: -ms-linear-gradient(#f16529, #e44d26);
+  background-image: linear-gradient(#f16529, #e44d26);
+  -webkit-box-shadow: #f7aa89 0 1px 0 inset;
+  -moz-box-shadow: #f7aa89 0 1px 0 inset;
+  box-shadow: #f7aa89 0 1px 0 inset;
+  border-color: #e44d26;
+}
+.button.cta:hover {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f37641), color-stop(100%, #e44d26));
+  background-image: -webkit-linear-gradient(#f37641, #e44d26);
+  background-image: -moz-linear-gradient(#f37641, #e44d26);
+  background-image: -o-linear-gradient(#f37641, #e44d26);
+  background-image: -ms-linear-gradient(#f37641, #e44d26);
+  background-image: linear-gradient(#f37641, #e44d26);
+  -webkit-box-shadow: #fcded1 0 1px 0 inset;
+  -moz-box-shadow: #fcded1 0 1px 0 inset;
+  box-shadow: #fcded1 0 1px 0 inset;
+}
+
+#footer .big-button, #footer .button {
   background-color: #7e9f3a;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #b2e355), color-stop(100%, #7e9f3a));
   background-image: -webkit-linear-gradient(#b2e355, #7e9f3a);
@@ -3708,7 +3736,7 @@ h2.handwriting {
   box-shadow: #daf1ad 0 1px 0 inset;
   border: 1px solid #7e9f3a;
 }
-#footer .big-button:hover {
+#footer .big-button:hover, #footer .button:hover {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #bce76b), color-stop(100%, #7e9f3a));
   background-image: -webkit-linear-gradient(#bce76b, #7e9f3a);
   background-image: -moz-linear-gradient(#bce76b, #7e9f3a);
@@ -3933,4 +3961,44 @@ h1#site-name a {
 #block-menu-menu-hva-er-drupal .content a.active {
   background: transparent url(../img/active-tab.png) no-repeat;
   color: #333333;
+}
+
+/**
+ * Banner
+ */
+.baner-page-fields {
+  position: relative;
+  font-size: 1.3em;
+  border: 1px solid #cccccc;
+}
+.baner-page-fields h2 {
+  font-size: 2em;
+  margin-bottom: 0.3em;
+}
+.baner-page-fields p {
+  font-size: 1em;
+  line-height: 1.2em;
+  color: #333333;
+}
+.baner-page-fields .views-field-body div {
+  display: block;
+  position: absolute;
+  bottom: 20px;
+  padding: 10px 20px;
+  width: 50%;
+  background: rgba(255, 255, 255, 0.8);
+}
+.baner-page-fields .views-field-body div.dark {
+  background: rgba(0, 0, 0, 0.8);
+}
+.baner-page-fields .views-field-body div.dark h2, .baner-page-fields .views-field-body div.dark p {
+  color: white;
+}
+.baner-page-fields .views-field-body div.center {
+  text-align: center;
+  right: 25%;
+}
+.baner-page-fields .views-field-body div.right {
+  text-align: right;
+  right: 0;
 }
