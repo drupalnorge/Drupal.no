@@ -3581,7 +3581,6 @@ a.thumbnail:hover {
 /**
  * Colors
  */
-@import url(http://fonts.googleapis.com/css?family=Just+Me+Again+Down+Here);
 /* Layout */
 #header {
   background: #ff3399;
@@ -3747,6 +3746,9 @@ h2.handwriting {
   -webkit-box-shadow: #f7fcee 0 1px 0 inset;
   -moz-box-shadow: #f7fcee 0 1px 0 inset;
   box-shadow: #f7fcee 0 1px 0 inset;
+}
+#footer .big-button small, #footer .button small {
+  color: #43541f;
 }
 
 /* header */

@@ -84,7 +84,7 @@
 
 // Custom
 @import 'partials/custom/_common.scss';
-@import url(http://fonts.googleapis.com/css?family=Just+Me+Again+Down+Here); // Google fonts
+// @import url(http://fonts.googleapis.com/css?family=Just+Me+Again+Down+Here); // Google fonts
 @import "960/grid";
 
 
@@ -208,6 +208,10 @@ h2.handwriting {
   &:hover {
     @include background-image(linear-gradient(lighten($color-footer-bt-light, 5%), $color-footer-bt-dark));
     @include box-shadow(lighten($color-footer-bt-highlight, 15%) 0 1px 0 inset);
+  }
+
+  small {
+    color: darken($color-footer-bt-dark, 20%);
   }
 }
 
