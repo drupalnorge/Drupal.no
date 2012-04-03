@@ -3700,6 +3700,7 @@ h2.handwriting {
   font-size: 16px;
 }
 .button.cta {
+  background-color: #e44d26;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f16529), color-stop(100%, #e44d26));
   background-image: -webkit-linear-gradient(#f16529, #e44d26);
   background-image: -moz-linear-gradient(#f16529, #e44d26);

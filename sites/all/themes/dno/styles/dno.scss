@@ -187,6 +187,7 @@ h2.handwriting {
   font-size: 16px;
 
   &.cta {
+    background-color: $color-cta-bt-dark;
     @include background-image(linear-gradient($color-cta-bt-light, $color-cta-bt-dark));
     @include box-shadow($color-cta-bt-highlight 0 1px 0 inset);
     border-color: $color-cta-bt-dark;
