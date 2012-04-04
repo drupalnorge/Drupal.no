@@ -489,12 +489,13 @@ h2.handwriting {
   h2 {
     font-size: 2em;
     margin-bottom: 0.3em;
+    color: white;
   }
 
   p {
     font-size: 1em;
     line-height: 1.2em;
-    color: $grayDark;
+    color: white;
   }
 
   .views-field-body .wrapper {
@@ -503,13 +504,17 @@ h2.handwriting {
     bottom: 20px;
     padding: 10px 20px;
     width: 50%;
-    background: rgba(white, 0.8);
+    // background: rgba(white, 0.8);
 
     &.dark {
-      background: rgba(black, 0.8);
+      // background: rgba(black, 0.8);
 
-      h2, p {
-        color: white;
+      h2 {
+        color: black;
+      }
+
+      p {
+        color: $grayDark;
       }
     }
 

@@ -3983,11 +3983,12 @@ h1#site-name a {
 .baner-page-fields h2 {
   font-size: 2em;
   margin-bottom: 0.3em;
+  color: white;
 }
 .baner-page-fields p {
   font-size: 1em;
   line-height: 1.2em;
-  color: #333333;
+  color: white;
 }
 .baner-page-fields .views-field-body .wrapper {
   display: block;
@@ -3995,13 +3996,12 @@ h1#site-name a {
   bottom: 20px;
   padding: 10px 20px;
   width: 50%;
-  background: rgba(255, 255, 255, 0.8);
 }
-.baner-page-fields .views-field-body .wrapper.dark {
-  background: rgba(0, 0, 0, 0.8);
+.baner-page-fields .views-field-body .wrapper.dark h2 {
+  color: black;
 }
-.baner-page-fields .views-field-body .wrapper.dark h2, .baner-page-fields .views-field-body .wrapper.dark p {
-  color: white;
+.baner-page-fields .views-field-body .wrapper.dark p {
+  color: #333333;
 }
 .baner-page-fields .views-field-body .wrapper.center {
   text-align: center;
