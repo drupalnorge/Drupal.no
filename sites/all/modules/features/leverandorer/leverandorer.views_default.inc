@@ -132,7 +132,8 @@ function leverandorer_views_default_views() {
   $handler->display->display_options['fields']['field_company_url']['field'] = 'field_company_url';
   $handler->display->display_options['fields']['field_company_url']['label'] = '';
   $handler->display->display_options['fields']['field_company_url']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_company_url']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_company_url']['alter']['alter_text'] = 1;
+  $handler->display->display_options['fields']['field_company_url']['alter']['text'] = '<span class="website"><i class="icon-home"></i>[field_company_url]</span>';
   $handler->display->display_options['fields']['field_company_url']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['field_company_url']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_company_url']['alter']['external'] = 0;
@@ -145,8 +146,6 @@ function leverandorer_views_default_views() {
   $handler->display->display_options['fields']['field_company_url']['alter']['strip_tags'] = 0;
   $handler->display->display_options['fields']['field_company_url']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_company_url']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['field_company_url']['element_type'] = 'div';
-  $handler->display->display_options['fields']['field_company_url']['element_class'] = 'url';
   $handler->display->display_options['fields']['field_company_url']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_company_url']['element_default_classes'] = 0;
   $handler->display->display_options['fields']['field_company_url']['hide_empty'] = 0;
@@ -161,7 +160,8 @@ function leverandorer_views_default_views() {
   $handler->display->display_options['fields']['field_company_phone']['field'] = 'field_company_phone';
   $handler->display->display_options['fields']['field_company_phone']['label'] = '';
   $handler->display->display_options['fields']['field_company_phone']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_company_phone']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_company_phone']['alter']['alter_text'] = 1;
+  $handler->display->display_options['fields']['field_company_phone']['alter']['text'] = '<span class="comment"><i class="icon-comment"></i>[field_company_phone]</span>';
   $handler->display->display_options['fields']['field_company_phone']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['field_company_phone']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_company_phone']['alter']['external'] = 0;
@@ -174,9 +174,9 @@ function leverandorer_views_default_views() {
   $handler->display->display_options['fields']['field_company_phone']['alter']['strip_tags'] = 0;
   $handler->display->display_options['fields']['field_company_phone']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_company_phone']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['field_company_phone']['element_type'] = 'span';
-  $handler->display->display_options['fields']['field_company_phone']['element_class'] = 'phone';
+  $handler->display->display_options['fields']['field_company_phone']['element_type'] = '0';
   $handler->display->display_options['fields']['field_company_phone']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_company_phone']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['field_company_phone']['element_default_classes'] = 0;
   $handler->display->display_options['fields']['field_company_phone']['hide_empty'] = 0;
   $handler->display->display_options['fields']['field_company_phone']['empty_zero'] = 0;
@@ -192,7 +192,8 @@ function leverandorer_views_default_views() {
   $handler->display->display_options['fields']['field_company_email']['field'] = 'field_company_email';
   $handler->display->display_options['fields']['field_company_email']['label'] = '';
   $handler->display->display_options['fields']['field_company_email']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_company_email']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_company_email']['alter']['alter_text'] = 1;
+  $handler->display->display_options['fields']['field_company_email']['alter']['text'] = '<span class="mail"><i class="icon-envelope"></i>[field_company_email]</span>';
   $handler->display->display_options['fields']['field_company_email']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['field_company_email']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_company_email']['alter']['external'] = 0;
@@ -206,7 +207,7 @@ function leverandorer_views_default_views() {
   $handler->display->display_options['fields']['field_company_email']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_company_email']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_company_email']['element_type'] = 'span';
-  $handler->display->display_options['fields']['field_company_email']['element_class'] = 'email';
+  $handler->display->display_options['fields']['field_company_email']['element_class'] = 'icon-envelope';
   $handler->display->display_options['fields']['field_company_email']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_company_email']['element_default_classes'] = 0;
   $handler->display->display_options['fields']['field_company_email']['hide_empty'] = 0;
@@ -280,6 +281,9 @@ function leverandorer_views_default_views() {
     t('Elementer per side'),
     t('- Alle -'),
     t('Offset'),
+    t('<span class="website"><i class="icon-home"></i>[field_company_url]</span>'),
+    t('<span class="comment"><i class="icon-comment"></i>[field_company_phone]</span>'),
+    t('<span class="mail"><i class="icon-envelope"></i>[field_company_email]</span>'),
     t('[field_company_logo]
 <section class="info">
   <h2>[title] <i class="where">[field_company_where]</i></h2>
