@@ -69,6 +69,15 @@
  */
 ?>
 <?php if ($logo || $site_name || $site_slogan || $page['header']): ?>
+
+  <?php if ($page['header_top']): ?>
+      <div id="header_top">
+        <div class="wrapper clearfix">
+          <?php print render($page['header_top']); ?>
+        </div>
+      </div>
+  <?php endif; ?>
+
   <header id="header" role="banner">
     <div class="wrapper"><div class="inner">
       <?php if ($logo): ?>

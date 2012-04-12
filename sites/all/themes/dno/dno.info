@@ -45,6 +45,7 @@ scripts[] = scripts/bootstrap/bootstrap-tab.js
 ; sub-themes must re-declare regions.
 
 ; these are the stock regions
+regions[header_top] = Header top
 regions[header] = Header
 regions[help] = Help
 regions[page_top] = Page top

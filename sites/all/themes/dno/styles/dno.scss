@@ -215,47 +215,65 @@ h2.handwriting {
   }
 }
 
-  /* header */
+/* header top */
+#header_top {
+  // background-color: $color-grayLighter;
 
-
-
-#block-menu-menu-top-menu {
-  position:absolute;
-  top:0;
-  right: 10px;
-  float: right;
-    
-  ul {
-    margin: 0;
-    padding: 0;
+  .wrapper {
+    @include grid-container;
   }
 
-  li {
-    display: inline;
-      
-      a {
-        color: white;
+  .block-menu {
+    @include grid(12);
+    
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
 
-        &:hover {
+    li {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      float: right;
+      margin-left: 1px;
+      border-left: 1px solid darken($color-grayLighter, 5%);
+      // border-right: 1px solid darken($color-blue, 5%);
 
-        }
+      &.first {
+        border-right: 1px solid darken($color-grayLighter, 5%);
       }
+    }
+
+    a {
+      color: $gray;
+      padding: 5px 10px;
+      // background-color: $color-grayLighter;
+      display: block;
+
+      &:hover {
+        background-color: $color-grayLighter;
+        color: $grayDark;
+      }
+    }
   }
 }
 
-  h1#site-name a {
-    float: left;  
-    color: #fff;
-    font-size: 50px;
-    @include text-shadow(#325A90 0 -1px 0);
-    margin-top: 50px;
-  }
+/* header */
+h1#site-name a {
+  float: left;  
+  color: #fff;
+  font-size: 43px;
+  @include text-shadow(#325A90 0 -1px 0);
+  margin-top: 27px;
+}
 
 #header {
   // background: url(../img/header-bg.png) 0 0 repeat-x;
   background-color: #6ba2e6;
-  @include background-image(linear-gradient(#6ba2e6, #5485c7));
-  height: 125px;
+  @include background-image(linear-gradient($color-blueHightlight, $color-blue));
+  height: 85px;
   position: relative;
   margin-bottom: 20px;
 
@@ -264,18 +282,20 @@ h2.handwriting {
     ul {
       width: auto;
       float: right;
-      margin: 65px 0 0;
+      margin: 48px 0 0;
     }
 
     li {
       display: block;
       float: left;
+      margin: 0 0 0 10px;
+      padding: 0;
 
       a {
         color: #fff;
         font-weight: bold;
         font-size: 13px;
-        line-height:14x;
+        line-height: 14x;
         padding: 7px 10px;
         border-radius: 4px;
 

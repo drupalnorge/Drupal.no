@@ -3751,30 +3751,52 @@ h2.handwriting {
   color: #43541f;
 }
 
-/* header */
-#block-menu-menu-top-menu {
-  position: absolute;
-  top: 0;
-  right: 10px;
-  float: right;
+/* header top */
+#header_top .wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  width: 960px;
 }
-#block-menu-menu-top-menu ul {
+#header_top .block-menu {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 940px;
+}
+#header_top .block-menu ul {
   margin: 0;
   padding: 0;
+  list-style: none;
 }
-#block-menu-menu-top-menu li {
-  display: inline;
+#header_top .block-menu li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  float: right;
+  margin-left: 1px;
+  border-left: 1px solid #e7e7e7;
 }
-#block-menu-menu-top-menu li a {
-  color: white;
+#header_top .block-menu li.first {
+  border-right: 1px solid #e7e7e7;
+}
+#header_top .block-menu a {
+  color: #555555;
+  padding: 5px 10px;
+  display: block;
+}
+#header_top .block-menu a:hover {
+  background-color: #f4f4f4;
+  color: #333333;
 }
 
+/* header */
 h1#site-name a {
   float: left;
   color: #fff;
-  font-size: 50px;
+  font-size: 43px;
   text-shadow: #325a90 0 -1px 0;
-  margin-top: 50px;
+  margin-top: 27px;
 }
 
 #header {
@@ -3785,18 +3807,20 @@ h1#site-name a {
   background-image: -o-linear-gradient(#6ba2e6, #5485c7);
   background-image: -ms-linear-gradient(#6ba2e6, #5485c7);
   background-image: linear-gradient(#6ba2e6, #5485c7);
-  height: 125px;
+  height: 85px;
   position: relative;
   margin-bottom: 20px;
 }
 #header #block-system-main-menu ul {
   width: auto;
   float: right;
-  margin: 65px 0 0;
+  margin: 48px 0 0;
 }
 #header #block-system-main-menu li {
   display: block;
   float: left;
+  margin: 0 0 0 10px;
+  padding: 0;
 }
 #header #block-system-main-menu li a {
   color: #fff;
