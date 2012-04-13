@@ -274,7 +274,7 @@ h1#site-name a {
   position: relative;
   margin-bottom: 20px;
 
-  #block-system-main-menu {
+  #block-menu-block-1 {
     
     ul {
       width: auto;
@@ -478,7 +478,7 @@ h1#site-name a {
 
   h2 {
     font-size: 1.5em;
-    line-height: 1em;
+    line-height: 1.4em;
   }
 
   .views-row {
@@ -486,15 +486,13 @@ h1#site-name a {
     margin-bottom: 30px;
   }
 
-  .views-row-1, .views-row-4 {
+  .views-row-1, .views-row-4, .views-row-7, .views-row-10, .views-row-13 {
     @include alpha;
   }
 
-  .views-row-3, .views-row-6 {
+  .views-row-3, .views-row-6, .views-row-9, .views-row-12, .views-row-15 {
     @include omega;
   }
-
-
 }
 
 /**
@@ -502,40 +500,43 @@ h1#site-name a {
  */
 
 // Tabs
-#block-menu-menu-hva-er-drupal .content {
-  font-size: 1.3em;
-  border-bottom: 1px solid $color-grayLight;
-  background: white url(../img/bg-menu-tab.png) no-repeat 0 bottom;
-  margin-top: 30px;
-  text-transform: capitalize;
-  margin-bottom: 30px;
+.region-content-top {
 
+  .block-menu .content, .block-menu-block .content {
+    font-size: 1.3em;
+    border-bottom: 1px solid $color-grayLight;
+    background: white url(../img/bg-menu-tab.png) no-repeat 0 bottom;
+    text-transform: capitalize;
+    margin-bottom: 30px;
 
-  ul {
-    margin: 0 auto -1px;
-    width: 822px;
-  }
-
-  li {
-    float: left;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  a {
-    padding: 15px 0;
-    text-align: center;
-    width: 274px;
-    display: block;
-
-    &:hover {
-      color: $linkColorHover;
+    ul {
+      margin: 0 auto -1px;
+      // width: 822px;
+      text-align: center;
     }
 
-    &.active {
-      background: transparent url(../img/active-tab.png) no-repeat;
-      color: $grayDark;
+    li {
+      // float: left;
+      display: inline-block;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    a {
+      padding: 15px 0;
+      text-align: center;
+      width: 274px;
+      display: block;
+
+      &:hover {
+        color: $linkColorHover;
+      }
+
+      &.active {
+        background: transparent url(../img/active-tab.png) no-repeat;
+        color: $grayDark;
+      }
     }
   }
 }

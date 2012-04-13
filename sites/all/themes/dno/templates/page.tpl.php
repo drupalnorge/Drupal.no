@@ -117,7 +117,6 @@
       </div><!-- /#highlighted -->
     <?php endif; ?>
      
-    <?php print $breadcrumb; ?>
     <?php print render($title_prefix); ?>
     <?php if ($title): ?>
       <h1 class="title" id="page-title"><?php print $title; ?></h1>

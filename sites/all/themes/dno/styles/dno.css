@@ -4477,18 +4477,18 @@ h1#site-name a {
   position: relative;
   margin-bottom: 20px;
 }
-#header #block-system-main-menu ul {
+#header #block-menu-block-1 ul {
   width: auto;
   float: right;
   margin: 48px 0 0;
 }
-#header #block-system-main-menu li {
+#header #block-menu-block-1 li {
   display: block;
   float: left;
   margin: 0 0 0 10px;
   padding: 0;
 }
-#header #block-system-main-menu li a {
+#header #block-menu-block-1 li a {
   color: #fff;
   font-weight: bold;
   font-size: 13px;
@@ -4496,7 +4496,7 @@ h1#site-name a {
   padding: 7px 10px;
   border-radius: 4px;
 }
-#header #block-system-main-menu li a:hover, #header #block-system-main-menu li a.active-trail {
+#header #block-menu-block-1 li a:hover, #header #block-menu-block-1 li a.active-trail {
   background: #4D82C5;
 }
 
@@ -4649,7 +4649,7 @@ h1#site-name a {
 }
 .view-references h2 {
   font-size: 1.5em;
-  line-height: 1em;
+  line-height: 1.4em;
 }
 .view-references .views-row {
   display: inline;
@@ -4659,44 +4659,43 @@ h1#site-name a {
   width: 300px;
   margin-bottom: 30px;
 }
-.view-references .views-row-1, .view-references .views-row-4 {
+.view-references .views-row-1, .view-references .views-row-4, .view-references .views-row-7, .view-references .views-row-10, .view-references .views-row-13 {
   margin-left: 0;
 }
-.view-references .views-row-3, .view-references .views-row-6 {
+.view-references .views-row-3, .view-references .views-row-6, .view-references .views-row-9, .view-references .views-row-12, .view-references .views-row-15 {
   margin-right: 0;
 }
 
 /**
  * Hva er drupal
  */
-#block-menu-menu-hva-er-drupal .content {
+.region-content-top .block-menu .content, .region-content-top .block-menu-block .content {
   font-size: 1.3em;
   border-bottom: 1px solid #cccccc;
   background: white url(../img/bg-menu-tab.png) no-repeat 0 bottom;
-  margin-top: 30px;
   text-transform: capitalize;
   margin-bottom: 30px;
 }
-#block-menu-menu-hva-er-drupal .content ul {
+.region-content-top .block-menu .content ul, .region-content-top .block-menu-block .content ul {
   margin: 0 auto -1px;
-  width: 822px;
+  text-align: center;
 }
-#block-menu-menu-hva-er-drupal .content li {
-  float: left;
+.region-content-top .block-menu .content li, .region-content-top .block-menu-block .content li {
+  display: inline-block;
   list-style: none;
   margin: 0;
   padding: 0;
 }
-#block-menu-menu-hva-er-drupal .content a {
+.region-content-top .block-menu .content a, .region-content-top .block-menu-block .content a {
   padding: 15px 0;
   text-align: center;
   width: 274px;
   display: block;
 }
-#block-menu-menu-hva-er-drupal .content a:hover {
+.region-content-top .block-menu .content a:hover, .region-content-top .block-menu-block .content a:hover {
   color: #005580;
 }
-#block-menu-menu-hva-er-drupal .content a.active {
+.region-content-top .block-menu .content a.active, .region-content-top .block-menu-block .content a.active {
   background: transparent url(../img/active-tab.png) no-repeat;
   color: #333333;
 }
