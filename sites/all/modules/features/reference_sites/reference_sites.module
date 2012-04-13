@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Referansesider feature.
+ */
+
+include_once('reference_sites.features.inc');
