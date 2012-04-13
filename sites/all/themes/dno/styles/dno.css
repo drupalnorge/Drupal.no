@@ -4546,9 +4546,11 @@ h1#site-name a {
 #block-block-9 {
   background: transparent url("../img/map-norway.png") no-repeat center bottom;
   padding: 65px 0 38px;
+  color: #555555;
 }
 #block-block-9 p {
   font-size: 1.3em;
+  line-height: 1.2em;
   font-weight: bold;
   margin-bottom: 15px;
 }
