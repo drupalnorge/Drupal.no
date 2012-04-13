@@ -4641,6 +4641,32 @@ h1#site-name a {
 }
 
 /**
+ * Referanser
+ */
+.view-references img {
+  border: 1px solid #eeeeee;
+  margin-bottom: 10px;
+}
+.view-references h2 {
+  font-size: 1.5em;
+  line-height: 1em;
+}
+.view-references .views-row {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 300px;
+  margin-bottom: 30px;
+}
+.view-references .views-row-1, .view-references .views-row-4 {
+  margin-left: 0;
+}
+.view-references .views-row-3, .view-references .views-row-6 {
+  margin-right: 0;
+}
+
+/**
  * Hva er drupal
  */
 #block-menu-menu-hva-er-drupal .content {

@@ -467,6 +467,37 @@ h1#site-name a {
 }
 
 /**
+ * Referanser
+ */
+.view-references {
+
+  img {
+    border: 1px solid $grayLighter;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-size: 1.5em;
+    line-height: 1em;
+  }
+
+  .views-row {
+    @include grid(4);
+    margin-bottom: 30px;
+  }
+
+  .views-row-1, .views-row-4 {
+    @include alpha;
+  }
+
+  .views-row-3, .views-row-6 {
+    @include omega;
+  }
+
+
+}
+
+/**
  * Hva er drupal
  */
 
