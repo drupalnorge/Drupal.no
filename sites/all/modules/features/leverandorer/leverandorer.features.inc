@@ -24,7 +24,7 @@ function leverandorer_image_default_styles() {
   $styles['company'] = array(
     'name' => 'company',
     'effects' => array(
-      2 => array(
+      4 => array(
         'label' => 'Skaler',
         'help' => 'Skalering vil beholde størrelsesforhold i det originale bildet. Hvis bare en dimensjon er oppgitt, så beregnes den andre dimensjonen.',
         'effect callback' => 'image_scale_effect',
@@ -34,27 +34,39 @@ function leverandorer_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale',
         'data' => array(
-          'width' => '170',
-          'height' => '140',
+          'width' => '199',
+          'height' => '119',
           'upscale' => 0,
         ),
         'weight' => '-10',
       ),
-      3 => array(
-        'label' => 'Beskjær',
-        'help' => 'Beskjæring vil fjerne deler av et bilde slik at det passer med de oppgitte dimensjonene.',
-        'effect callback' => 'image_crop_effect',
-        'dimensions callback' => 'image_resize_dimensions',
-        'form callback' => 'image_crop_form',
-        'summary theme' => 'image_crop_summary',
-        'module' => 'image',
-        'name' => 'image_crop',
+      6 => array(
+        'label' => 'Define canvas',
+        'help' => 'Define the size of the working canvas and background color, this controls the dimensions of the output image.',
+        'effect callback' => 'canvasactions_definecanvas_image',
+        'form callback' => 'canvasactions_definecanvas_form',
+        'summary theme' => 'canvasactions_definecanvas_summary',
+        'module' => 'imagecache_canvasactions',
+        'name' => 'canvasactions_definecanvas',
         'data' => array(
-          'width' => '219',
-          'height' => '139',
-          'anchor' => 'center-center',
+          'RGB' => array(
+            'HEX' => 'ffffff',
+          ),
+          'under' => 1,
+          'exact' => array(
+            'width' => '219',
+            'height' => '139',
+            'xpos' => 'center',
+            'ypos' => 'center',
+          ),
+          'relative' => array(
+            'leftdiff' => '',
+            'rightdiff' => '',
+            'topdiff' => '',
+            'bottomdiff' => '',
+          ),
         ),
-        'weight' => '-8',
+        'weight' => '2',
       ),
     ),
   );
