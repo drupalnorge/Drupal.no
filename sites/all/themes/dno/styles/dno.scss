@@ -87,6 +87,25 @@
 // @import url(http://fonts.googleapis.com/css?family=Just+Me+Again+Down+Here); // Google fonts
 @import "960/grid";
 
+/* Push footer to bottom */
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+.page-wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -293px; /* the bottom margin is the negative value of the footer's height */
+}
+
+.footer, .push {
+  height: 293px; /* .push must be the same height as .footer */
+}
 
   /* Layout */
 #header {
@@ -355,6 +374,22 @@ h1#site-name a {
 
   .block {
     margin: 0 0 30px;
+  }
+
+  h1 {
+    font-size: 30px * 0.8;
+  }
+
+  h2 {
+    font-size: 24px * 0.8;
+  }
+
+  h3 {
+    font-size: 18px * 0.8;
+  }
+
+  h4 {
+    font-size: 14px * 0.8;
   }
 }
 

@@ -4248,6 +4248,28 @@ a.thumbnail:hover {
 /**
  * Colors
  */
+/* Push footer to bottom */
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+.page-wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -293px;
+  /* the bottom margin is the negative value of the footer's height */
+}
+
+.footer, .push {
+  height: 293px;
+  /* .push must be the same height as .footer */
+}
+
 /* Layout */
 #header {
   background: #ff3399;
@@ -4541,6 +4563,18 @@ h1#site-name a {
  */
 #sidebar-second .block {
   margin: 0 0 30px;
+}
+#sidebar-second h1 {
+  font-size: 24px;
+}
+#sidebar-second h2 {
+  font-size: 19.2px;
+}
+#sidebar-second h3 {
+  font-size: 14.4px;
+}
+#sidebar-second h4 {
+  font-size: 11.2px;
 }
 
 #block-block-9 {
