@@ -70,6 +70,7 @@
 ?>
 <?php if ($logo || $site_name || $site_slogan || $page['header']): ?>
   <div class="page-wrapper">
+    
     <?php if ($page['header_top']): ?>
         <div id="header_top">
           <div class="wrapper clearfix">
@@ -97,7 +98,8 @@
         <?php endif; ?>
 
         <?php print render($page['header']); ?>
-      </header><!-- /#header -->
+      </div></div>
+    </header><!-- /#header -->
     <?php endif; ?>
 
     <div id="page">

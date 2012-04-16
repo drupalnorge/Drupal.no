@@ -4265,7 +4265,7 @@ html, body {
   /* the bottom margin is the negative value of the footer's height */
 }
 
-.footer, .push {
+#footer, .push {
   height: 293px;
   /* .push must be the same height as .footer */
 }
@@ -4526,9 +4526,7 @@ h1#site-name a {
 /* Footer */
 #footer {
   background: #000;
-  border-bottom: 5px solid #76AFF2;
   overflow: auto;
-  margin-top: 30px;
 }
 #footer a {
   color: #80BAFD;
