@@ -87,6 +87,10 @@
 // @import url(http://fonts.googleapis.com/css?family=Just+Me+Again+Down+Here); // Google fonts
 @import "960/grid";
 
+
+::-moz-selection, ::selection {
+  background: $color-bt-light;
+}
 /* Push footer to bottom */
 * {
   margin: 0;
