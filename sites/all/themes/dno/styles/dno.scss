@@ -88,8 +88,12 @@
 @import "960/grid";
 
 
-::-moz-selection, ::selection {
+::-moz-selection {
   background: $color-bt-light;
+}
+
+::selection {
+  background-color: $color-bt-light;
 }
 /* Push footer to bottom */
 * {

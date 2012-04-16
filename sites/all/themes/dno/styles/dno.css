@@ -4248,8 +4248,12 @@ a.thumbnail:hover {
 /**
  * Colors
  */
-::-moz-selection, ::selection {
+::-moz-selection {
   background: #81bcff;
+}
+
+::selection {
+  background-color: #81bcff;
 }
 
 /* Push footer to bottom */
