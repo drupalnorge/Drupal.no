@@ -4731,6 +4731,8 @@ h1#site-name a {
 }
 .region-content-top .block-menu .content li, .region-content-top .block-menu-block .content li {
   display: inline-block;
+  *display: inline;
+  zoom: 1;
   list-style: none;
   margin: 0;
   padding: 0;
