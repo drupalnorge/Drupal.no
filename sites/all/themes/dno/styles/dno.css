@@ -4376,6 +4376,7 @@ h2.handwriting {
   border: 1px solid #4679bf;
 }
 .big-button:hover, .button:hover {
+  background-color: #5584c4;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #9bcaff), color-stop(100%, #4679bf));
   background-image: -webkit-linear-gradient(#9bcaff, #4679bf);
   background-image: -moz-linear-gradient(#9bcaff, #4679bf);
@@ -4413,6 +4414,7 @@ h2.handwriting {
   border-color: #e44d26;
 }
 .button.cta:hover {
+  background-color: #e65c38;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f37641), color-stop(100%, #e44d26));
   background-image: -webkit-linear-gradient(#f37641, #e44d26);
   background-image: -moz-linear-gradient(#f37641, #e44d26);
@@ -4438,6 +4440,7 @@ h2.handwriting {
   border: 1px solid #7e9f3a;
 }
 #footer .big-button:hover, #footer .button:hover {
+  background-color: #8aae3f;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #bce76b), color-stop(100%, #7e9f3a));
   background-image: -webkit-linear-gradient(#bce76b, #7e9f3a);
   background-image: -moz-linear-gradient(#bce76b, #7e9f3a);
