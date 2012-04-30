@@ -527,7 +527,7 @@ h1#site-name a {
 .view-references {
 
   img {
-    border: 1px solid $grayLighter;
+    border: 1px solid $color-grayLight;
     margin-bottom: 10px;
   }
 
@@ -543,10 +543,16 @@ h1#site-name a {
 
   .views-row-1, .views-row-4, .views-row-7, .views-row-10, .views-row-13 {
     @include alpha;
+    clear: left;
   }
 
   .views-row-3, .views-row-6, .views-row-9, .views-row-12, .views-row-15 {
     @include omega;
+  }
+
+  p {
+    color: $gray;
+    margin-top: 8px;
   }
 }
 

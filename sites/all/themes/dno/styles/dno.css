@@ -4697,7 +4697,7 @@ h1#site-name a {
  * Referanser
  */
 .view-references img {
-  border: 1px solid #eeeeee;
+  border: 1px solid #cccccc;
   margin-bottom: 10px;
 }
 .view-references h2 {
@@ -4714,9 +4714,14 @@ h1#site-name a {
 }
 .view-references .views-row-1, .view-references .views-row-4, .view-references .views-row-7, .view-references .views-row-10, .view-references .views-row-13 {
   margin-left: 0;
+  clear: left;
 }
 .view-references .views-row-3, .view-references .views-row-6, .view-references .views-row-9, .view-references .views-row-12, .view-references .views-row-15 {
   margin-right: 0;
+}
+.view-references p {
+  color: #555555;
+  margin-top: 8px;
 }
 
 /**
