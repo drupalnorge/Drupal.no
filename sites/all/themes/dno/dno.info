@@ -19,7 +19,7 @@ base theme = sasson
 ;   Recompile - to force the file to be recompiled on every page load
 ; styles[styles/filename.scss][options][recompile] = true
 
-styles[styles/dno.scss][options][media] = all
+styles[styles/dno.css][options][media] = all
 stylesheets[all][] = styles/dno.css
 
 
