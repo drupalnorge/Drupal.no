@@ -1,0 +1,512 @@
+<?php
+/**
+ * @file
+ * FAQ Field
+ * Provides a field for frequently asked questions.
+ */
+
+/**
+ * Returns HTML for a faqfield formatter.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - question: Prefiltered question value by check_plain.
+ *   - answer: Prefiltered answer value by field setting format.
+ *   - delta: Delta of field element.
+ */
+function theme_faqfield_formatter($variables) {
+  $output = '<h3 class="faqfield-question">' . $variables['question'] . '</h3>';
+  $output .= '<div class="faqfield-answer">' . $variables['answer'] . '</div>';
+  return $output;
+}
+
+/**
+ * Implements hook_field_info().
+ *
+ * Provides the description of the field.
+ */
+function faqfield_field_info() {
+  return array(
+    'faqfield' => array(
+      'label' => t('FAQ Field'),
+      'description' => t('Field for frequently asked questions.'),
+      'default_widget' => 'faqfield_textboxes',
+      'default_formatter' => 'faqfield_accordion',
+      // Set the default field settings.
+      'settings' => array(
+        'answer_widget' => 'textarea',
+        'format' => 0,
+        'advanced' => array(
+          'question_title'  => t('Question'),
+          'question_length' => 255,
+          'question_rows'   => 1,
+          'answer_title'    => t('Answer'),
+          'answer_rows'     => 3,
+        ),
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_create_field().
+ */
+function faqfield_field_create_field($field) {
+  if ($field['type'] == 'faqfield') {
+    // Here we want to set a default cardinality of
+    // unlimited after a faqfield was created.
+    $field['cardinality'] = FIELD_CARDINALITY_UNLIMITED;
+    field_update_field($field);
+  }
+}
+
+/**
+ * Implements hook_field_settings_form().
+ */
+function faqfield_field_settings_form($field, $instance, $has_data) {
+  $form = array();
+
+  // Input for the count of rows for the answer field.
+  $form['answer_widget'] = array(
+    '#type' => 'select',
+    '#title' => t('Answer widget'),
+    '#default_value' => @$field['settings']['answer_widget'],
+    '#options' => array(
+      'textarea' => t('Textarea'),
+      'text_format' => t('Formatable textarea'),
+      'textfield' => t('Textfield'),
+    ),
+    '#required' => TRUE,
+    '#description' => t('What form widget to use for answer input. Formatable textarea is needed for WYSIWYG editors.'),
+  );
+
+  // Get a list of formats that the current user has access to.
+  $formats = filter_formats();
+  foreach ($formats as $format) {
+    $options[$format->format] = $format->name;
+  }
+  // Format select input for field settings.
+  $form['format'] = array(
+    '#type' => 'select',
+    '#title' => t('Text format'),
+    '#default_value' => @$field['settings']['format'],
+    '#options' => $options,
+    '#access' => count($formats) > 1,
+    '#required' => TRUE,
+    '#description' => t('Format to filter FAQ field answer content.'),
+    '#states' => array(
+      'invisible' => array(
+        ':input[id="edit-field-settings-answer-widget"]' => array('value' => 'text_format'),
+      ),
+    ),
+  );
+
+  // We put more advanced settings into a collapsed fieldset.
+  $form['advanced'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Advanced settings'),
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+  );
+
+  // Input for custom title of questions.
+  $form['advanced']['question_title'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Question input title'),
+    '#default_value' => @$field['settings']['advanced']['question_title'],
+    '#description' => t('Custom title of question input.'),
+    '#maxlength' => 50,
+    '#size' => 20,
+  );
+
+  // Input for the maximum length of questions.
+  $form['advanced']['question_length'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Question length'),
+    '#default_value' => @$field['settings']['advanced']['question_length'],
+    '#description' => t('Maximum length of questions (Between 10-255).'),
+    '#element_validate' => array('_faqfield_element_validate_question_length'),
+    '#maxlength' => 3,
+    '#size' => 5,
+  );
+
+  // Input for the count of rows for the answer field.
+  $form['advanced']['question_rows'] = array(
+    '#type' => 'select',
+    '#title' => t('Question rows'),
+    '#default_value' => @$field['settings']['advanced']['question_rows'],
+    '#options' => array(
+      1 => '1 (Fieldset)',
+      2 => '2 (Textarea)',
+      3 => '3 (Textarea)',
+      4 => '4 (Textarea)',
+    ),
+    '#required' => TRUE,
+    '#description' => t('Number of rows used for the question textfield/textarea.'),
+  );
+
+  // Input for custom title of answers.
+  $form['advanced']['answer_title'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Answer input title'),
+    '#default_value' => @$field['settings']['advanced']['answer_title'],
+    '#description' => t('Custom title of answer input.'),
+    '#maxlength' => 50,
+    '#size' => 20,
+  );
+
+  // Input for the count of rows for the answer field.
+  $form['advanced']['answer_rows'] = array(
+    '#type' => 'select',
+    '#title' => t('Answer rows'),
+    '#default_value' => @$field['settings']['advanced']['answer_rows'],
+    '#options' => array(1 => '1', 2 => '2', 3 => '3', 4 => '4', 5 => '5'),
+    '#required' => TRUE,
+    '#description' => t('Number of rows used for the answer textarea.'),
+    '#states' => array(
+      'invisible' => array(
+        ':input[id="edit-field-settings-answer-widget"]' => array('value' => 'textfield'),
+      ),
+    ),
+  );
+
+  return $form;
+}
+
+/**
+ * Element validation callback for question length setting.
+ */
+function _faqfield_element_validate_question_length($element, &$form_state, $form) {
+  if ($element['#value'] > 255 || $element['#value'] < 10) {
+    form_error($element, t('Maximum length of question must be between 10 - 255.'));
+  }
+}
+
+/**
+ * Implements hook_field_formatter_settings_summary().
+ */
+function faqfield_field_formatter_settings_summary($field, $instance, $view_mode) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+
+  $summary = '';
+
+  // Accordion display settings summary.
+  if ($display['type'] === 'faqfield_accordion') {
+    $summary_elements = array();
+    if ($settings['active'] !== '') {
+      $summary_elements[] = t('Active: @element', array('@element' => $settings['active']));
+    }
+    if ($settings['autoHeight']) {
+      $summary_elements[] = t('Auto height');
+    }
+    if ($settings['collapsible']) {
+      $summary_elements[] = t('Collapsible');
+    }
+    $summary_elements[] = t('Event: @event', array('@event' => $settings['event']));
+    $summary = implode(', ', $summary_elements);
+  }
+
+  return $summary;
+}
+
+/**
+ * Implements hook_field_formatter_settings_form().
+ */
+function faqfield_field_formatter_settings_form($field, $instance, $view_mode, $form, &$form_state) {
+  $element = array();
+
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+
+  // Accordion display settings.
+  if ($display['type'] === 'faqfield_accordion') {
+    // Number of first active element.
+    $element['active'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Active'),
+      '#default_value' => $settings['active'],
+      '#description' => t('Index of active element. Leave empty to display none at start.'),
+      // @TODO _element_validate_number() is deprecated since 7.8.
+      '#element_validate' => array(function_exists('element_validate_number') ? 'element_validate_number' : '_element_validate_number'),
+      '#maxlength' => 3,
+      '#size' => 5,
+    );
+    // Whether auto heigth is enabled.
+    $element['autoHeight'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Auto height'),
+      '#default_value' => $settings['autoHeight'],
+      '#description' => t('If set, the highest content part is used as height reference for all other parts. Provides more consistent animations.'),
+    );
+    // Whether elements are collabsible.
+    $element['collapsible'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Collapsible'),
+      '#default_value' => $settings['collapsible'],
+      '#description' => t('Whether an opened question can be collapsed (by the triggering event).'),
+    );
+    // Name of triggering event.
+    $element['event'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Event'),
+      '#default_value' => $settings['event'],
+      '#description' => t('The event on which to trigger the accordion.'),
+      '#maxlength' => 10,
+    );
+  }
+  return $element;
+}
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function faqfield_field_formatter_info() {
+  return array(
+    // This formatter uses jQuery accordion widget.
+    'faqfield_accordion' => array(
+      'label' => t('Accordion'),
+      'field types' => array('faqfield'),
+      'settings' => array(
+        'active'      => 0,
+        'autoHeight'  => TRUE,
+        'collapsible' => FALSE,
+        'event'       => 'click',
+      ),
+    ),
+    // This formatter just displays the FAQ content as simple text.
+    'faqfield_simple_text' => array(
+      'label' => t('Simple text'),
+      'field types' => array('faqfield'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function faqfield_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+
+  switch ($display['type']) {
+
+    // This formatter adds jQuery accordion widget.
+    // This will not be themeable, because changes would break
+    // jQuery UI accordion functionality!
+    case 'faqfield_accordion':
+      $faqfield_id = 'faqfield_' . $field['field_name'];
+
+      // Add jQuery UI accordion library.
+      drupal_add_library('system', 'ui.accordion');
+      drupal_add_js('jQuery(function(){jQuery("#' . $faqfield_id . '").accordion(Drupal.settings.' . $faqfield_id . ');});', 'inline');
+      // We need to convert the element active value to an integer for jQuery.
+      if ($display['settings']['active'] !== '') {
+        settype($display['settings']['active'], 'int');
+      }
+      // If setting was left blank, we set FALSE so no element will be active.
+      else {
+        $display['settings']['active'] = FALSE;
+      }
+      // Set accordion display settings.
+      drupal_add_js(array($faqfield_id => $display['settings']), 'setting');
+
+      // We need to put all of this within a single piece of markup,
+      // otherwise this would not work with jQuery accordion.
+      $element[0]['#markup'] = '<div id="' . $faqfield_id . '">';
+      foreach ($items as $item) {
+        // Decide whether to use the default format or the custom one.
+        $format = (!empty($item['answer_format']) ? $item['answer_format'] : $field['settings']['format']);
+        // Build the markup.
+        $element[0]['#markup'] .= '<h3 class="faqfield-question"><a href="#">' . check_markup($item['question'], $format) . '</a></h3>';
+        $element[0]['#markup'] .= '<div class="faqfield-answer">' . check_markup($item['answer'], $format) . '</div>';
+      }
+      $element[0]['#markup'] .= '</div>';
+      break;
+
+    // This themeable formatter displays the FAQ content as simple text.
+    case 'faqfield_simple_text':
+      foreach ($items as $delta => $item) {
+        // Decide whether to use the default format or the custom one.
+        $format = (!empty($item['answer_format']) ? $item['answer_format'] : $field['settings']['format']);
+        // Add them as page elements, they'll be rendered automatically later.
+        $element[$delta] = array(
+          '#theme' => 'faqfield_formatter',
+          // Filter values before passing them to the template.
+          '#question' => check_markup($item['question'], $format),
+          '#answer' => check_markup($item['answer'], $format),
+          '#delta' => $delta,
+        );
+      }
+      break;
+
+  }
+  return $element;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function faqfield_theme() {
+  // Themeable simple text formatter.
+  return array(
+    'faqfield_formatter' => array(
+      'variables' => array(
+        'question' => NULL,
+        'answer'   => NULL,
+        'delta'    => NULL,
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_widget_info().
+ */
+function faqfield_field_widget_info() {
+  return array(
+    // Simple text inputs.
+    'faqfield_textboxes' => array(
+      'label' => t('Default'),
+      'field types' => array('faqfield'),
+      'settings' => array(
+        'question' => '',
+        'answer'   => '',
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_widget_form().
+ */
+function faqfield_field_widget_form(&$form, &$form_state, $field, $instance, $langcode, $items, $delta, $element) {
+  $base = $element;
+  if ($instance['widget']['type'] === 'faqfield_textboxes') {
+    // If the current form is the default value fieldset of the field settings
+    // form, we have to save the default value separately (Issue #1526448).
+    if (isset($form['#title']) && $form['#title'] == t('Default value')) {
+      $form['#element_validate'][] = 'faqfield_field_widget_form_default_value_element';
+    }
+
+    // If the current value is empty we choose the default one.
+    if (empty($items[$delta]) && isset($instance['default_values'])) {
+      $items[$delta] = $instance['default_values'];
+    }
+
+    // Add textfield for question.
+    $element['question'] = array(
+      '#title' => check_plain($field['settings']['advanced']['question_title']),
+      '#type' => (@$field['settings']['advanced']['question_rows'] > 1) ? 'textarea' : 'textfield',
+      '#default_value' => @$items[$delta]['question'],
+      '#maxlength' => $field['settings']['advanced']['question_length'],
+      '#delta' => $delta,
+      '#weight' => 0,
+      '#rows' => @$field['settings']['advanced']['question_rows'],
+    ) + $base;
+
+    // Add textarea / formatable textarea / textfield for answer.
+    $element['answer'] = array(
+      '#title' => check_plain($field['settings']['advanced']['answer_title']),
+      '#type' => $field['settings']['answer_widget'],
+      '#default_value' => @$items[$delta]['answer'],
+      '#delta' => $delta,
+      '#weight' => 1,
+      // We choose the source output format depending on the input type.
+      '#format' => ($field['settings']['answer_widget'] == 'text_format') ? @$items[$delta]['answer_format'] : $field['settings']['format'],
+      '#rows' => $field['settings']['advanced']['answer_rows'],
+    ) + $base;
+  }
+  return $element;
+}
+
+/**
+ * Element validation / submission handler for handling default
+ * values from the field settings page.
+ */
+function faqfield_field_widget_form_default_value_element($element, &$form_state, $form) {
+  $field = $form['#field'];
+  // As we can set a default format from the field configuration page,
+  // we want to save it even if question and answer are actually empty
+  // but we have to make sure the submitted default value is saved
+  // separately to avoid the widget form beeing build twice (#1526448).
+  if (isset($form_state['values'][$field['field_name']])) {
+    // Save the default value in the field instance in our own way.
+    $default_value = $form_state['values'][$field['field_name']][LANGUAGE_NONE][0];
+    // If we're using the formatable answer widget we have to
+    // extract the default values (value and format) out of it.
+    if (is_array($default_value['answer'])) {
+      $default_value['answer_format'] = $default_value['answer']['format'];
+      $default_value['answer'] = $default_value['answer']['value'];
+    }
+    $form_state['values']['instance']['default_values'] = $default_value;
+    $form_state['values'][$field['field_name']] = NULL;
+  }
+}
+
+/**
+ * Implements hook_field_is_empty().
+ *
+ * Here we test whether the submitted values are empty.
+ * Whether they are default values will be tested by hook_field_presave().
+ */
+function faqfield_field_is_empty($item, $field) {
+  $answer_value = is_array($item['answer']) ? $item['answer']['value'] : $item['answer'];
+  // Return TRUE only if both are empty.
+  if (empty($item['question']) && empty($answer_value)) {
+    return TRUE;
+  }
+  return FALSE;
+}
+
+/**
+ * Implements hook_field_presave().
+ *
+ * Prepare formatable textarea values for saving them into the database.
+ */
+function faqfield_field_presave($entity_type, $entity, $field, $instance, $langcode, &$items) {
+  foreach ($items as $key => &$values) {
+    if (is_array($values['answer'])) {
+      // Normal textarea's and textfields put their values simply in by
+      // array($name => $value); Unfortunately text_format textareas put
+      // them into an array so also the format gets saved: array($name
+      // => array('value' => $value, 'format' => $format)).
+      // So the API will try to save normal textfields to the 'name' field
+      // and text_format fields to 'answer_value' and 'answer_format'.
+      // To bypass this, we pull the values out of this array and force
+      // them to be saved in 'answer' and 'answer_format'.
+      $values['answer_format'] = $values['answer']['format'];
+      $values['answer'] = $values['answer']['value'];
+    }
+    // Here we test if the values are default ones, yes? -> remove them.
+    if (isset($instance['default_values'])) {
+      if ($values['question'] == $instance['default_values']['question']) {
+        if ($values['answer'] == $instance['default_values']['answer']) {
+          unset($items[$key]);
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_help().
+ *
+ * Dirty looking stuff comes in the end.. does actually anyone needs this?
+ */
+function faqfield_help($path, $arg) {
+  switch ($path) {
+    case 'admin/help#faqfield':
+      $output = '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('This module provides a field for frequently asked questions. Added, you can create simple but smooth FAQs on any piece of content.') . '</p>';
+      $output .= '<h3>' . t('Usage') . '</h3>';
+      $output .= '<dl>';
+      $output .= '<dt>' . t('Configuration') . '</dt>';
+      $output .= '<dd>' . t("No configuration needed.") . '</dd>';
+      $output .= '<dt>' . t('How to use') . '</dt>';
+      $output .= '<dd>' . t("You can add the field to any entity (eg. content type, users, ..) as usual. After you applied the field you have to configure how its output should be filtered (eg. Filtered HTML, Plain Text). Also it is recommended to set the number of values to unlimited.") . '</dd>';
+      $output .= '<dt>' . t('Formatters') . '</dt>';
+      $output .= '<dd>' . t("You have the choise of two display formatters: jQuery accordion (animated show / hide) and simple text (none formatted, simple output for custom theming). If you are using accordion you can modify its behaviour easily by the display settings.") . '</dd>';
+      $output .= '</dl>';
+      return $output;
+  }
+}
