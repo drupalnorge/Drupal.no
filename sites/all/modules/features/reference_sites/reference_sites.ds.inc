@@ -54,12 +54,14 @@ function reference_sites_ds_layout_settings_info() {
         0 => 'field_logo',
         1 => 'title',
         2 => 'field_company_url',
+        3 => 'field_short_description',
       ),
     ),
     'fields' => array(
       'field_logo' => 'ds_content',
       'title' => 'ds_content',
       'field_company_url' => 'ds_content',
+      'field_short_description' => 'ds_content',
     ),
     'classes' => array(),
   );
