@@ -4269,17 +4269,13 @@ html, body {
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  margin: 0 auto -298px;
+  margin: 0 auto -293px;
   /* the bottom margin is the negative value of the footer's height */
 }
 
 #footer, .push {
-  height: 268px;
+  height: 258px;
   /* .push must be the same height as .footer */
-}
-
-#footer {
-  height: 263px;
 }
 
 /* Layout */
@@ -4542,7 +4538,6 @@ h1#site-name a {
 #footer {
   background: #000;
   border-bottom: 5px solid #76AFF2;
-  overflow: auto;
   margin-top: 30px;
 }
 #footer a {
