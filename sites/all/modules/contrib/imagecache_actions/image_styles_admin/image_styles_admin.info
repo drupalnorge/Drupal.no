@@ -1,0 +1,13 @@
+name = Image styles admin
+description = Provides additional administrative image style functionality.
+package = Media
+core = 7.x
+
+dependencies[] = image
+
+; Information added by drupal.org packaging script on 2012-06-13
+version = "7.x-1.0+6-dev"
+core = "7.x"
+project = "imagecache_actions"
+datestamp = "1339546759"
+

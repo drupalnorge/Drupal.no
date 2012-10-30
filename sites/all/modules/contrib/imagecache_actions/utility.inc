@@ -1,7 +1,152 @@
 <?php
 /**
- * Utility form, conversion and rendering functions for image processes
+ * @file utility.inc: uitility form, conversion and rendering functions for
+ * image processing.
  */
+
+/*
+ * File field handling.
+ */
+/**
+ *
+ * @param unknown_type $element
+ * @param unknown_type $form_status
+ */
+function imagecache_actions_file_field_description() {
+  return t('File is either a file with one of the valid schemes (e.g. private://, public://, module://{module}/{component}, temporary://), or an absolute or relative path (relative to the current directory, probably the Drupal site root).');
+}
+
+/**
+ *
+ * Enter description here ...
+ * @param unknown_type $element
+ * @param unknown_type $form_status
+ */
+function imagecache_actions_validate_file(&$element, &$form_status) {
+  if (!imagecache_actions_find_file($element['#value'])) {
+    form_error($element, t("Unable to find the file '%file'. Please check the path.", array('%file' => $element['#value'])) );
+  }
+}
+
+
+/**
+ * Looks up and returns the full path of the given file.
+ *
+ * We accept files with the following schemes:
+ * - private://
+ * - public://
+ * - temporary://
+ * - module://{module}/{component}
+ *
+ * Files without a scheme are looked up as are:
+ * - relative: relative to the current directory (probably $drupal_root).
+ * - absolute: as is.
+ *
+ * @param string $file
+ *   A file name, with a scheme, relative, or absolute.
+ *
+ * @return string|false
+ *   The full file path of the file, so the image toolkit knows exactly where it
+ *   is.
+ */
+function imagecache_actions_find_file($file) {
+  $result = FALSE;
+  if (is_readable($file)) {
+    $result = drupal_realpath($file);
+  }
+  return $result;
+}
+
+/**
+ * Loads the given file as an image object.
+ *
+ * @param string $file
+ *   A file name, with a scheme, relative, or absolute.
+ *
+ * @return object|null
+ *   The image object.
+ *
+ * @see imagecache_actions_find_file()
+ * @see image_load()
+ */
+function imagecache_actions_image_load($file, $toolkit = FALSE) {
+  $full_path = imagecache_actions_find_file($file);
+  if (!$full_path) {
+    trigger_error("Failed to find file $file.", E_USER_ERROR);
+    return FALSE;
+  }
+
+  $image = image_load($full_path, $toolkit);
+  if (!$image) {
+    trigger_error("Failed to open file '$file' as an image resource.", E_USER_ERROR);
+  }
+
+  return $image;
+}
+
+
+/**
+ * Return an array with context information about the image.
+ *
+ * This information can e.g. be used by effects that allow custom PHP like
+ * - Custom action.
+ * - Text from PHP code.
+ * - Text from alt or title.
+ *
+ * @param object $image
+ *   The image object.
+ * @param array $data
+ *   An associative array with the effect options.
+ *
+ * @return array
+ *   An associative array with context information about the image.
+ */
+function imagecache_actions_get_image_context($image, $data) {
+  // Store context about the image.
+  $image_context = array(
+        'effect_data' => $data,
+        'managed_file' => NULL,
+        'referring_entities' => array(),
+        'entity' => NULL,
+        'image_field' => NULL,
+  );
+
+  // Find the managed file object (at most 1 object as 'uri' is a unique index).
+  $managed_file = reset(file_load_multiple(array(), array('uri' => $image->source)));
+  if ($managed_file !== FALSE) {
+    $image_context['managed_file'] = $managed_file;
+    // And find the entities referring to this managed file.
+    $references = file_get_file_references($managed_file, NULL, FIELD_LOAD_CURRENT, 'image');
+    if ($references) {
+      // Load referring entities.
+      foreach ($references as $field_name => $field_references) {
+        foreach ($field_references as $entity_type => $entity_stubs) {
+          $image_context['referring_entities'][$field_name][$entity_type] = entity_load($entity_type, array_keys($entity_stubs));
+        }
+      }
+
+      // Make it easy to access the '1st' entity and its referring image field.
+      reset($image_context['referring_entities']);
+      list($field_name, $field_references) = each($image_context['referring_entities']);
+      reset($field_references);
+      list($entity_type, $entities) = each($field_references);
+      reset($entities);
+      list($entity_id, $image_context['entity']) = each($entities);
+      $image_field = field_get_items($entity_type, $image_context['entity'], $field_name);
+      if ($image_field !== FALSE) {
+        // Get referring item
+        foreach ($image_field as $image_field_value) {
+          if ($image_field_value['fid'] === $managed_file->fid) {
+            $image_context['image_field'] = $image_field_value;
+          }
+        }
+      }
+    }
+  }
+
+  // @todo: support for media module, or is that based upon managed files?
+  return $image_context;
+}
 
 /**
  * Given two imageapi objects with dimensions, and some positioning values,

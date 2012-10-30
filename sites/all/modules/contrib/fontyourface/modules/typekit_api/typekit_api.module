@@ -90,9 +90,9 @@ function typekit_api_fontyourface_import() {
 } // typekit_api_fontyourface_import
 
 /**
- * Implements template_preprocess_page().
+ * Implements template_preprocess_html().
  */
-function typekit_api_preprocess_page(&$vars) {
+function typekit_api_preprocess_html(&$vars) {
 
   if (!empty($vars['fontyourface'])) {
 
@@ -131,7 +131,7 @@ function typekit_api_preprocess_page(&$vars) {
 
   } // if
 
-} // typekit_api_preprocess_page
+} // typekit_api_preprocess_html
 
 /**
  * Implements hook_form_alter().

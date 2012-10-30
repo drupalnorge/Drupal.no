@@ -3,11 +3,11 @@
 /**
  * @file An admin-only utility to demo and check a number of imagecache presets
  * and actions.
- * 
+ *
  * It provides a tab in Home > Administer > Site Building > Imagecache
- * 
+ *
  * that lists a whole bunch of sample presets.
- * 
+ *
  * @author dman http://coders.co.nz/
  *
  *
@@ -62,7 +62,7 @@ function imagecache_testsuite_help($path, $arg) {
 /**
  * Either returns the whole testsuite page or generates the requested
  * image+preset
- * 
+ *
  * Flushes the entire test cache every time anything is done.
  */
 function imagecache_testsuite_generate($test_id = '', $toolkit = 'gd') {
@@ -73,19 +73,19 @@ function imagecache_testsuite_generate($test_id = '', $toolkit = 'gd') {
   // Images illustrating the named preset are looked for also.
   module_load_include('inc', 'image', 'image.admin');
   module_load_include('inc', 'image', 'image.effects');
-  
+
   $sample_path = drupal_get_path('module' , 'imagecache_testsuite') ;
-  $target = $sample_path .'/sample.jpg'; 
+  $target = $sample_path .'/sample.jpg';
   $tests = image_styles() + imagecache_testsuite_get_tests();
   $toolkits = module_invoke_all('image_toolkits');
 
   if (empty($test_id)) {
     // Present the all-in-one overview page
     $sample_folders = imagecache_testsuite_get_folders();
-    
+
     // Firstly, remove any previous images
     image_style_flush('testsuite');
-    
+
     // Draw the admin table
     $test_table = array();
     foreach ($tests as $style_name => $style) {
@@ -115,7 +115,7 @@ function imagecache_testsuite_generate($test_id = '', $toolkit = 'gd') {
       }
       $row['details'] = "<h3>{$style['name']}</h3><p>$details</p>";
 
-      // Look for a sample image. May also be defined by the definition itself, 
+      // Look for a sample image. May also be defined by the definition itself,
       // but normally assume a file named after the presetname, in the preset file path.
       foreach ($sample_folders as $sample_folder) {
         if (file_exists("{$sample_folder}/{$style_name}.png")) {
@@ -125,12 +125,12 @@ function imagecache_testsuite_generate($test_id = '', $toolkit = 'gd') {
           $style['sample'] = "{$sample_folder}/{$style_name}.jpg";
         }
       }
-      
+
       if (isset($style['sample']) && file_exists($style['sample']) ) {
         $sample_img = theme('image', array('path' => $style['sample']));
         // I was having trouble with permissions on an OSX dev machine
-        if (! is_readable($style['sample'])) { 
-          $sample_img = "FILE UNREADABLE: {$style['sample']}"; 
+        if (! is_readable($style['sample'])) {
+          $sample_img = "FILE UNREADABLE: {$style['sample']}";
         }
       }
       else {
@@ -142,7 +142,7 @@ function imagecache_testsuite_generate($test_id = '', $toolkit = 'gd') {
       foreach ($toolkits as $toolkit => $toolkit_info) {
         $test_url = "admin/config/media/image-styles/testsuite/$style_name/$toolkit";
         $test_img = theme('image', array(
-          'path' => $test_url, 
+          'path' => $test_url,
           'alt' => "$style_name/$toolkit"
         ));
         $row[$toolkit] = l($test_img, $test_url, array('html' => TRUE));
@@ -152,7 +152,7 @@ function imagecache_testsuite_generate($test_id = '', $toolkit = 'gd') {
     $header = array_merge(array('test', 'sample'), array_keys($toolkits));
 
     $output = theme('table', array('header' => $header, 'rows' => $test_table, 'id' => 'imagecache-testsuite'));
-    
+
     // Default system zebra-striping fails to show my transparency on white
     drupal_add_html_head('<style  type="text/css" >#imagecache-testsuite tr.even{background-color:#EEEEEE !important;} #imagecache-testsuite td{vertical-align:top;}  #imagecache-testsuite tr.error{background-color:#FFCCCC !important;}</style>');
     return $output;
@@ -162,32 +162,31 @@ function imagecache_testsuite_generate($test_id = '', $toolkit = 'gd') {
     // @see image_style_create_derivative()
 
     $style = $tests[$test_id];
-    $actions = $style['effects'];
     if (! $style) {
       trigger_error("Unknown test style preset '$test_id' ", E_USER_ERROR);
       return FALSE;
     }
-    
+
     // Start emulating image_style_create_derivative()
     // The main difference being I determine the toolkit I want to use.
     // SOME of this code is probably redundant, was a lot of copy&paste without true understanding of the new image.module
     $image_uri = $target;
-    
+
     if (!$image = image_load($target, $toolkit)) {
       trigger_error("Failed to open original image $target with toolkit $toolkit", E_USER_ERROR);
       return FALSE;
     }
-    
+
     // Need to save the result before returning it - to stay compatible with imagemagick
     $filename = "$test_id-$toolkit.{$image->info['extension']}";
     $derivative_uri = image_style_path($style['name'], $filename);
     file_prepare_directory(dirname($derivative_uri), FILE_CREATE_DIRECTORY);
     watchdog('imagecache_testsuite', 'Checking a save dir %dir', array('%dir' => dirname($derivative_uri)), WATCHDOG_DEBUG);
-    
+
     // Imagemagick is not quite right? place a file where the file is supposed to go
     // before I put the real path there? else drupal_realpath() says nuh.
     #file_save_data('touch this for imagemagick', $derivative_uri, FILE_EXISTS_REPLACE);
-    
+
     foreach ($style['effects'] as $effect) {
       // Need to load the full effect definitions, our test ones don't know all the callback info
       $effect_definition = image_effect_definition_load($effect['name']);
@@ -223,7 +222,7 @@ function imagecache_testsuite_generate($test_id = '', $toolkit = 'gd') {
 
 /**
  * Implements hook_image_default_styles().
- * 
+ *
  * Loads the individual test cases and makes them available as enabled styles
  */
 function imagecache_testsuite_image_default_styles() {
@@ -233,15 +232,15 @@ function imagecache_testsuite_image_default_styles() {
 /**
  * Retrieve the list of presets, each of which contain actions and action
  * definitions.
- * 
+ *
  * Scans all the module folders for files named *.imagecache_preset.inc
- * 
- * It seems that the required shape in D7 is 
+ *
+ * It seems that the required shape in D7 is
  * $style=>array(
  *   'effects' => array(
  *     0 => array('name' => 'something', 'data' => array())
  *   )
- * ) 
+ * )
  */
 function imagecache_testsuite_get_tests() {
   $presets = array();
@@ -261,7 +260,7 @@ function imagecache_testsuite_get_tests() {
 
 /**
  * Places to scan for test presets and sample images.
- * 
+ *
  * @return an array of foldernames of everything that implements
  * imagecache_actions.
  */
@@ -276,7 +275,7 @@ function imagecache_testsuite_get_folders() {
 
 /**
  * Display a page demonstrating a number of positioning tests
- * 
+ *
  * Tests both styles of positioning - the x=, y= original, used in most places,
  * pls the css-like left=, top= version also.
  */
@@ -289,7 +288,7 @@ function imagecache_testsuite_positioning() {
   // Both these represent an imageapi-type image resource handle, but contain just dimensions
   $src_image->info = array('width' => 75, 'height' => 100);
   $dst_image->info = array('width' => 200, 'height' => 150);
-  
+
   foreach ($tests as $testname => $test) {
     // calc it, using either old or new method
     if (isset($test['parameters']['x']) || isset($test['parameters']['y'])) {
@@ -312,14 +311,14 @@ function imagecache_testsuite_positioning() {
     $table[] = $row;
   }
   return 'Result of test:'. theme('table', array('test', 'parameters', 'expected', 'image', 'result', 'actual image', 'status'), $table);
-  
+
 }
 
 
 function theme_positioning_test($x, $y) {
   $inner = "<div style='background-color:red; width:75px; height:100px; position:absolute; left:{$x}px; top:{$y}px'>";
   $outer = "<div style='background-color:blue; width:200px; height:150px; position:absolute; left:25px; top:25px'><div style='position:relative'>$inner</div></div>";
-  $wrapper = "<div style='background-color:#CCCCCC; width:250px; height:200px; position:relative'>$outer</div>"; 
+  $wrapper = "<div style='background-color:#CCCCCC; width:250px; height:200px; position:relative'>$outer</div>";
   return $wrapper;
 }
 function theme_positioning_parameters($parameters) {
@@ -445,7 +444,7 @@ function imagecache_testsuite_positioning_get_tests() {
         'y' => '85',
       ),
     ),
-  
+
     'css centering' => array(
       'parameters' => array(
         'right' => '50%',
@@ -468,6 +467,6 @@ function imagecache_testsuite_positioning_get_tests() {
         'y' => '130',
       ),
     ),
-  
+
   );
 }

@@ -1,5 +1,20 @@
-Sasson 7.x-2.x-dev, 2012-02-21 (development release)
+Sasson 7.x-2.x-dev, 2012-05-13 (development release)
 ---------------------------
+
+Sasson 7.x-2.2, 2012-06-03
+---------------------------
+- Better file watcher - see changes instantaneously without a page refresh.
+- Issue #1474182 by erutan : Add more information in subtheme.
+- Updated normalize.css from H5BP (e.g. farewell hot pink selection)
+
+Sasson 7.x-2.1, 2012-04-25
+---------------------------
+- Switch between h5bp normalize.css and Eric Meyer's reset.css (or none)
+- Added Formalize (http://formalize.me/)
+- New feature - File watcher
+- Protocol agnostic google web-fonts loading (http/https)
+- Added no-flip functionality to the directionality flipper
+- Issue #1512202 by mint5auce, markedup, erutan : Remove clearfix from templates.
 
 
 Sasson 7.x-2.0, 2012-02-20

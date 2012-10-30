@@ -1,14 +1,16 @@
 name = Imagecache Autorotate
 description = Autorotate image based on EXIF Orientation.
-dependencies[] = image
-package = Image
+package = Media
 core = 7.x
+
+dependencies[] = image
+
 files[] = imagecache_autorotate.install
 files[] = imagecache_autorotate.module
 
-; Information added by drupal.org packaging script on 2012-01-12
-version = "7.x-1.x-dev"
+; Information added by drupal.org packaging script on 2012-06-13
+version = "7.x-1.0+6-dev"
 core = "7.x"
 project = "imagecache_actions"
-datestamp = "1326370359"
+datestamp = "1339546759"
 

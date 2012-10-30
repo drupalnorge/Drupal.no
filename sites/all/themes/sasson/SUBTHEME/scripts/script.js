@@ -8,10 +8,10 @@
 (function($) {
   
 // DUPLICATE AND UNCOMMENT
-//Drupal.behaviors.behaviorName = {
-//  attach: function(context) {
-//    // Do some magic...
-//  }
-//};
+// Drupal.behaviors.behaviorName = {
+//   attach: function(context) {
+//     // Do some magic...
+//   }
+// };
 
 })(jQuery);

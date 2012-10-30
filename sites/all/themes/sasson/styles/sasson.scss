@@ -1,4 +1,7 @@
-/**
+/* #############################################
+ * ##### Sasson - advanced drupal theming. #####
+ * #############################################
+    
  * @file sasson/styles/sasson.scss
  */
 
@@ -12,7 +15,7 @@
 //   $sidebar-second: 4;
 // ==========================================================================
 
-// Grid dimentions
+// Grid dimensions
 $ninesixty-grid-width: [grid-width];
 $ninesixty-columns: [columns];
 $ninesixty-gutter-width: [gutter-width];
@@ -21,9 +24,9 @@ $ninesixty-gutter-width: [gutter-width];
 $sidebar-first: [sidebar-first];
 $sidebar-second: [sidebar-second];
 
-@import "css3";
+@import "compass/css3";
 @import "960/grid";
-@import "clear";
+@import "partials/clear";
 
 @if [responsive] {
   

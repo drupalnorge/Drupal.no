@@ -52,10 +52,9 @@ function google_fonts_api_fontyourface_preview($font, $text = NULL, $size = 18) 
 } // google_fonts_api_fontyourface_preview
 
 /**
- * Implements template_preprocess_page().
+ * Implements template_preprocess_html().
  */
-function google_fonts_api_preprocess_page(&$vars) {
-
+function google_fonts_api_preprocess_html(&$vars) {
   if (!empty($vars['fontyourface'])) {
 
     $paths = array();
@@ -90,7 +89,7 @@ function google_fonts_api_preprocess_page(&$vars) {
       $families = array();
 
       foreach ($paths as $family => $variants) {
-        $families[] = $family . ':' . implode(',', $variants);
+        $families[] = urlencode($family) . ':' . implode(',', $variants);
       } // foreach
 
       $base = 'http://fonts.googleapis.com/css?family=';
@@ -123,7 +122,7 @@ function google_fonts_api_preprocess_page(&$vars) {
 
   } // if
 
-} // google_fonts_api_preprocess_page
+} // google_fonts_api_preprocess_html
 
 /**
  * Implements hook_fontyourface_import().
@@ -180,10 +179,14 @@ function google_fonts_api_fontyourface_import() {
  */
 function google_fonts_api_views_api() {
 
-  return array(
-    'api' => 2,
-    'path' => drupal_get_path('module', 'google_fonts_api') . '/views',
-  );
+  if (module_exists('fontyourface_ui')) {
+
+    return array(
+      'api' => 2,
+      'path' => drupal_get_path('module', 'google_fonts_api') . '/views',
+    );
+
+  } // if
 
 } // google_fonts_api_views_api
 

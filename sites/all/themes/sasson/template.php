@@ -34,23 +34,25 @@ function sasson_css_alter(&$css) {
     // Only provide overrides for files.
     if ($item['type'] == 'file') {
       $path_parts = pathinfo($item['data']);
-      $extens = ".{$path_parts['extension']}";
-      // If the current language is LTR, add the file with the LTR overrides.
-      if ($language->direction == LANGUAGE_LTR) {
-        $dir_path = str_replace($extens, "-ltr{$extens}", $item['data']);
-      }
-      // If the current language is RTL, add the sass/scss file with the RTL overrides.
-      // Core already takes care of RTL css files.
-      elseif ($language->direction == LANGUAGE_RTL && ($extens == ".scss" || $extens == ".sass")) {
-        $dir_path = str_replace($extens, "-rtl{$extens}", $item['data']);
-      }
-      // If the file is exists, add the file with the dir (LTR/RTL) overrides.
-      if (isset($dir_path) && file_exists($dir_path) && !isset($css[$dir_path])) {
-        // Replicate the same item, but with the dir (RTL/LTR) path and a little larger
-        // weight so that it appears directly after the original CSS file.
-        $item['data'] = $dir_path;
-        $item['weight'] += 0.01;
-        $css[$dir_path] = $item;
+      if (!empty($path_parts['extension'])) {
+        $extens = ".{$path_parts['extension']}";
+        // If the current language is LTR, add the file with the LTR overrides.
+        if ($language->direction == LANGUAGE_LTR) {
+          $dir_path = str_replace($extens, "-ltr{$extens}", $item['data']);
+        }
+        // If the current language is RTL, add the sass/scss file with the RTL overrides.
+        // Core already takes care of RTL css files.
+        elseif ($language->direction == LANGUAGE_RTL && ($extens == ".scss" || $extens == ".sass")) {
+          $dir_path = str_replace($extens, "-rtl{$extens}", $item['data']);
+        }
+        // If the file is exists, add the file with the dir (LTR/RTL) overrides.
+        if (isset($dir_path) && file_exists($dir_path) && !isset($css[$dir_path])) {
+          // Replicate the same item, but with the dir (RTL/LTR) path and a little larger
+          // weight so that it appears directly after the original CSS file.
+          $item['data'] = $dir_path;
+          $item['weight'] += 0.01;
+          $css[$dir_path] = $item;
+        }
       }
     }
   }
@@ -116,10 +118,36 @@ function sasson_preprocess_html(&$vars) {
   $vars['rdf'] = _sasson_rdf($vars);
   $vars['html_attributes'] = 'lang="' . $vars['language']->language . '" dir="' . $vars['language']->dir . '" ' . $vars['rdf']->version . $vars['rdf']->namespaces;
 
+  // CSS resets
+  // normalize remains the default
+  $reset = theme_get_setting('sasson_cssreset') ? theme_get_setting('sasson_cssreset') : 'normalize';
+  if (theme_get_setting('sasson_cssreset') != 'none') {
+    drupal_add_css(drupal_get_path('theme', 'sasson') . '/styles/reset/' . $reset . '.css' , array('weight' => -1, 'every_page' => TRUE));
+  }
+  if (theme_get_setting('sasson_formalize')) {
+    drupal_add_css(drupal_get_path('theme', 'sasson') . '/styles/reset/formalize/css/formalize.css' , array('weight' => -1, 'every_page' => TRUE));
+    drupal_add_js(drupal_get_path('theme', 'sasson') . '/styles/reset/formalize/js/jquery.formalize.js' , array('scope' => 'footer'));
+  }
+
+  // File-Watcher - auto-refresh the browser when a file is updated
+  if (theme_get_setting('sasson_watcher')) {
+    global $base_url;
+    $list = array_map('trim',explode("\n", theme_get_setting('sasson_watch_file')));
+    $instant = theme_get_setting('sasson_instant_watcher');
+    $watcher = "(function () {\n";
+    foreach ($list as $file){
+      if (substr($file, 0, 1) !== ';') {
+        $watcher .= "  Drupal.sasson.watch('" . $base_url . "/" . $file . "', " . $instant . ");\n";
+      }
+    }
+    $watcher .= "}());";
+    drupal_add_js($watcher, array('type' => 'inline', 'scope' => 'footer'));
+  }
+
   // Custom fonts from Google web-fonts
   $font = str_replace(' ', '+', theme_get_setting('sasson_font'));
   if (theme_get_setting('sasson_font')) {
-    drupal_add_css('http://fonts.googleapis.com/css?family=' . $font , array('type' => 'external', 'group' => CSS_THEME));
+    drupal_add_css('//fonts.googleapis.com/css?family=' . $font , array('type' => 'external', 'group' => CSS_THEME));
   }
 
   // Enable HTML5 elements in IE
@@ -164,9 +192,9 @@ function sasson_preprocess_html(&$vars) {
   if (theme_get_setting('sasson_responsive')) {
     $mobiledropdown_width = str_replace('px', '', theme_get_setting('sasson_responsive_menus_width'));
     if ($mobiledropdown_width > 0) {
-      $mobiledropdown_selectors = theme_get_setting('sasson_responsive_menus_selectors');
-      $inline_code = 'jQuery("' . $mobiledropdown_selectors . '").mobileSelect({
-          deviceWidth: ' . $mobiledropdown_width . '
+      $inline_code = 'jQuery("' . theme_get_setting('sasson_responsive_menus_selectors') . '").mobileSelect({
+          deviceWidth: ' . $mobiledropdown_width . ',
+          autoHide: ' . theme_get_setting('sasson_responsive_menus_autohide') . ',
         });';
       drupal_add_js(drupal_get_path('theme', 'sasson') . '/scripts/jquery.mobileselect.js');
       drupal_add_js($inline_code,
@@ -359,6 +387,8 @@ function sasson_preprocess_block(&$vars, $hook) {
   // Add a striping class.
   $vars['classes_array'][] = 'block-' . $vars['zebra'];
 
+  $vars['title_attributes_array']['class'][] = 'block-title';
+
   // In the header region visually hide block titles.
   if ($vars['block']->region == 'header') {
     $vars['title_attributes_array']['class'][] = 'element-invisible';
@@ -500,7 +530,9 @@ function sasson_menu_link(array $vars) {
   // Adding a class depending on the TITLE of the link (not constant)
   $element['#attributes']['class'][] = drupal_html_id($element['#title']);
   // Adding a class depending on the ID of the link (constant)
-  $element['#attributes']['class'][] = 'mid-' . $element['#original_link']['mlid'];
+  if (isset($element['#original_link']['mlid']) && !empty($element['#original_link']['mlid'])) {
+    $element['#attributes']['class'][] = 'mid-' . $element['#original_link']['mlid'];
+  }
   return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
 }
 

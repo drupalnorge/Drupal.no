@@ -11,7 +11,7 @@ function sasson_form_system_theme_settings_alter(&$form, &$form_state) {
   $form['sasson_settings'] = array(
     '#type' => 'vertical_tabs',
     '#weight' => -10,
-    '#prefix' => t('<h3>Theme configuration</h3>'),
+    '#prefix' => '<h3>' . t('Theme configuration') . '</h3>',
   );
 
   $form['#submit'][] = 'sasson_flush_css';
@@ -175,6 +175,11 @@ function sasson_form_system_theme_settings_alter(&$form, &$form_state) {
     '#description' => t("Enter some CSS selectors for the menus you want to alter."),
     '#default_value' => theme_get_setting('sasson_responsive_menus_selectors'),
   );
+  $form['sasson_settings']['sasson_layout']['responsive_menus']['sasson_responsive_menus_autohide'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Auto-hide the standard menu'),
+    '#default_value' => theme_get_setting('sasson_responsive_menus_autohide'),
+  );
 
   /**
    * SASS Settings
@@ -201,7 +206,33 @@ function sasson_form_system_theme_settings_alter(&$form, &$form_state) {
     '#submit' => array('sasson_flush_css'),
   );
   
-    /**
+  /**
+   * CSS resets
+   */
+  $form['sasson_settings']['sasson_reset'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('CSS resets'),
+  );
+  $form['sasson_settings']['sasson_reset']['sasson_cssreset'] = array(
+    '#type' => 'radios',
+    '#title' => t('Normalize VS Reset'),
+    '#options' => array(
+        'normalize' => t('Use !normalize from !h5bp.', array('!normalize' => l('normalize.css', 'http://necolas.github.com/normalize.css/', array('attributes' => array('target'=>'_blank'))), '!h5bp' => l('HTML5 Boilerplate', 'http://html5boilerplate.com/', array('attributes' => array('target'=>'_blank'))))),
+        'reset' => t("Use !meyer's CSS reset.", array('!meyer' => l('Eric Meyer', 'http://meyerweb.com/eric/tools/css/reset/', array('attributes' => array('target'=>'_blank'))))),
+        'none' => t("None"),
+      ),
+    '#description' => t('Normalize.css makes browsers render all elements more consistently and in line with modern standards, while preserving useful defaults, unlike many CSS resets.<br>
+      Reset.css takes the approach of reseting css values to reduce browser inconsistencies in things like default line heights, margins and font sizes of headings, and so on.'),
+    '#default_value' => theme_get_setting('sasson_cssreset'),
+  );
+  $form['sasson_settings']['sasson_reset']['sasson_formalize'] = array(
+    '#type' => 'checkbox',
+    '#title' => t("Use !formalize to reset your forms.", array('!formalize' => l('Formalize', 'http://formalize.me/', array('attributes' => array('target'=>'_blank'))))),
+    '#description' => t('Break the cycle of inconsistent form defaults, style forms with impunity!'),
+    '#default_value' => theme_get_setting('sasson_formalize'),
+  );
+
+  /**
    * HTML5 IE support
    */
   $form['sasson_settings']['sasson_html5'] = array(
@@ -241,7 +272,7 @@ function sasson_form_system_theme_settings_alter(&$form, &$form_state) {
     '#collapsible' => TRUE,
     '#collapsed' => TRUE,
     '#description' => t("
-      <strong>Experimental</strong> - Set a custom font to be used across the site. you may override typography settings in you sub-theme's css/sass/scss files.<br>
+      Set a custom font to be used across the site. you may override typography settings in you sub-theme's css/sass/scss files.<br>
       <strong>Note:</strong> Only fonts from !webfont are supported at the moment, if this is not enough you should check out !fontyourface module.", 
       array('!webfont' => l('google web fonts', 'http://www.google.com/webfonts', array('attributes' => array('target'=>'_blank'))), '!fontyourface' => l('@font-your-face', 'http://drupal.org/project/fontyourface', array('attributes' => array('target'=>'_blank'))))),
     '#title' => t('Fonts'),
@@ -277,6 +308,30 @@ function sasson_form_system_theme_settings_alter(&$form, &$form_state) {
     '#title' => t('Rebuild theme registry on every page request.'),
     '#description' => t('During theme development, it can be very useful to continuously <a href="!link">rebuild the theme registry</a>. WARNING: this is a huge performance penalty and must be turned off on production websites.', array('!link' => 'http://drupal.org/node/173880#theme-registry')),
     '#default_value' => theme_get_setting('sasson_clear_registry'),
+  );
+
+  $form['sasson_settings']['sasson_development']['sasson_watch'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('File Watcher'),
+  );
+  $form['sasson_settings']['sasson_development']['sasson_watch']['sasson_watcher'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Watch for file changes and automatically refresh the browser.'),
+    '#description' => t('With this feature on, you may enter a list of URLs for files to be watched, whenever a file is changed, your browser will automagically refresh itself.<br><strong>Turn this off when not actively developing.</strong>'),
+    '#default_value' => theme_get_setting('sasson_watcher'),
+  );
+  $form['sasson_settings']['sasson_development']['sasson_watch']['sasson_watch_file'] = array(
+    '#type' => 'textarea',
+    '#title' => t('Files to watch'),
+    '#description' => t('Enter the internal path of the files to be watched. one file per line. no leading slash.<br> e.g. sites/all/themes/sasson/styles/sasson.scss<br>Lines starting with a semicolon (;) will be ignored.<br><strong>Keep this list short !</strong> Watch only the files you currently work on.'),
+    '#rows' => 3,
+    '#default_value' => theme_get_setting('sasson_watch_file'),
+  );
+  $form['sasson_settings']['sasson_development']['sasson_watch']['sasson_instant_watcher'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Update styles without refreshing.'),
+    '#description' => t('<strong>Experimental</strong> - this will instantly update your browser when a watched file is updated without refreshing the browser. note: this will work with stylesheets only (CSS/SASS/SCSS).'),
+    '#default_value' => theme_get_setting('sasson_instant_watcher'),
   );
 
   $form['sasson_settings']['sasson_development']['sasson_overlay'] = array(

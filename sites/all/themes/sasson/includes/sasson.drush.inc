@@ -69,6 +69,7 @@ function drush_sasson_new_subtheme($name = NULL, $machine_name = NULL) {
   drush_op('rename', "$subtheme_path/SUBTHEME.info", "$subtheme_path/$machine_name.info");
   drush_op('rename', "$subtheme_path/styles/SUBTHEME.scss", "$subtheme_path/styles/$machine_name.scss");
   drush_op('rename', "$subtheme_path/images/SUBTHEME.png", "$subtheme_path/images/$machine_name.png");
+  drush_op('sasson_file_str_replace', "$subtheme_path/$machine_name.info", ', <strong>you shouldn\'t enable this starterkit</strong>. instead, use <em>drush sns</em> or manually copy it to create a new sub-theme, check out the <a href="http://www.linnovate.net/blog/sasson-smart-drupal-theming">docs</a> or the README.txt for more info', "");
   drush_op('sasson_file_str_replace', "$subtheme_path/$machine_name.info", 'SUBTHEME', "$machine_name");
   drush_op('sasson_file_str_replace', "$subtheme_path/$machine_name.info", 'Starterkit', "$name");
 
@@ -79,6 +80,14 @@ function drush_sasson_new_subtheme($name = NULL, $machine_name = NULL) {
       '!path' => $subtheme_path,
     )
   ));
+
+  drush_pm_enable($machine_name);
+
+  if (drush_confirm(dt("\nWould you like to set !name as your default theme?", array('!name' => $name)))) {
+    drush_op('variable_set', 'theme_default', $machine_name);
+    drush_print(dt("!name was set as your default theme. \n", array('!name' => $name)));
+  }
+
 }
 
 

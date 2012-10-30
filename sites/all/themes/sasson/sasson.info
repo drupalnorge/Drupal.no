@@ -2,15 +2,14 @@
 ; required information about the theme
 
 name = Sasson
-description = Sasson is a base theme for advanced drupal theming.
+description = Sasson is a base theme for advanced drupal theming, Check out the <a href="http://www.linnovate.net/blog/sasson-smart-drupal-theming">docs</a> or the README.txt for info on how to use Sasson and how to create sub-themes.
 screenshot = images/sasson.png
 core = 7.x
 
 
 ; Stylesheets  ------------------------------------------------------------
 
-styles[styles/boilerplate.css][options][weight] = -1
-styles[styles/boilerplate.css][options][media] = all
+; CSS resets are loaded conditionally via template.php
 
 styles[styles/sasson.scss][options][weight] = -1
 styles[styles/sasson.scss][options][media] = all
@@ -30,9 +29,9 @@ regions[header] = Header
 regions[help] = Help
 regions[page_top] = Page top
 regions[page_bottom] = Page bottom
-regions[highlighted] = Highlighted
 
 regions[featured] = Featured
+regions[highlighted] = Highlighted
 regions[content_top] = Content top
 regions[content] = Content
 regions[content_bottom] = Content bottom
@@ -64,15 +63,22 @@ settings[sasson_responsive_mf_medium] = '767px'
 settings[sasson_responsive_mf_large] = '960px'
 settings[sasson_responsive_menus_width] = '480px'
 settings[sasson_responsive_menus_selectors] = 'ul#main-menu-links, ul#secondary-menu-links'
+settings[sasson_responsive_menus_autohide] = 1
 
 settings[sasson_sass] = 1
 settings[sasson_devel] = 1
+
+settings[sasson_sass] = 'normalize'
+settings[sasson_formalize] = 0
 
 settings[sasson_html5shiv] = 1
 settings[sasson_force_ie] = 1
 settings[sasson_prompt_cf] = 'IE 7'
 
 settings[sasson_clear_registry] = 0
+settings[sasson_watcher] = 0
+settings[sasson_watch_file] = 'sites/all/themes/sasson/styles/sasson.scss'
+settings[sasson_instant_watcher] = 1
 settings[sasson_overlay] = 0
 settings[sasson_overlay_url] = ''
 settings[sasson_overlay_opacity] = '0.5'
@@ -86,9 +92,9 @@ settings[sasson_breadcrumb_showtitle] = 0
 settings[sasson_breadcrumb_separator] = '»'
 settings[sasson_feed_icons] = 0
 
-; Information added by drupal.org packaging script on 2012-02-19
-version = "7.x-2.0"
+; Information added by drupal.org packaging script on 2012-06-03
+version = "7.x-2.2"
 core = "7.x"
 project = "sasson"
-datestamp = "1329693346"
+datestamp = "1338756130"
 
