@@ -541,12 +541,18 @@ h1#site-name a {
     margin-bottom: 30px;
   }
 
-  .views-row-1, .views-row-4, .views-row-7, .views-row-10, .views-row-13 {
+  .views-row-1, .views-row-4, .views-row-7, .views-row-10, .views-row-13,
+  .views-row-16, .views-row-19, .views-row-22, .views-row-25, .views-row-28,
+  .views-row-31, .views-row-34, .views-row-37, .views-row-40, .views-row-43,
+  .views-row-46, .views-row-49, .views-row-52, .views-row-55, .views-row-58 {
     @include alpha;
     clear: left;
   }
 
-  .views-row-3, .views-row-6, .views-row-9, .views-row-12, .views-row-15 {
+  .views-row-3, .views-row-6, .views-row-9, .views-row-12, .views-row-15,
+  .views-row-18, .views-row-21, .views-row-24, .views-row-27, .views-row-30,
+  .views-row-33, .views-row-36, .views-row-39, .views-row-42, .views-row-45,
+  .views-row-48, .views-row-51, .views-row-54, .views-row-57, .views-row-60 {
     @include omega;
   }
 
