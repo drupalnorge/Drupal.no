@@ -26,7 +26,7 @@ function ds_layout_list() {
           continue;
         }
 
-        $row[] = $bundle['label'];
+        $row[] = check_plain($bundle['label']);
         $links = array(l(t('Manage display'), $path . '/display'));
         if ($entity['base table'] == 'node' && (module_exists('ds_forms') && !module_exists('rel'))) {
           $links[] = l(t('Manage form'), $path . '/fields');
