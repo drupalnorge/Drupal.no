@@ -10,7 +10,7 @@
 function leverandorer_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'node-company-field_company_email'
+  // Exported field: 'node-company-field_company_email'.
   $fields['node-company-field_company_email'] = array(
     'field_config' => array(
       'active' => '1',
@@ -20,6 +20,7 @@ function leverandorer_field_default_fields() {
       'field_name' => 'field_company_email',
       'foreign keys' => array(),
       'indexes' => array(),
+      'locked' => '0',
       'module' => 'email',
       'settings' => array(),
       'translatable' => '0',
@@ -65,7 +66,7 @@ function leverandorer_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-company-field_company_logo'
+  // Exported field: 'node-company-field_company_logo'.
   $fields['node-company-field_company_logo'] = array(
     'field_config' => array(
       'active' => '1',
@@ -86,6 +87,7 @@ function leverandorer_field_default_fields() {
           0 => 'fid',
         ),
       ),
+      'locked' => '0',
       'module' => 'image',
       'settings' => array(
         'default_image' => 0,
@@ -126,6 +128,7 @@ function leverandorer_field_default_fields() {
       'required' => 0,
       'settings' => array(
         'alt_field' => 0,
+        'default_image' => 0,
         'file_directory' => 'company',
         'file_extensions' => 'png gif jpg jpeg',
         'max_filesize' => '',
@@ -147,20 +150,34 @@ function leverandorer_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-company-field_company_phone'
-  $fields['node-company-field_company_phone'] = array(
+  // Exported field: 'node-company-field_company_phonenumber'.
+  $fields['node-company-field_company_phonenumber'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_company_phone',
-      'foreign keys' => array(),
-      'indexes' => array(),
-      'module' => 'number',
-      'settings' => array(),
+      'field_name' => 'field_company_phonenumber',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '255',
+      ),
       'translatable' => '0',
-      'type' => 'number_integer',
+      'type' => 'text',
     ),
     'field_instance' => array(
       'bundle' => 'company',
@@ -169,52 +186,41 @@ function leverandorer_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'hidden',
-          'module' => 'number',
-          'settings' => array(
-            'decimal_separator' => '.',
-            'prefix_suffix' => TRUE,
-            'scale' => 0,
-            'thousand_separator' => ' ',
-          ),
-          'type' => 'number_integer',
-          'weight' => '2',
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => 6,
         ),
         'teaser' => array(
-          'label' => 'hidden',
-          'module' => 'number',
-          'settings' => array(
-            'decimal_separator' => '.',
-            'prefix_suffix' => TRUE,
-            'scale' => 0,
-            'thousand_separator' => ' ',
-          ),
-          'type' => 'number_integer',
-          'weight' => '2',
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
       ),
+      'ds_extras_field_template' => '',
       'entity_type' => 'node',
-      'field_name' => 'field_company_phone',
+      'field_name' => 'field_company_phonenumber',
       'label' => 'Telefon',
       'required' => 0,
       'settings' => array(
-        'max' => '',
-        'min' => '',
-        'prefix' => '',
-        'suffix' => '',
+        'text_processing' => '0',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
-        'active' => 0,
-        'module' => 'number',
-        'settings' => array(),
-        'type' => 'number',
-        'weight' => '4',
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '60',
+        ),
+        'type' => 'text_textfield',
+        'weight' => '3',
       ),
     ),
   );
 
-  // Exported field: 'node-company-field_company_url'
+  // Exported field: 'node-company-field_company_url'.
   $fields['node-company-field_company_url'] = array(
     'field_config' => array(
       'active' => '1',
@@ -224,6 +230,7 @@ function leverandorer_field_default_fields() {
       'field_name' => 'field_company_url',
       'foreign keys' => array(),
       'indexes' => array(),
+      'locked' => '0',
       'module' => 'link',
       'settings' => array(
         'attributes' => array(
@@ -292,12 +299,12 @@ function leverandorer_field_default_fields() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_field',
-        'weight' => '3',
+        'weight' => '2',
       ),
     ),
   );
 
-  // Exported field: 'node-company-field_company_where'
+  // Exported field: 'node-company-field_company_where'.
   $fields['node-company-field_company_where'] = array(
     'field_config' => array(
       'active' => '1',
@@ -318,6 +325,7 @@ function leverandorer_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(

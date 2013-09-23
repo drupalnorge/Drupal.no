@@ -8,10 +8,7 @@
  * Implements hook_views_api().
  */
 function leverandorer_views_api() {
-  list($module, $api) = func_get_args();
-  if ($module == "views" && $api == "views_default") {
-    return array("version" => "3.0");
-  }
+  return array("version" => "3.0");
 }
 
 /**
@@ -20,7 +17,7 @@ function leverandorer_views_api() {
 function leverandorer_image_default_styles() {
   $styles = array();
 
-  // Exported image style: company
+  // Exported image style: company.
   $styles['company'] = array(
     'name' => 'company',
     'effects' => array(
@@ -44,6 +41,7 @@ function leverandorer_image_default_styles() {
         'label' => 'Define canvas',
         'help' => 'Define the size of the working canvas and background color, this controls the dimensions of the output image.',
         'effect callback' => 'canvasactions_definecanvas_image',
+        'dimensions callback' => 'canvasactions_definecanvas_dimensions',
         'form callback' => 'canvasactions_definecanvas_form',
         'summary theme' => 'canvasactions_definecanvas_summary',
         'module' => 'imagecache_canvasactions',
