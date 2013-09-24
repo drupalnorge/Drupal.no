@@ -10,7 +10,7 @@
 function reference_sites_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'node-drupal_site-field_company_url'
+  // Exported field: 'node-drupal_site-field_company_url'.
   $fields['node-drupal_site-field_company_url'] = array(
     'field_config' => array(
       'active' => '1',
@@ -20,6 +20,7 @@ function reference_sites_field_default_fields() {
       'field_name' => 'field_company_url',
       'foreign keys' => array(),
       'indexes' => array(),
+      'locked' => '0',
       'module' => 'link',
       'settings' => array(
         'attributes' => array(
@@ -93,7 +94,7 @@ function reference_sites_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-drupal_site-field_logo'
+  // Exported field: 'node-drupal_site-field_logo'.
   $fields['node-drupal_site-field_logo'] = array(
     'field_config' => array(
       'active' => '1',
@@ -114,6 +115,7 @@ function reference_sites_field_default_fields() {
           0 => 'fid',
         ),
       ),
+      'locked' => '0',
       'module' => 'image',
       'settings' => array(
         'default_image' => 0,
@@ -151,6 +153,7 @@ function reference_sites_field_default_fields() {
       'required' => 1,
       'settings' => array(
         'alt_field' => 1,
+        'default_image' => 0,
         'file_directory' => 'images/logo',
         'file_extensions' => 'png gif jpg jpeg',
         'max_filesize' => '',
@@ -172,7 +175,7 @@ function reference_sites_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-drupal_site-field_region'
+  // Exported field: 'node-drupal_site-field_region'.
   $fields['node-drupal_site-field_region'] = array(
     'field_config' => array(
       'active' => '1',
@@ -193,6 +196,7 @@ function reference_sites_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -246,7 +250,7 @@ function reference_sites_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-drupal_site-field_short_description'
+  // Exported field: 'node-drupal_site-field_short_description'.
   $fields['node-drupal_site-field_short_description'] = array(
     'field_config' => array(
       'active' => '1',
@@ -267,6 +271,7 @@ function reference_sites_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',

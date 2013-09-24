@@ -18,10 +18,7 @@ function reference_sites_ctools_plugin_api() {
  * Implements hook_views_api().
  */
 function reference_sites_views_api() {
-  list($module, $api) = func_get_args();
-  if ($module == "views" && $api == "views_default") {
-    return array("version" => "3.0");
-  }
+  return array("version" => "3.0");
 }
 
 /**
@@ -30,11 +27,11 @@ function reference_sites_views_api() {
 function reference_sites_image_default_styles() {
   $styles = array();
 
-  // Exported image style: reference
+  // Exported image style: reference.
   $styles['reference'] = array(
     'name' => 'reference',
     'effects' => array(
-      7 => array(
+      5 => array(
         'label' => 'Skaler',
         'help' => 'Skalering vil beholde størrelsesforhold i det originale bildet. Hvis bare en dimensjon er oppgitt, så beregnes den andre dimensjonen.',
         'effect callback' => 'image_scale_effect',
@@ -44,16 +41,33 @@ function reference_sites_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale',
         'data' => array(
-          'width' => '278',
-          'height' => '178',
+          'width' => '267',
+          'height' => '',
           'upscale' => 0,
         ),
         'weight' => '-10',
       ),
       6 => array(
+        'label' => 'Beskjær',
+        'help' => 'Beskjæring vil fjerne deler av et bilde slik at det passer med de oppgitte dimensjonene.',
+        'effect callback' => 'image_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_crop_form',
+        'summary theme' => 'image_crop_summary',
+        'module' => 'image',
+        'name' => 'image_crop',
+        'data' => array(
+          'width' => '267',
+          'height' => '178',
+          'anchor' => 'center-top',
+        ),
+        'weight' => '-9',
+      ),
+      3 => array(
         'label' => 'Define canvas',
         'help' => 'Define the size of the working canvas and background color, this controls the dimensions of the output image.',
-        'effect callback' => 'canvasactions_definecanvas_image',
+        'effect callback' => 'canvasactions_definecanvas_effect',
+        'dimensions callback' => 'canvasactions_definecanvas_dimensions',
         'form callback' => 'canvasactions_definecanvas_form',
         'summary theme' => 'canvasactions_definecanvas_summary',
         'module' => 'imagecache_canvasactions',
@@ -76,7 +90,7 @@ function reference_sites_image_default_styles() {
             'bottomdiff' => '',
           ),
         ),
-        'weight' => '-9',
+        'weight' => '-8',
       ),
     ),
   );

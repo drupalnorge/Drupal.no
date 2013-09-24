@@ -10,7 +10,7 @@
 function reference_sites_views_default_views() {
   $export = array();
 
-  $view = new view;
+  $view = new view();
   $view->name = 'references';
   $view->description = '';
   $view->tag = 'default';
@@ -23,12 +23,14 @@ function reference_sites_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Referanser';
+  $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'mer';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Bruk';
   $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Nullstill';
   $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér på';
   $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
@@ -47,17 +49,12 @@ function reference_sites_views_default_views() {
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['title']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['title']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['title']['link_to_node'] = 1;
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Sorteringskriterium: Global: Tilfeldig */
+  $handler->display->display_options['sorts']['random']['id'] = 'random';
+  $handler->display->display_options['sorts']['random']['table'] = 'views';
+  $handler->display->display_options['sorts']['random']['field'] = 'random';
   /* Filter criterion: Innhold: Publisert */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -83,17 +80,16 @@ function reference_sites_views_default_views() {
   $handler->display->display_options['filters']['field_region_tid']['expose']['label'] = 'Region (field_region)';
   $handler->display->display_options['filters']['field_region_tid']['expose']['operator'] = 'field_region_tid_op';
   $handler->display->display_options['filters']['field_region_tid']['expose']['identifier'] = 'field_region_tid';
-  $handler->display->display_options['filters']['field_region_tid']['reduce_duplicates'] = 0;
   $handler->display->display_options['filters']['field_region_tid']['vocabulary'] = 'region';
-  $handler->display->display_options['filters']['field_region_tid']['error_message'] = 1;
 
   /* Display: Page Norske */
   $handler = $view->new_display('page', 'Page Norske', 'page');
-  $handler->display->display_options['path'] = 'referanser/norske-drupalsider';
+  $handler->display->display_options['path'] = 'referanser/norske';
 
   /* Display: Page Internasjonal */
   $handler = $view->new_display('page', 'Page Internasjonal', 'page_1');
   $handler->display->display_options['display_description'] = 'Internasjonale referansesider';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Innhold: Publisert */
   $handler->display->display_options['filters']['status']['id'] = 'status';
@@ -120,10 +116,8 @@ function reference_sites_views_default_views() {
   $handler->display->display_options['filters']['field_region_tid']['expose']['label'] = 'Region (field_region)';
   $handler->display->display_options['filters']['field_region_tid']['expose']['operator'] = 'field_region_tid_op';
   $handler->display->display_options['filters']['field_region_tid']['expose']['identifier'] = 'field_region_tid';
-  $handler->display->display_options['filters']['field_region_tid']['reduce_duplicates'] = 0;
   $handler->display->display_options['filters']['field_region_tid']['vocabulary'] = 'region';
-  $handler->display->display_options['filters']['field_region_tid']['error_message'] = 1;
-  $handler->display->display_options['path'] = 'referanser/internasjonale-drupalsider';
+  $handler->display->display_options['path'] = 'referanser/internasjonale';
   $translatables['references'] = array(
     t('Master'),
     t('Referanser'),
