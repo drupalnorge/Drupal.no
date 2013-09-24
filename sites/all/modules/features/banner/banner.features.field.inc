@@ -10,7 +10,7 @@
 function banner_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'node-banner-body'
+  // Exported field: 'node-banner-body'.
   $fields['node-banner-body'] = array(
     'field_config' => array(
       'active' => '1',
@@ -33,6 +33,7 @@ function banner_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(),
       'translatable' => '1',
@@ -80,7 +81,7 @@ function banner_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-banner-field_bannerimage'
+  // Exported field: 'node-banner-field_bannerimage'.
   $fields['node-banner-field_bannerimage'] = array(
     'field_config' => array(
       'active' => '1',
@@ -101,6 +102,7 @@ function banner_field_default_fields() {
           0 => 'fid',
         ),
       ),
+      'locked' => '0',
       'module' => 'image',
       'settings' => array(
         'default_image' => 0,
@@ -129,7 +131,7 @@ function banner_field_default_fields() {
           'module' => 'image',
           'settings' => array(
             'image_link' => '',
-            'image_style' => 'banner',
+            'image_style' => '',
           ),
           'type' => 'image',
           'weight' => '0',
@@ -142,6 +144,7 @@ function banner_field_default_fields() {
       'required' => 0,
       'settings' => array(
         'alt_field' => 1,
+        'default_image' => 0,
         'file_directory' => 'banners',
         'file_extensions' => 'png gif jpg jpeg',
         'max_filesize' => '',
@@ -163,7 +166,7 @@ function banner_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-banner-field_text_position'
+  // Exported field: 'node-banner-field_text_position'.
   $fields['node-banner-field_text_position'] = array(
     'field_config' => array(
       'active' => '1',
@@ -177,6 +180,7 @@ function banner_field_default_fields() {
           0 => 'value',
         ),
       ),
+      'locked' => '0',
       'module' => 'list',
       'settings' => array(
         'allowed_values' => array(
@@ -231,7 +235,7 @@ function banner_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-banner-field_text_style'
+  // Exported field: 'node-banner-field_text_style'.
   $fields['node-banner-field_text_style'] = array(
     'field_config' => array(
       'active' => '1',
@@ -245,6 +249,7 @@ function banner_field_default_fields() {
           0 => 'value',
         ),
       ),
+      'locked' => '0',
       'module' => 'list',
       'settings' => array(
         'allowed_values' => array(

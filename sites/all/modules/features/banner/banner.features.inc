@@ -22,10 +22,7 @@ function banner_ctools_plugin_api() {
  * Implements hook_views_api().
  */
 function banner_views_api() {
-  list($module, $api) = func_get_args();
-  if ($module == "views" && $api == "views_default") {
-    return array("version" => "3.0");
-  }
+  return array("version" => "3.0");
 }
 
 /**
@@ -34,7 +31,7 @@ function banner_views_api() {
 function banner_image_default_styles() {
   $styles = array();
 
-  // Exported image style: banner
+  // Exported image style: banner.
   $styles['banner'] = array(
     'name' => 'banner',
     'effects' => array(
@@ -69,7 +66,7 @@ function banner_node_info() {
       'base' => 'node_content',
       'description' => t('Banner to be viewed on the font page carousel'),
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Tittel'),
       'help' => '',
     ),
   );
