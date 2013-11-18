@@ -84,7 +84,7 @@ function leverandorer_views_default_views() {
   $handler->display->display_options['fields']['field_company_where']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_company_where']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_company_where']['type'] = 'taxonomy_term_reference_plain';
-  /* Felt: Innhold: Nettside */
+  /* Felt: Innhold: Link */
   $handler->display->display_options['fields']['field_company_url']['id'] = 'field_company_url';
   $handler->display->display_options['fields']['field_company_url']['table'] = 'field_data_field_company_url';
   $handler->display->display_options['fields']['field_company_url']['field'] = 'field_company_url';
@@ -134,18 +134,27 @@ function leverandorer_views_default_views() {
     'chunk' => 0,
     'link' => 1,
   );
+  /* Felt: Innhold: Firmamedlem */
+  $handler->display->display_options['fields']['field_company_member']['id'] = 'field_company_member';
+  $handler->display->display_options['fields']['field_company_member']['table'] = 'field_data_field_company_member';
+  $handler->display->display_options['fields']['field_company_member']['field'] = 'field_company_member';
+  $handler->display->display_options['fields']['field_company_member']['label'] = '';
+  $handler->display->display_options['fields']['field_company_member']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_company_member']['element_label_colon'] = FALSE;
   /* Felt: Global: Tilpasset tekst */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = '[field_company_logo]
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="[field_company_member] clearfix">
+[field_company_logo]
 <section class="info">
   <h2>[title] <i class="where">[field_company_where]</i></h2>
   [field_company_url]
   [field_company_phonenumber]
   [field_company_email]
-</section>';
+</section>
+</div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['nothing']['element_default_classes'] = FALSE;
   /* Sorteringskriterium: Global: Tilfeldig */
@@ -195,13 +204,15 @@ function leverandorer_views_default_views() {
     t('<div><i class="icon-pencil"></i>[edit_node]</div>'),
     t('Rediger leverandør'),
     t('<span class="mail"><i class="icon-envelope"></i>[field_company_email]</span>'),
-    t('[field_company_logo]
+    t('<div class="[field_company_member] clearfix">
+[field_company_logo]
 <section class="info">
   <h2>[title] <i class="where">[field_company_where]</i></h2>
   [field_company_url]
   [field_company_phonenumber]
   [field_company_email]
-</section>'),
+</section>
+</div>'),
     t('Page'),
   );
   $export['leverandorer'] = $view;

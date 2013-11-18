@@ -150,6 +150,76 @@ function leverandorer_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-company-field_company_member'.
+  $fields['node-company-field_company_member'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_company_member',
+      'foreign keys' => array(),
+      'indexes' => array(
+        'value' => array(
+          0 => 'value',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'list',
+      'settings' => array(
+        'allowed_values' => array(
+          0 => 'ikke-firmamedlem',
+          1 => 'firmamedlem',
+        ),
+        'allowed_values_function' => '',
+      ),
+      'translatable' => '0',
+      'type' => 'list_boolean',
+    ),
+    'field_instance' => array(
+      'bundle' => 'company',
+      'default_value' => array(
+        0 => array(
+          'value' => 0,
+        ),
+      ),
+      'deleted' => '0',
+      'description' => 'Firmaet har betalt medlemsskap for Foreningen Drupal Norge, inneværende år. Privat medlemsskap gjelder ikke.',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'list',
+          'settings' => array(),
+          'type' => 'list_default',
+          'weight' => 7,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'ds_extras_field_template' => '',
+      'entity_type' => 'node',
+      'field_name' => 'field_company_member',
+      'label' => 'Firmamedlem',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'options',
+        'settings' => array(
+          'display_label' => 1,
+        ),
+        'type' => 'options_onoff',
+        'weight' => '7',
+      ),
+    ),
+  );
+
   // Exported field: 'node-company-field_company_phonenumber'.
   $fields['node-company-field_company_phonenumber'] = array(
     'field_config' => array(
@@ -308,7 +378,7 @@ function leverandorer_field_default_fields() {
   $fields['node-company-field_company_where'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '1',
+      'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_company_where',
@@ -358,14 +428,16 @@ function leverandorer_field_default_fields() {
           'weight' => 0,
         ),
       ),
+      'ds_extras_field_template' => '',
       'entity_type' => 'node',
       'field_name' => 'field_company_where',
       'label' => 'Beliggenhet',
-      'required' => FALSE,
+      'required' => 0,
       'settings' => array(
         'user_register_form' => FALSE,
       ),
       'widget' => array(
+        'active' => 1,
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
@@ -378,6 +450,8 @@ function leverandorer_field_default_fields() {
   // Included for use with string extractors like potx.
   t('Beliggenhet');
   t('E-post');
+  t('Firmaet har betalt medlemsskap for Foreningen Drupal Norge, inneværende år. Privat medlemsskap gjelder ikke.');
+  t('Firmamedlem');
   t('Logo');
   t('Nettside');
   t('Telefon');
