@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* 
  * ##### Sasson - advanced drupal theming. #####
  *   
@@ -4679,7 +4680,6 @@ h1#site-name a {
 }
 .view-leverandorer .views-row section {
   float: left;
-  background: #f8fbfb;
   padding: 17px 16px;
   overflow: auto;
   height: 84px;
@@ -4828,4 +4828,8 @@ h1#site-name a {
 .baner-page-fields .views-field-body .wrapper.right {
   text-align: right;
   right: 0;
+}
+
+.firmamedlem {
+  background: url('../img/drupalnorge-member.png') no-repeat right center;
 }
