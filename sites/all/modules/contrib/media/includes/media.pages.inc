@@ -219,14 +219,14 @@ function media_add_upload_validate($form, &$form_state) {
  * Upload a file.
  */
 function media_add_upload_submit($form, &$form_state) {
-  $params = $form_state['build_info']['args'][0];
+  $params = isset($form_state['build_info']['args'][0]) ? $form_state['build_info']['args'][0] : array();
   $file = $form_state['values']['upload'];
 
   // The media browser widget does not use the 'display' field.
   $file->display = TRUE;
 
   // Change the file status from temporary to permanent.
-  _media_save_file_permenently($file);
+  _media_save_file_permanently($file);
 
   // Determine what URI scheme this file should use.
   $scheme = !empty($params['uri_scheme']) && file_stream_wrapper_valid_scheme($params['uri_scheme']) ? $params['uri_scheme'] : file_default_scheme();
@@ -250,12 +250,13 @@ function media_add_upload_submit($form, &$form_state) {
   $destination = file_stream_wrapper_uri_normalize($scheme . $directory . $file->filename);
 
   // Save the uploaded file to the permanent location.
-  $file = file_move($file, $destination, FILE_EXISTS_RENAME);
+  $result = file_move($file, $destination, FILE_EXISTS_RENAME);
 
-  if ($file) {
+  if ($result) {
     drupal_set_message(t('The file @name was uploaded', array('@name' => $file->filename)));
   }
   else {
+    file_delete($file);
     drupal_set_message(t('An error occurred and no file was uploaded.'), 'error');
     return;
   }
@@ -291,7 +292,7 @@ function media_add_upload_multiple_submit($form, &$form_state) {
 
       $file = file_uri_to_object($destination);
       file_save($file);
-      _media_save_file_permenently($file);
+      _media_save_file_permanently($file);
 
       $saved_files[] = $file;
     }
@@ -311,7 +312,7 @@ function media_add_upload_multiple_submit($form, &$form_state) {
 /**
  * Form builder: Builds the edit file form.
  */
-function media_edit($form, $form_state, $file) {
+function media_edit($form, &$form_state, $file) {
   $form_state['file'] = $file;
   field_attach_form('file', $file, $form, $form_state);
 
