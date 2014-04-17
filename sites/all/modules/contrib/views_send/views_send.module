@@ -55,6 +55,31 @@ function _views_send_get_field($view) {
 }
 
 /**
+ * Gets the raw field value from a result row in a view.
+ * 
+ * @return
+ *  An array with raw values from the field.
+ */
+function _views_send_get_raw_field_from_views_row($view, $row_id, $field_id) {
+  $result = array();
+  $raw_value = $view->style_plugin->get_field_value($row_id, $field_id);
+  if (!is_array($raw_value)) {
+      $result[] = trim($raw_value);
+  } 
+  else { 
+    foreach ($raw_value as $arr) {
+      if (isset($arr['value'])) {
+        $value = $arr['value'];
+      } else {
+        list($value) = array_values($arr);
+      }
+      $result[] = trim($value);
+    }
+  }
+  return $result;
+}
+
+/**
  * Implements hook_views_form_substitutions().
  */
 function views_send_views_form_substitutions() {
@@ -379,12 +404,10 @@ function views_send_config_form_validate($form, &$form_state) {
 
     $to_mail_field = $values['views_send_tokens'][$values['views_send_to_mail']];
     foreach ($form_state['selection'] as $row_id) {
-      $to_mail_rendered = $view->style_plugin->get_field($row_id, $to_mail_field);
-      $to_mail_arr = explode(',', strip_tags($to_mail_rendered));
-      foreach ($to_mail_arr as $to_mail) {
-        $to_mail = trim($to_mail);
-        if (!valid_email_address($to_mail)) {
-          $wrong_addresses[$row_id] = $to_mail;
+      $mail_addresses = _views_send_get_raw_field_from_views_row($view, $row_id, $to_mail_field);
+      foreach ($mail_addresses as $mail_address) {
+        if (!valid_email_address($mail_address)) {
+          $wrong_addresses[$row_id] = $mail_address;
           break;
         }
       }
@@ -444,11 +467,10 @@ function views_send_confirm_form($form, &$form_state, $view, $output) {
   $to_name_field = $configuration['views_send_tokens'][$configuration['views_send_to_name']];
   $to_mail_field = $configuration['views_send_tokens'][$configuration['views_send_to_mail']];
   foreach ($form_state['selection'] as $row_id) {
-    $to_name = strip_tags($view->style_plugin->get_field($row_id, $to_name_field));
-    $to_mail_rendered = $view->style_plugin->get_field($row_id, $to_mail_field);
-    $to_mail_arr = explode(',', strip_tags($to_mail_rendered));
-    foreach ($to_mail_arr as $to_mail) {
-      $recipients[] = check_plain(empty($to_name) ? $to_mail : trim($to_name) . ' <' .  $to_mail . '>');
+    list($to_name) = _views_send_get_raw_field_from_views_row($view, $row_id, $to_name_field);
+    $mail_addresses = _views_send_get_raw_field_from_views_row($view, $row_id, $to_mail_field);
+    foreach ($mail_addresses as $mail_address) {
+      $recipients[] = check_plain(empty($to_name) ? $mail_address : trim($to_name) . ' <' .  $mail_address . '>');
     }
   }
 
@@ -563,7 +585,7 @@ function views_send_form_submit($form, &$form_state) {
 
       // Redirect.
       $query = drupal_get_query_parameters($_GET, array('q'));
-      $form_state['redirect'] = array('path' => $field->view->get_url(), array('query' => $query));
+      $form_state['redirect'] = array($field->view->get_url(), array('query' => $query));
       break;
   }
 }
@@ -600,8 +622,8 @@ function views_send_queue_mail($params, $selected_rows, $view) {
   $to_name_key = $params['views_send_tokens'][$params['views_send_to_name']];
   foreach ($selected_rows as $row_id) {
     // To: parts.
-    $to_mail = trim(strip_tags($view->style_plugin->get_field($row_id, $to_mail_key)));
-    $to_name = trim(strip_tags($view->style_plugin->get_field($row_id, $to_name_key)));
+    $to_mail = implode(',', _views_send_get_raw_field_from_views_row($view, $row_id, $to_mail_key));
+    list($to_name) = _views_send_get_raw_field_from_views_row($view, $row_id, $to_name_key);
 
     $subject = $params['views_send_subject'];
     $body = $params['views_send_message']['value'];
@@ -658,10 +680,10 @@ function views_send_queue_mail($params, $selected_rows, $view) {
     $message = array(
       'uid' => $user->uid,
       'timestamp' => time(),
-      'from_name' => $from_name,
-      'from_mail' => $from_mail,
-      'to_name' => $to_name,
-      'to_mail' => $to_mail,
+      'from_name' => trim($from_name),
+      'from_mail' => trim($from_mail),
+      'to_name' => trim($to_name),
+      'to_mail' => trim($to_mail),
       'subject' => strip_tags($subject),
       'body' => $body,
       'headers' => $headers,
@@ -702,7 +724,7 @@ function views_send_queue_mail($params, $selected_rows, $view) {
     );
     batch_set($batch);
     drupal_set_message(
-      t('@total messages processed.', array('@total' => count($selected_rows)))
+      format_plural(count($selected_rows), '1 message processed.', '@count messages processed.')
     );
   }
   else {
@@ -713,7 +735,7 @@ function views_send_queue_mail($params, $selected_rows, $view) {
     }
 
     drupal_set_message(
-      t('@total messages added to the spool.', array('@total' => count($selected_rows)))
+      format_plural(count($selected_rows), '1 message added to the spool.', '@count messages added to the spool.')
     );
     if (module_exists('rules')) {
       rules_invoke_event('views_send_all_email_added_to_spool', count($selected_rows));
@@ -900,10 +922,26 @@ function _views_send_headers($receipt, $priority, $from, $additional_headers) {
  * Build a formatted e-mail address.
  */
 function _views_send_format_address($mail, $name, $encode = TRUE) {
-  $name = trim($name);
-
   // Do not format addres on Windows based PHP systems or when $name is empty.
-  return ((substr(PHP_OS, 0, 3) == 'WIN') || empty($name)) ? $mail : '"' . ($encode ? mime_header_encode($name) : $name) . '" <' . $mail . '>';
+  if ((substr(PHP_OS, 0, 3) == 'WIN') || empty($name)) {
+    return $mail;
+  }
+  else {
+    $name = ($encode ? _views_send_mime_header_encode($name) : $name);
+    return sprintf('"%s" <%s>', $name, $mail);
+  }
+}
+
+/**
+ * Returns a mime-encoded string for strings that contain UTF-8.
+ *
+ * Simplified and correct version of mime_header_decode.
+ */ 
+function _views_send_mime_header_encode($string) {
+  if (preg_match('/[^\x20-\x7E]/', $string)) {
+    $string = '=?UTF-8?B?' . base64_encode($string) . '?=';
+  }
+  return $string;
 }
 
 /**
@@ -960,8 +998,9 @@ function _views_send_prepare_mail(&$message, $plain_format=TRUE, $attachments=ar
   $params['headers'] = $headers;
 
   if (VIEWS_SEND_MIMEMAIL) {
+    $mailsystem = mailsystem_get();
     mailsystem_set(array(
-      "views_send_$key" => 'MimeMailSystem'
+      "views_send_$key" => $mailsystem['mimemail']
     ));
     $params['attachments'] = $attachments;
     if ($plain_format) {
@@ -1009,12 +1048,16 @@ function views_send_deliver($message) {
   );
 
   if (VIEWS_SEND_MIMEMAIL) {
-    $mail['subject'] = mime_header_encode($message->subject);
+    $mailsystem = mailsystem_get();
     mailsystem_set(array(
-      "views_send_$key" => 'MimeMailSystem'
+      "views_send_$key" => $mailsystem['mimemail']
     ));
   }
 
+  // Mime encode the subject before passing to the mail function 
+  // to work around a bug in Drupal's mime_header_encode.
+  $mail['subject'] = _views_send_mime_header_encode($message->subject);
+  
   $system = drupal_mail_system('views_send', $key);
   return $system->mail($mail);
 }
