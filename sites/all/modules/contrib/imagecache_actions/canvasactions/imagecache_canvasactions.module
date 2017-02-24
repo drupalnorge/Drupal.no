@@ -51,7 +51,7 @@ if (! function_exists('imagecache_actions_calculate_relative_position') ) {
 module_load_include('inc', 'imagecache_canvasactions', 'canvasactions');
 module_load_include('inc', 'imagecache_canvasactions', 'rounded_corners');
 // imageapi extensions
-module_load_include('inc', 'imagcache_actions', 'image_overlay.inc');
+module_load_include('inc', 'imagecache_actions', 'image_overlay.inc');
 
 
 function imagecache_canvasactions_image_effect_info() {
