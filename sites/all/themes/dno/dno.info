@@ -20,6 +20,7 @@ base theme = sasson
 ; styles[styles/filename.scss][options][recompile] = true
 
 styles[styles/dno.css][options][media] = all
+styles[styles/dno-mobil.css][options][media] = screen and (max-width: 768px)
 stylesheets[all][] = styles/dno.css
 
 

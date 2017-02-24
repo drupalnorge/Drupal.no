@@ -1,0 +1,33 @@
+/* 
+ * This file is an ugly hack to make the display on mobiles less broken.
+ *
+ * Hans Nordhaug / hansfn - 24.02.2017
+ */
+
+
+#header .wrapper, #footer .wrapper {
+  width: 100%;
+}
+#header .wrapper .inner, #footer .wrapper .inner {
+  width: 100%;
+}
+
+#header_top .wrapper {
+  width: 100%;
+}
+#header_top .block-menu {
+  width: 100%;
+}
+
+.baner-page-fields .views-field-body .wrapper {
+  bottom: 10px;
+  width: 90%;
+}
+
+@media only screen and (max-width : 480px) {
+  .baner-page-fields .views-field-body .wrapper h2 {
+    display: none;
+  }
+}
+
+
