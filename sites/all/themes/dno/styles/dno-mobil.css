@@ -24,9 +24,16 @@
   width: 90%;
 }
 
+#footer {
+  height: 516px;
+}
+
 @media only screen and (max-width : 480px) {
   .baner-page-fields .views-field-body .wrapper h2 {
     display: none;
+  }
+  #footer {
+    height: 724px;
   }
 }
 
