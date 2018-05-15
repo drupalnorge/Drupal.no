@@ -833,6 +833,9 @@ function ds_ds_field_format_summary($field) {
       $conf = unserialize($value);
       $summary .= t('Type: !type', array('!type' => check_plain(drupal_ucfirst(str_replace('_', ' ', $conf['subtype'])))));
     }
+    elseif ($key == 'ft' || is_array($value)) {
+      // Do nothing
+    }
     elseif (!empty($value)) {
       $value = is_numeric($value) ? ($value ? t('Yes') : t('No')) : check_plain($value);
       $summary .= ' ' . str_replace('_', ' ', drupal_ucfirst(check_plain($key))) . ': ' . check_plain($value) . '<br />';

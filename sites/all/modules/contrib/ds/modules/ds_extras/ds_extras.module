@@ -517,6 +517,25 @@ function ds_extras_get_view_mode() {
 }
 
 /**
+ * Get view modes for an entity bundle.
+ */
+function ds_extras_get_bundle_view_modes($type, $bundle) {
+  $view_modes = array('default' => t('Default'));
+
+  $view_mode_settings = field_view_mode_settings($type, $bundle);
+  $ds_vm = ds_entity_view_modes($type);
+
+  foreach ($ds_vm as $key => $item) {
+    $overriden = (!empty($view_mode_settings[$key]['custom_settings']) ? TRUE : FALSE);
+    if ($overriden) {
+      $view_modes[$key] = $item['label'];
+    }
+  }
+
+  return $view_modes;
+}
+
+/**
  * Page title options for a full entity page view.
  */
 function ds_extras_process_page_title(&$variables) {

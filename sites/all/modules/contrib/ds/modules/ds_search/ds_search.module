@@ -509,7 +509,7 @@ function ds_search_extra_variables($arg_keys = NULL) {
 function ds_search_form_search_form_alter(&$form, $form_state) {
 
   // Drupal core
-  if (variable_get('ds_search_type', 'node') == 'node' && $form['module']['#value'] == 'ds_search') {
+  if (variable_get('ds_search_type', 'node') == 'node' && isset($form['module']) && $form['module']['#value'] == 'ds_search') {
     if (variable_get('ds_search_node_form_alter', FALSE)) {
       $form['module']['#value'] = 'node';
       node_form_search_form_alter($form, $form_state);
@@ -517,7 +517,7 @@ function ds_search_form_search_form_alter(&$form, $form_state) {
   }
 
   // Apache Solr.
-  if (variable_get('ds_search_type', 'node') == 'apachesolr_search' && $form['module']['#value'] == 'ds_search') {
+  if (variable_get('ds_search_type', 'node') == 'apachesolr_search' && isset($form['module']) && $form['module']['#value'] == 'ds_search') {
     if (variable_get('ds_search_apachesolr_form_alter', FALSE)) {
       if (function_exists('apachesolr_search_form_search_form_alter')) {
         $form['module']['#value'] = 'apachesolr_search';
