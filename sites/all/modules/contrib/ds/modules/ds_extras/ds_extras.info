@@ -5,9 +5,8 @@ package = "Display suite"
 dependencies[] = ds
 configure = admin/structure/ds/extras
 
-; Information added by drupal.org packaging script on 2013-06-12
-version = "7.x-1.8"
+; Information added by Drupal.org packaging script on 2018-04-18
+version = "7.x-1.10"
 core = "7.x"
 project = "ds"
-datestamp = "1371030657"
-
+datestamp = "1524068908"
